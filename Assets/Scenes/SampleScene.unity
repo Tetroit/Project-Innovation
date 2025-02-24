@@ -1151,6 +1151,8 @@ MonoBehaviour:
   accelerometerInfo: {fileID: 358143628}
   gyroscopeInfo: {fileID: 806178061}
   lightSensorInfo: {fileID: 1050134546}
+  accelerometerInputType: 1
+  gyroscopeInputType: 1
 --- !u!114 &1970206564
 MonoBehaviour:
   m_ObjectHideFlags: 0
