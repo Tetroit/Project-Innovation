@@ -293,8 +293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 33.3}
-  m_SizeDelta: {x: 500, y: 16}
+  m_AnchoredPosition: {x: 10, y: 69.4}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &358143628
 MonoBehaviour:
@@ -343,8 +343,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -719,7 +719,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 10, y: 12.5}
-  m_SizeDelta: {x: 500, y: 16}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &806178061
 MonoBehaviour:
@@ -768,8 +768,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -901,8 +901,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -9}
-  m_SizeDelta: {x: 500, y: 16}
+  m_AnchoredPosition: {x: 10, y: -43.9}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1050134546
 MonoBehaviour:
@@ -951,8 +951,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1169,17 +1169,49 @@ MonoBehaviour:
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 51988a3fd5bc0fd43afa860acc97c36a, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33afe06e-95d5-439d-b7bd-415d921d1cb0
+    m_ActionName: Sensors/Light[/light sensor/lightLevel,/light sensor1/lightLevel,/light
+      sensor2/lightLevel,/light sensor3/lightLevel,/light sensor4/lightLevel,/light
+      sensor5/lightLevel,/light sensor6/lightLevel,/light sensor7/lightLevel,/light
+      sensor8/lightLevel,/light sensor9/lightLevel,/light sensor10/lightLevel,/light
+      sensor11/lightLevel,/light sensor12/lightLevel,/light sensor13/lightLevel,/light
+      sensor14/lightLevel,/light sensor15/lightLevel,/light sensor16/lightLevel,/light
+      sensor17/lightLevel,/light sensor18/lightLevel,/light sensor19/lightLevel,/light
+      sensor20/lightLevel,/light sensor21/lightLevel,/light sensor22/lightLevel,/light
+      sensor23/lightLevel,/light sensor24/lightLevel,/light sensor25/lightLevel]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c1efaabf-0bf4-49bf-8d68-92c58128cbea
+    m_ActionName: Sensors/Gyroscope[/Gyroscope/angularVelocity]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c4574e3f-4f7c-4cbf-a695-79dcc7263afd
+    m_ActionName: Sensors/Accelerometer[/LinearAccelerationSensor/acceleration,/Accelerometer/acceleration]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Sensors
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &2050811450
@@ -1220,7 +1252,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2050811452
 MonoBehaviour:
