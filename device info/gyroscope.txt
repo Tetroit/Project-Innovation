@@ -1,0 +1,6 @@
+492  Gyroscope:  
+	<UnityEngine.Vector3> Angular Velocity
+		<System.Single> Angular Velocity X = -0.001198387
+		<System.Single> Angular Velocity Y = 0.0002663083
+		<System.Single> Angular Velocity Z = -0.0003994624
+

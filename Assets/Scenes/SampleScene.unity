@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &246822765
@@ -1308,6 +1308,7 @@ MonoBehaviour:
   gyroscopeInfo: {fileID: 806178061}
   lightSensorInfo: {fileID: 1050134546}
   sensorInfo: {fileID: 246822765}
+  sensorDetectionDelay: 0.01
 --- !u!114 &1970206564
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,6 @@
+494  GravitySensor:  
+	<UnityEngine.Vector3> Gravity
+		<System.Single> Gravity X = 0
+		<System.Single> Gravity Y = 0
+		<System.Single> Gravity Z = 0
+
