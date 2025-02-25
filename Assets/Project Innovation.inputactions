@@ -48,7 +48,7 @@
                 {
                     "name": "",
                     "id": "161dab36-bd9e-4ed1-8bba-1eafd5c60102",
-                    "path": "<Sensor>/angularVelocity",
+                    "path": "<Gyroscope>/angularVelocity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -59,7 +59,7 @@
                 {
                     "name": "",
                     "id": "80853d5e-9346-4716-8936-d591b45a7d56",
-                    "path": "<Sensor>/acceleration",
+                    "path": "<Accelerometer>/acceleration",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
