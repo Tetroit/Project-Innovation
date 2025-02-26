@@ -1,89 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class CirclePuzzle : MonoBehaviour
 {
     [SerializeField] private GameObject[] Wheels;
-
     private int chosenWheel = 0;
     private bool isWheelOneInCorrectPosition = false;
     private bool isWheelTwoInCorrectPosition = false;
     private bool puzzleIsSolved = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private ProjectInnovation controls;
+
+    private void Awake()
     {
-        
+        controls = new ProjectInnovation();
+
+        controls.Turn.Left.performed += ctx => TurnWheel(-1);
+        //controls.Sensors.Click.performed += ctx => TouchScreenSelect();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
+    {
+        controls.Turn.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Turn.Disable();
+    }
+
+    private void Update()
     {
         Debug.Log(Wheels[1].transform.localRotation.y);
-        if (puzzleIsSolved == false)
+        if (!puzzleIsSolved)
         {
-            TurnWheel();
-            ChooseWheel();
-        }
-
-        CheckIfPuzzleIsSolved();
-        CheckIfWheelsAreInCorrectPosition();
-        MakeSureWheelDoesNotGoOutOfBounds();
-
-        //Wheels[1].transform.rotation = Quaternion.Lerp(Wheels[1].transform.localRotation, 0,0,0, Time.time * 1);
-
-    }
-
-   private void TurnWheel()
-    {
-        if (Input.GetKey("left"))
-        {
-            Debug.Log("left held");
-            Wheels[chosenWheel].transform.Rotate(0, -1, 0);
-        }
-
-        if (Input.GetKey("right"))
-        {
-            Debug.Log("right held");
-            Wheels[chosenWheel].transform.Rotate(0, 1, 0);
+            CheckIfPuzzleIsSolved();
+            CheckIfWheelsAreInCorrectPosition();
+            MakeSureWheelDoesNotGoOutOfBounds();
         }
     }
 
-   private void ChooseWheel()
+    private void TurnWheel(int direction)
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            chosenWheel++;
-        }
+        Wheels[chosenWheel].transform.Rotate(0, direction, 0);
+    }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            chosenWheel--;
-        }
-
+    private void ChangeWheel(int direction)
+    {
+        chosenWheel += direction;
     }
 
     private void CheckIfWheelsAreInCorrectPosition()
     {
-        if (Wheels[1].transform.localRotation.y * Mathf.Rad2Deg <= 2 && Wheels[1].transform.localRotation.y * Mathf.Rad2Deg >= -2)
-        {
-            isWheelOneInCorrectPosition = true;
-            Debug.Log("wheel is good");
-        }
-        else isWheelOneInCorrectPosition = false;
-
-        if (Wheels[2].transform.localRotation.y * Mathf.Rad2Deg <= 2 && Wheels[2].transform.localRotation.y * Mathf.Rad2Deg >= -2)
-        {
-            isWheelTwoInCorrectPosition = true;
-        }
-        else isWheelTwoInCorrectPosition = false;
+        isWheelOneInCorrectPosition = Mathf.Abs(Wheels[1].transform.localRotation.y * Mathf.Rad2Deg) <= 2;
+        isWheelTwoInCorrectPosition = Mathf.Abs(Wheels[2].transform.localRotation.y * Mathf.Rad2Deg) <= 2;
     }
 
     private void CheckIfPuzzleIsSolved()
     {
-        if(isWheelOneInCorrectPosition && isWheelTwoInCorrectPosition)
+        if (isWheelOneInCorrectPosition && isWheelTwoInCorrectPosition)
         {
             Debug.Log("solved");
             puzzleIsSolved = true;
@@ -92,13 +69,10 @@ public class CirclePuzzle : MonoBehaviour
 
     private void MakeSureWheelDoesNotGoOutOfBounds()
     {
-        if (chosenWheel == Wheels.Length)
-        {
+        if (chosenWheel >= Wheels.Length)
             chosenWheel = 0;
-        }
-        if (chosenWheel == -1)
-        {
-            chosenWheel = Wheels.Length-1;
-        }
+        if (chosenWheel < 0)
+            chosenWheel = Wheels.Length - 1;
     }
+
 }
