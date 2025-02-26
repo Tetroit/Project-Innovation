@@ -32,7 +32,7 @@ using LightSensor = UnityEngine.InputSystem.Android.AndroidLightSensor;
 
 public class SensorInput : MonoBehaviour
 {
-    public SensorInput instance;
+    public static SensorInput instance;
 
     [SerializeField]
     TextMeshProUGUI accelerometerInfo;
