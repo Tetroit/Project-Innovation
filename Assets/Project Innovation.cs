@@ -134,6 +134,15 @@ public partial class @ProjectInnovation: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""438b97ce-80a7-46a5-b674-501633de2911"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -145,6 +154,17 @@ public partial class @ProjectInnovation: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""955cc30d-2b2d-426f-a182-96acf66fcc61"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -223,6 +243,7 @@ public partial class @ProjectInnovation: IInputActionCollection2, IDisposable
         // Turn
         m_Turn = asset.FindActionMap("Turn", throwIfNotFound: true);
         m_Turn_Left = m_Turn.FindAction("Left", throwIfNotFound: true);
+        m_Turn_Right = m_Turn.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -355,11 +376,13 @@ public partial class @ProjectInnovation: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Turn;
     private List<ITurnActions> m_TurnActionsCallbackInterfaces = new List<ITurnActions>();
     private readonly InputAction m_Turn_Left;
+    private readonly InputAction m_Turn_Right;
     public struct TurnActions
     {
         private @ProjectInnovation m_Wrapper;
         public TurnActions(@ProjectInnovation wrapper) { m_Wrapper = wrapper; }
         public InputAction @Left => m_Wrapper.m_Turn_Left;
+        public InputAction @Right => m_Wrapper.m_Turn_Right;
         public InputActionMap Get() { return m_Wrapper.m_Turn; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -372,6 +395,9 @@ public partial class @ProjectInnovation: IInputActionCollection2, IDisposable
             @Left.started += instance.OnLeft;
             @Left.performed += instance.OnLeft;
             @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
         }
 
         private void UnregisterCallbacks(ITurnActions instance)
@@ -379,6 +405,9 @@ public partial class @ProjectInnovation: IInputActionCollection2, IDisposable
             @Left.started -= instance.OnLeft;
             @Left.performed -= instance.OnLeft;
             @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
         }
 
         public void RemoveCallbacks(ITurnActions instance)
@@ -451,5 +480,6 @@ public partial class @ProjectInnovation: IInputActionCollection2, IDisposable
     public interface ITurnActions
     {
         void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }

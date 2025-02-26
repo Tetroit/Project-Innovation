@@ -4,7 +4,6 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
-
 public class CirclePuzzle : MonoBehaviour
 {
     [SerializeField] private GameObject[] Wheels;
@@ -18,13 +17,17 @@ public class CirclePuzzle : MonoBehaviour
     private float turnSpeed = 50f;
 
     public string currentWheel;
+    Vector3 acceleration;
+
 
     private void Awake()
     {
         controls = new ProjectInnovation();
 
-        controls.Turn.Left.performed += ctx => StartTurning(-1);
+        controls.Turn.Left.performed += ctx => StartTurning(1);
         controls.Turn.Left.canceled += ctx => StopTurning();
+        controls.Turn.Right.performed += ctx => StartTurning(-1);
+        controls.Turn.Right.canceled += ctx => StopTurning();
     }
 
     private void OnEnable()
@@ -46,6 +49,13 @@ public class CirclePuzzle : MonoBehaviour
             MakeSureWheelDoesNotGoOutOfBounds();
             CheckWhichWheelIsSelected();
         }
+
+
+
+        
+            
+
+
     }
 
     private void StartTurning(int direction)

@@ -788,6 +788,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4681239634902730827, guid: ab81e56b89969c74db216fe5fe8b2493,
         type: 3}
+      propertyPath: sensor
+      value: 
+      objectReference: {fileID: 1544172363}
+    - target: {fileID: 4681239634902730827, guid: ab81e56b89969c74db216fe5fe8b2493,
+        type: 3}
+      propertyPath: inputActions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 4caec28ef2a762a43ad3ff91f7181b79,
+        type: 3}
+    - target: {fileID: 4681239634902730827, guid: ab81e56b89969c74db216fe5fe8b2493,
+        type: 3}
       propertyPath: Wheels.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -994,6 +1005,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 750e7742-a8c6-49b3-b5b4-545b4bf78303
     m_ActionName: Sensors/Click[/Device Simulator Touchscreen/press,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 98e252b0-25be-4a90-b905-ec495c14fee8
+    m_ActionName: Turn/Left[/Keyboard/leftArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Sensors
@@ -1015,6 +1030,8 @@ MonoBehaviour:
   gyroscopeInfo: {fileID: 54001849}
   lightSensorInfo: {fileID: 2139284935}
   sensorInfo: {fileID: 2110909100}
+  acceleration: {x: 0, y: 0, z: 0}
+  sensorDetectionDelay: 0.01
 --- !u!4 &1544172364
 Transform:
   m_ObjectHideFlags: 0
