@@ -1249,119 +1249,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1970206561
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1970206562}
-  - component: {fileID: 1970206563}
-  - component: {fileID: 1970206564}
-  m_Layer: 0
-  m_Name: Sensor input
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1970206562
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970206561}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1970206563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970206561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51988a3fd5bc0fd43afa860acc97c36a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelerometerInfo: {fileID: 358143628}
-  gyroscopeInfo: {fileID: 806178061}
-  lightSensorInfo: {fileID: 1050134546}
-  sensorInfo: {fileID: 246822765}
-  sensorDetectionDelay: 0.01
---- !u!114 &1970206564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970206561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 4caec28ef2a762a43ad3ff91f7181b79,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 537008294}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 51988a3fd5bc0fd43afa860acc97c36a, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 33afe06e-95d5-439d-b7bd-415d921d1cb0
-    m_ActionName: Sensors/Light[/light sensor/lightLevel,/light sensor1/lightLevel,/light
-      sensor2/lightLevel,/light sensor3/lightLevel,/light sensor4/lightLevel,/light
-      sensor5/lightLevel,/light sensor6/lightLevel,/light sensor7/lightLevel,/light
-      sensor8/lightLevel,/light sensor9/lightLevel,/light sensor10/lightLevel,/light
-      sensor11/lightLevel,/light sensor12/lightLevel,/light sensor13/lightLevel,/light
-      sensor14/lightLevel,/light sensor15/lightLevel,/light sensor16/lightLevel,/light
-      sensor17/lightLevel,/light sensor18/lightLevel,/light sensor19/lightLevel,/light
-      sensor20/lightLevel,/light sensor21/lightLevel,/light sensor22/lightLevel,/light
-      sensor23/lightLevel,/light sensor24/lightLevel,/light sensor25/lightLevel]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c1efaabf-0bf4-49bf-8d68-92c58128cbea
-    m_ActionName: Sensors/Gyroscope[/Gyroscope/angularVelocity]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c4574e3f-4f7c-4cbf-a695-79dcc7263afd
-    m_ActionName: Sensors/Accelerometer[/LinearAccelerationSensor/acceleration,/Accelerometer/acceleration]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Sensors
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 330585545}
 --- !u!1 &2050811450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,6 +1327,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050811450}
   m_CullTransparentMesh: 1
+--- !u!1001 &5545847286899847357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 503917988653682658, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_Name
+      value: Sensor input
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506396899669887070, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: sensorInfo
+      value: 
+      objectReference: {fileID: 246822765}
+    - target: {fileID: 1506396899669887070, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: gyroscopeInfo
+      value: 
+      objectReference: {fileID: 806178061}
+    - target: {fileID: 1506396899669887070, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: lightSensorInfo
+      value: 
+      objectReference: {fileID: 1050134546}
+    - target: {fileID: 1506396899669887070, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: accelerometerInfo
+      value: 
+      objectReference: {fileID: 358143628}
+    - target: {fileID: 2459077903343331178, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 2459077903343331178, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 537008294}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc4a262c062d29442a98b92f6b724cc4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1448,6 +1433,6 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 360977750}
-  - {fileID: 1970206562}
+  - {fileID: 5545847286899847357}
   - {fileID: 1053232299}
   - {fileID: 537008293}

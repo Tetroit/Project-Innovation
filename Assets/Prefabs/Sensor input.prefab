@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &503917988653682658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6870345587990504167}
+  - component: {fileID: 1506396899669887070}
+  - component: {fileID: 2459077903343331178}
+  m_Layer: 0
+  m_Name: Sensor input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6870345587990504167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503917988653682658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1506396899669887070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503917988653682658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51988a3fd5bc0fd43afa860acc97c36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerometerInfo: {fileID: 0}
+  gyroscopeInfo: {fileID: 0}
+  lightSensorInfo: {fileID: 0}
+  sensorInfo: {fileID: 0}
+  sensorDetectionDelay: 0.01
+--- !u!114 &2459077903343331178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503917988653682658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4caec28ef2a762a43ad3ff91f7181b79,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 51988a3fd5bc0fd43afa860acc97c36a, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33afe06e-95d5-439d-b7bd-415d921d1cb0
+    m_ActionName: Sensors/Light[/light sensor/lightLevel,/light sensor1/lightLevel,/light
+      sensor2/lightLevel,/light sensor3/lightLevel,/light sensor4/lightLevel,/light
+      sensor5/lightLevel,/light sensor6/lightLevel,/light sensor7/lightLevel,/light
+      sensor8/lightLevel,/light sensor9/lightLevel,/light sensor10/lightLevel,/light
+      sensor11/lightLevel,/light sensor12/lightLevel,/light sensor13/lightLevel,/light
+      sensor14/lightLevel,/light sensor15/lightLevel,/light sensor16/lightLevel,/light
+      sensor17/lightLevel,/light sensor18/lightLevel,/light sensor19/lightLevel,/light
+      sensor20/lightLevel,/light sensor21/lightLevel,/light sensor22/lightLevel,/light
+      sensor23/lightLevel,/light sensor24/lightLevel,/light sensor25/lightLevel]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c1efaabf-0bf4-49bf-8d68-92c58128cbea
+    m_ActionName: Sensors/Gyroscope[/Gyroscope/angularVelocity]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c4574e3f-4f7c-4cbf-a695-79dcc7263afd
+    m_ActionName: Sensors/Accelerometer[/LinearAccelerationSensor/acceleration,/Accelerometer/acceleration]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Sensors
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
