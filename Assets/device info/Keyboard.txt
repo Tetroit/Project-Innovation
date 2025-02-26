@@ -1,4 +1,4 @@
-2  Keyboard:  
+1  Keyboard:  
 ENABLED
 
 	<System.Single> Any Key = 1

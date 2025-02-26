@@ -3,32 +3,43 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine;
-using UnityEditor;
 using System;
-using UnityEngine.UIElements;
-using UnityEngine.InputSystem.Controls;
-using System.Linq;
 using System.IO;
 
+/* After start please wait for a few seconds for the sensors to be detected.
+ * You can check it with "isInitialized" variable.
+ * 
+ * To read values either use [control].ReadValue() or GetControlValue([control])
+ * second one is a wrapper for the first one, but it also enables the device if it's disabled
+ * 
+ *Keyboard: 
+ * 
+ *  keyboard.[key].wasPressedThisFrame
+ *  keyboard.[key].wasReleasedThisFrame
+ * 
+ *Mouse: 
+ *
+ *  mouse.[button].wasPressedThisFrame
+ *
+ *Touchscreen: 
+ *
+ *  ---- gets last pressed position ----
+ *  GetSensorValue(touchscreen.position)
+ *  
+ *  ---- true if user is touching the screen ----
+ *  touchscreen.press.isPressed
+ *  
+ *  ---- get all touch positions ----
+ *  touchscreen.touches[n]
+ *  
+ */
 
 
 
 
 
 
-#if UNITY_EDITOR
 using Gyroscope = UnityEngine.InputSystem.Gyroscope;
-using Accelerometer = UnityEngine.InputSystem.Accelerometer;
-using LightSensor = UnityEngine.InputSystem.LightSensor;
-using InputDevice = UnityEngine.InputSystem.InputDevice;
-
-#else
-using InputDevice = UnityEngine.InputSystem.InputDevice;
-using Accelerometer = UnityEngine.InputSystem.Android.AndroidAccelerometer;
-using Gyroscope = UnityEngine.InputSystem.Android.AndroidGyroscope;
-using LightSensor = UnityEngine.InputSystem.Android.AndroidLightSensor;
-#endif
-
 
 public class SensorInput : MonoBehaviour
 {
@@ -45,46 +56,49 @@ public class SensorInput : MonoBehaviour
 
     public Dictionary<string, InputDevice> devices = new();
 
-    string keyboardLayout = "Keyboard";
-    string mouseLayout = "Mouse";
-    string penLayout = "Pen";
-    string touchscreenLayout = "Touchscreen";
+    public const string keyboardLayout = "Keyboard";
+    public const string mouseLayout = "Mouse";
+    public const string penLayout = "Pen";
+    public const string touchscreenLayout = "Touchscreen";
 
 #if UNITY_EDITOR
 
-    string attituteSensorLayout = "AttitudeSensor";
-    string gravitySensorLayout = "GravitySensor";
-    string linearAccelerationSensorLayout = "LinearAccelerationSensor";
-    string accelerometerLayout = "Accelerometer";
-    string gyroscopeLayout = "Gyroscope";
+    public const string attituteSensorLayout = "AttitudeSensor";
+    public const string gravitySensorLayout = "GravitySensor";
+    public const string linearAccelerationSensorLayout = "LinearAccelerationSensor";
+    public const string accelerometerLayout = "Accelerometer";
+    public const string gyroscopeLayout = "Gyroscope";
 
     //unavailable on editor
-    string lightSensorLayout = "LightSensor";
-    string proximitySensorLayout = "ProximitySensor";
-    string ambientTemperatureSensorLayout = "AmbientTemperatureSensor";
-    string humiditySensorLayout = "HumiditySensor";
-    string magneticFieldSensorLayout = "MagneticFieldSensor";
-    string pressureSensorLayout = "PressureSensor";
-    string stepCounterLayout = "StepCounter";
+    public const string lightSensorLayout = "LightSensor";
+    public const string proximitySensorLayout = "ProximitySensor";
+    public const string ambientTemperatureSensorLayout = "AmbientTemperatureSensor";
+    public const string humiditySensorLayout = "HumiditySensor";
+    public const string magneticFieldSensorLayout = "MagneticFieldSensor";
+    public const string pressureSensorLayout = "PressureSensor";
+    public const string stepCounterLayout = "StepCounter";
 
 #elif UNITY_ANDROID
 
-    string attituteSensorLayout = "AndroidRotationVector";
-    string gravitySensorLayout = "AndroidGravitySensor";
-    string linearAccelerationSensorLayout = "AndroidLinearAccelerationSensor";
-    string accelerometerLayout = "AndroidAccelerometer";
-    string gyroscopeLayout = "AndroidGyroscope";
+    public const string attituteSensorLayout = "AndroidRotationVector";
+    public const string gravitySensorLayout = "AndroidGravitySensor";
+    public const string linearAccelerationSensorLayout = "AndroidLinearAccelerationSensor";
+    public const string accelerometerLayout = "AndroidAccelerometer";
+    public const string gyroscopeLayout = "AndroidGyroscope";
 
-    string lightSensorLayout = "AndroidLightSensor";
-    string proximitySensorLayout = "AndroidProximitySensor";
-    string ambientTemperatureSensorLayout = "AndroidAmbientTemperatureSensor";
-    string humiditySensorLayout = "AndroidHumiditySensor";
-    string magneticFieldSensorLayout = "AndroidMagneticFieldSensor";
-    string pressureSensorLayout = "AndroidPressureSensor";
-    string stepCounterLayout = "AndroidStepCounter";
+    public const string lightSensorLayout = "AndroidLightSensor";
+    public const string proximitySensorLayout = "AndroidProximitySensor";
+    public const string ambientTemperatureSensorLayout = "AndroidAmbientTemperatureSensor";
+    public const string humiditySensorLayout = "AndroidHumiditySensor";
+    public const string magneticFieldSensorLayout = "AndroidMagneticFieldSensor";
+    public const string pressureSensorLayout = "AndroidPressureSensor";
+    public const string stepCounterLayout = "AndroidStepCounter";
 
 #endif
 
+    public Keyboard keyboard => devices[keyboardLayout] as Keyboard;
+    public Mouse mouse => devices[mouseLayout] as Mouse;
+    public Pen pen => devices[penLayout] as Pen;
     public Touchscreen touchscreen => devices[touchscreenLayout] as Touchscreen;
     public Accelerometer accelerometer => devices[accelerometerLayout] as Accelerometer;
     public Gyroscope gyroscope => devices[gyroscopeLayout] as Gyroscope;
@@ -107,6 +121,9 @@ public class SensorInput : MonoBehaviour
     float sensorDetectionDelay = 0.01f; 
 
     int currentDeviceId = 0;
+
+    bool initialized = false;
+    public bool isInitialized => initialized;
 
     private void Awake()
     {
@@ -189,6 +206,7 @@ public class SensorInput : MonoBehaviour
         }
         sensorInfo.text = newFiles;
 #endif
+        initialized = true;
     }
     void Update()
     {
@@ -323,13 +341,13 @@ public class SensorInput : MonoBehaviour
         if (!DeviceFound(gyroscopeLayout)) return;
 
         InputSystem.EnableDevice(gyroscope);
-        Debug.Log("Gyroscope: " + Gyroscope.current.enabled);
+        Debug.Log("Gyroscope: " + gyroscope.enabled);
 
         if (gyroscope.enabled)
             angularVelocity = gyroscope.angularVelocity.ReadValue();
 
         if (gyroscopeInfo != null)
-            gyroscopeInfo.text = "Gyroscope: " + gyroscope.angularVelocity.ReadValue();
+            gyroscopeInfo.text = "Gyroscope: " + angularVelocity;
     }
 
     void InputSystemLightSensor()
@@ -340,10 +358,10 @@ public class SensorInput : MonoBehaviour
         Debug.Log("LightSensor: " + lightSensor.enabled);
 
         if (LightSensor.current.enabled)
-            lightLevel = LightSensor.current.lightLevel.ReadValue();
+            lightLevel = lightSensor.lightLevel.ReadValue();
 
         if (lightSensorInfo != null)
-            lightSensorInfo.text = "LightSensor: " + LightSensor.current.lightLevel.ReadValue();
+            lightSensorInfo.text = "LightSensor: " + lightLevel;
     }
 
 

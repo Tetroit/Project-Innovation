@@ -1,7 +1,7 @@
-34  LinearAccelerationSensor:  
-DISABLED
+30  LinearAccelerationSensor:  
+ENABLED
 
 	<UnityEngine.Vector3> Acceleration
-		<System.Single> Acceleration X = 0
-		<System.Single> Acceleration Y = 0
-		<System.Single> Acceleration Z = 0
+		<System.Single> Acceleration X = -0.00102102
+		<System.Single> Acceleration Y = 0.0006015713
+		<System.Single> Acceleration Z = 0.0001171835
