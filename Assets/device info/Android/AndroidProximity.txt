@@ -1,0 +1,2 @@
+	<System.Single> distance = 0
+

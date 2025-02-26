@@ -1,4 +1,4 @@
-32  AttitudeSensor:  
+64  AttitudeSensor:  
 DISABLED
 
 	<UnityEngine.Quaternion> Attitude

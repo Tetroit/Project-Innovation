@@ -29,38 +29,9 @@ using Gyroscope = UnityEngine.InputSystem.Android.AndroidGyroscope;
 using LightSensor = UnityEngine.InputSystem.Android.AndroidLightSensor;
 #endif
 
-public interface IControlInfo
-{
-    public string name { get; }
-    
-}
-public struct ControlInfo<T> : IControlInfo where T : struct
-{
-    public string name;
-    public InputControl<T> control;
-    public T value;
-    string IControlInfo.name => name;
-
-    public ControlInfo (string name, InputControl<T> control)
-    {
-        this.name = name;
-        this.control = control;
-        value = control.ReadValue();
-    }
-}
-
-public struct ControlToDisplay
-{
-    public string name;
-    public TextMeshProUGUI display;
-}
 
 public class SensorInput : MonoBehaviour
 {
-    [SerializeField]
-    List<ControlToDisplay> controlsToDisplays;
-    public Dictionary<string, TextMeshProUGUI> dataLayout => 
-        controlsToDisplays.ToDictionary(field => field.name, field => field.display);
 
     [SerializeField]
     TextMeshProUGUI accelerometerInfo;
@@ -71,10 +42,60 @@ public class SensorInput : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI sensorInfo;
 
+    public Dictionary<string, InputDevice> devices = new();
 
-    bool accelerometerFound = false;
-    bool gyroscopeFound = false;
-    bool lightSensorFound = false;
+    string keyboardLayout = "Keyboard";
+    string mouseLayout = "Mouse";
+    string penLayout = "Pen";
+    string touchscreenLayout = "Touchscreen";
+
+#if UNITY_EDITOR
+
+    string attituteSensorLayout = "AttitudeSensor";
+    string gravitySensorLayout = "GravitySensor";
+    string linearAccelerationSensorLayout = "LinearAccelerationSensor";
+    string accelerometerLayout = "Accelerometer";
+    string gyroscopeLayout = "Gyroscope";
+
+    string lightSensorLayout = "LightSensor";
+    string proximitySensorLayout = "ProximitySensor";
+    string ambientTemperatureSensorLayout = "AmbientTemperatureSensor";
+    string humiditySensorLayout = "HumiditySensor";
+    string magneticFieldSensorLayout = "MagneticFieldSensor";
+    string pressureSensorLayout = "PressureSensor";
+    string stepCounterLayout = "StepCounter";
+
+#elif UNITY_ANDROID
+
+    string attituteSensorLayout = "AndroidRotationVector";
+    string gravitySensorLayout = "AndroidGravitySensor";
+    string linearAccelerationSensorLayout = "AndroidLinearAccelerationSensor";
+    string accelerometerLayout = "AndroidAccelerometer";
+    string gyroscopeLayout = "AndroidGyroscope";
+
+    string lightSensorLayout = "AndroidLightSensor";
+    string proximitySensorLayout = "AndroidProximitySensor";
+    string ambientTemperatureSensorLayout = "AndroidAmbientTemperatureSensor";
+    string humiditySensorLayout = "AndroidHumiditySensor";
+    string magneticFieldSensorLayout = "AndroidMagneticFieldSensor";
+    string pressureSensorLayout = "AndroidPressureSensor";
+    string stepCounterLayout = "AndroidStepCounter";
+
+#endif
+
+    Touchscreen touchscreen => devices[touchscreenLayout] as Touchscreen;
+    Accelerometer accelerometer => devices[accelerometerLayout] as Accelerometer;
+    Gyroscope gyroscope => devices[gyroscopeLayout] as Gyroscope;
+    AttitudeSensor attitudeSensor => devices[attituteSensorLayout] as AttitudeSensor;
+    GravitySensor gravitySensor => devices[gravitySensorLayout] as GravitySensor;
+    LinearAccelerationSensor linearAccelerationSensor => devices[linearAccelerationSensorLayout] as LinearAccelerationSensor;
+    LightSensor lightSensor => devices[lightSensorLayout] as LightSensor;
+    ProximitySensor proximitySensor => devices[proximitySensorLayout] as ProximitySensor;
+    AmbientTemperatureSensor ambientTemperatureSensor => devices[ambientTemperatureSensorLayout] as AmbientTemperatureSensor;
+    HumiditySensor relativeHumiditySensor => devices[humiditySensorLayout] as HumiditySensor;
+    MagneticFieldSensor magneticFieldSensor => devices[magneticFieldSensorLayout] as MagneticFieldSensor;
+    PressureSensor pressureSensor => devices[pressureSensorLayout] as PressureSensor;
+
 
     Vector3 acceleration;
     Vector3 angularVelocity;
@@ -88,46 +109,60 @@ public class SensorInput : MonoBehaviour
     private void OnEnable()
     {
         Invoke(nameof(InputSystemFindDevices), sensorDetectionDelay);
-#if !UNITY_EDITOR
-        sensorInfo.text = 
-        Application.dataPath + "\n" + 
-        Application.persistentDataPath;
-#endif
+
+        StreamWriter writer = new 
+        StreamWriter(Application.persistentDataPath + "/testlog.txt");
+
+        // This using statement will ensure the writer will be closed when no longer used   
+        using(writer)   
+        {
+            // Loop through the numbers from 1 to 20 and write them
+            for (int i = 1; i <= 20; i++)
+            {
+                writer.WriteLine(i);
+            }
+        }
     }
 
+    private void OnDisable()
+    {
+        //while (InputSystem.devices.Count > 0)
+        //{
+        //    if (InputSystem.devices[0] != null)
+        //        InputSystem.RemoveDevice(InputSystem.devices[0]);
+        //}
+    }
+    public T GetControlValue<T> (InputControl<T> control) where T : struct
+    {
+        if (!control.device.enabled)
+            InputSystem.EnableDevice(control.device);
+        return control.ReadValue();
+    }
+    public object GetControlValueObject(InputControl control)
+    {
+        if (!control.device.enabled)
+            InputSystem.EnableDevice(control.device);
+        return control.ReadValueAsObject();
+    }
+    public bool DeviceFound(string layout)
+    {
+        return devices.ContainsKey(layout);
+    }
     void InputSystemFindDevices()
     {
-#if UNITY_EDITOR
-        foreach (var dev in InputSystem.devices)
+        foreach (InputDevice device in InputSystem.devices)
         {
-            if (dev.layout == "Accelerometer")
-                accelerometerFound = true;
-
-            if (dev.layout == "Gyroscope")
-                gyroscopeFound = true;
+            if (!devices.ContainsKey(device.layout))
+                devices.Add(device.layout, device);
         }
 
-        Invoke(nameof(InputSystemInitAccelerometer), Time.deltaTime);
-        Invoke(nameof(InputSystemInitGyroscope), Time.deltaTime);
+#if !UNITY_EDITOR
 
+        
 
 #else
-        foreach (var dev in InputSystem.devices)
-        {
-            if (dev.layout == "AndroidAccelerometer")
-                accelerometerFound = true;
 
-            if (dev.layout == "AndroidGyroscope")
-                gyroscopeFound = true;
-
-            if (dev.layout == "AndroidLightSensor")
-                lightSensorFound = true;
-        }
-        
-        Invoke(nameof(InputSystemInitAccelerometer), Time.deltaTime);
-        Invoke(nameof(InputSystemInitGyroscope), Time.deltaTime);
-        Invoke(nameof(InputSystemInitLightSensor), Time.deltaTime);
-
+        string newFiles = "";
         foreach (InputDevice device in InputSystem.devices)
         {
             string sensors = "";
@@ -140,17 +175,10 @@ public class SensorInput : MonoBehaviour
             string path = Application.persistentDataPath + "/" + device.layout + ".txt";
             File.WriteAllText(path, sensors);
 
-            sensorInfo.text = path;
-
+            newFiles += path + '\n';
         }
-
+        sensorInfo.text = newFiles;
 #endif
-        if (!gyroscopeFound && gyroscopeInfo != null)
-            gyroscopeInfo.text = "Gyroscope: not found";
-        if (!accelerometerFound)
-            accelerometerInfo.text = "Accelerometer: not found";
-        if (!lightSensorFound)
-            lightSensorInfo.text = "LightSensor: not found";
     }
     void Update()
     {
@@ -161,10 +189,40 @@ public class SensorInput : MonoBehaviour
 #if UNITY_EDITOR
         DisplaySensorInfo();
 #else
+        DisplaySensorChecklist();
         InputSystemLightSensor();
 #endif
     }
+    void DisplaySensorChecklist()
+    {
+        string deviceChecklist = "Devices:\n";
 
+        deviceChecklist += '\n';
+        
+        foreach (var device in InputSystem.devices)
+        {
+            deviceChecklist += device.layout + " " + device.enabled + "\n";
+        }
+
+        deviceChecklist += '\n';
+
+        deviceChecklist += "Touchscreen: " + GetControlValueObject(touchscreen.position) + "\n";
+
+        deviceChecklist += "Accelerometer: " + GetControlValueObject(accelerometer.acceleration) + "\n";
+        deviceChecklist += "Gyroscope: " + GetControlValueObject(gyroscope.angularVelocity) + "\n";
+        deviceChecklist += "Attitude sensor: " + GetControlValueObject(attitudeSensor.attitude) + "\n";
+        deviceChecklist += "Gravity: " + GetControlValueObject(gravitySensor.gravity) + "\n";
+        deviceChecklist += "LinearAcceleration: " + GetControlValueObject(linearAccelerationSensor.acceleration) + "\n";
+
+        deviceChecklist += "Light: " + GetControlValueObject(lightSensor.lightLevel) + "\n";
+        deviceChecklist += "Magnetic: " + GetControlValueObject(magneticFieldSensor.magneticField) + "\n";
+
+        if (DeviceFound(pressureSensorLayout))
+            deviceChecklist += "Pressure: " + GetControlValueObject(pressureSensor.atmosphericPressure) + "\n";
+
+
+        sensorInfo.text = deviceChecklist;
+    }
     void DisplaySensorInfo()
     {
         if (sensorInfo == null) return;
@@ -224,7 +282,7 @@ public class SensorInput : MonoBehaviour
 
         if (control.children.Count == 0)
         {
-            result += " = " + control.ReadValueAsObject() + '\n';
+            result += " = " + GetControlValueObject(control) + '\n';
             return;
         }
 
@@ -236,54 +294,40 @@ public class SensorInput : MonoBehaviour
         }
         return;
     }
-    void InputSystemInitAccelerometer()
-    {
-        if (!accelerometerFound) return;
-        InputSystem.EnableDevice(Accelerometer.current);
-    }
 
     void InputSystemAccelerometer()
     {
-        if (!accelerometerFound) return;
+        if (!DeviceFound(accelerometerLayout)) return;
 
-        Debug.Log("Accelerometer: " + Accelerometer.current.enabled);
+        Debug.Log("Accelerometer: " + accelerometer.enabled);
 
-        if (Accelerometer.current.enabled)
-            acceleration = Accelerometer.current.acceleration.ReadValue();
+        if (accelerometer.enabled)
+            acceleration = GetControlValue(accelerometer.acceleration);
 
         if (accelerometerInfo != null)
             accelerometerInfo.text = "Accelerometer: " + acceleration;
     }
 
-    void InputSystemInitGyroscope()
-    {
-        if (!gyroscopeFound) return;
-        InputSystem.EnableDevice(Gyroscope.current);
-    }
     void InputSystemGyroscope()
     {
-        if (!gyroscopeFound) return;
+        if (!DeviceFound(gyroscopeLayout)) return;
 
-        InputSystem.EnableDevice(Gyroscope.current);
+        InputSystem.EnableDevice(gyroscope);
         Debug.Log("Gyroscope: " + Gyroscope.current.enabled);
 
-        if (Gyroscope.current.enabled)
-            angularVelocity = Gyroscope.current.angularVelocity.ReadValue();
+        if (gyroscope.enabled)
+            angularVelocity = gyroscope.angularVelocity.ReadValue();
 
         if (gyroscopeInfo != null)
-            gyroscopeInfo.text = "Gyroscope: " + Gyroscope.current.angularVelocity.ReadValue();
+            gyroscopeInfo.text = "Gyroscope: " + gyroscope.angularVelocity.ReadValue();
     }
-    void InputSystemInitLightSensor()
-    {
-        if (!lightSensorFound) return;
-        InputSystem.EnableDevice(LightSensor.current);
-    }
+
     void InputSystemLightSensor()
     {
-        if (!lightSensorFound) return;
+        if (!DeviceFound(lightSensorLayout)) return;
 
-        InputSystem.EnableDevice(LightSensor.current);
-        Debug.Log("LightSensor: " + LightSensor.current.enabled);
+        InputSystem.EnableDevice(lightSensor);
+        Debug.Log("LightSensor: " + lightSensor.enabled);
 
         if (LightSensor.current.enabled)
             lightLevel = LightSensor.current.lightLevel.ReadValue();

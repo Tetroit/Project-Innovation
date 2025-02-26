@@ -1,9 +1,8 @@
-491  Touchscreen:  
 	<UnityEngine.InputSystem.LowLevel.TouchState> Primary Touch
-		<System.Int32> Primary Touch Touch ID = 1
+		<System.Int32> Primary Touch Touch ID = 0
 		<UnityEngine.Vector2> Primary Touch Position
-			<System.Single> Primary Touch Primary Touch Position X = 524
-			<System.Single> Primary Touch Primary Touch Position Y = 792
+			<System.Single> Primary Touch Primary Touch Position X = 0
+			<System.Single> Primary Touch Primary Touch Position Y = 0
 		<UnityEngine.Vector2> Primary Touch Delta
 			<System.Single> Primary Touch Primary Touch Delta Up = 0
 			<System.Single> Primary Touch Primary Touch Delta Down = 0
@@ -11,23 +10,23 @@
 			<System.Single> Primary Touch Primary Touch Delta Right = 0
 			<System.Single> Primary Touch Primary Touch Delta X = 0
 			<System.Single> Primary Touch Primary Touch Delta Y = 0
-		<System.Single> Primary Touch Pressure = 0
+		<System.Single> Primary Touch Pressure = 1
 		<UnityEngine.Vector2> Primary Touch Radius
 			<System.Single> Primary Touch Primary Touch Radius X = 0
 			<System.Single> Primary Touch Primary Touch Radius Y = 0
-		<UnityEngine.InputSystem.TouchPhase> Primary Touch Touch Phase = Ended
+		<UnityEngine.InputSystem.TouchPhase> Primary Touch Touch Phase = None
 		<System.Single> Primary Touch Touch Contact? = 0
 		<System.Int32> Primary Touch Tap Count = 0
 		<System.Int32> Primary Touch Display Index = 0
 		<System.Single> Primary Touch Indirect Touch? = 0
 		<System.Single> Primary Touch Tap = 0
-		<System.Double> Primary Touch Start Time = 258.212683199999
+		<System.Double> Primary Touch Start Time = 0
 		<UnityEngine.Vector2> Primary Touch Start Position
-			<System.Single> Primary Touch Primary Touch Start Position X = 720
-			<System.Single> Primary Touch Primary Touch Start Position Y = 1076
+			<System.Single> Primary Touch Primary Touch Start Position X = 0
+			<System.Single> Primary Touch Primary Touch Start Position Y = 0
 	<UnityEngine.Vector2> Position
-		<System.Single> Position X = 524
-		<System.Single> Position Y = 792
+		<System.Single> Position X = 0
+		<System.Single> Position Y = 0
 	<UnityEngine.Vector2> Delta
 		<System.Single> Delta Up = 0
 		<System.Single> Delta Down = 0
@@ -35,16 +34,16 @@
 		<System.Single> Delta Right = 0
 		<System.Single> Delta X = 0
 		<System.Single> Delta Y = 0
-	<System.Single> Pressure = 0
+	<System.Single> Pressure = 1
 	<UnityEngine.Vector2> Radius
 		<System.Single> Radius X = 0
 		<System.Single> Radius Y = 0
 	<System.Single> Press = 0
 	<UnityEngine.InputSystem.LowLevel.TouchState> Touch
-		<System.Int32> Touch Touch ID = 1
+		<System.Int32> Touch Touch ID = 0
 		<UnityEngine.Vector2> Touch Position
-			<System.Single> Touch Touch Position X = 524
-			<System.Single> Touch Touch Position Y = 792
+			<System.Single> Touch Touch Position X = 0
+			<System.Single> Touch Touch Position Y = 0
 		<UnityEngine.Vector2> Touch Delta
 			<System.Single> Touch Touch Delta Up = 0
 			<System.Single> Touch Touch Delta Down = 0
@@ -56,16 +55,16 @@
 		<UnityEngine.Vector2> Touch Radius
 			<System.Single> Touch Touch Radius X = 0
 			<System.Single> Touch Touch Radius Y = 0
-		<UnityEngine.InputSystem.TouchPhase> Touch Touch Phase = Ended
+		<UnityEngine.InputSystem.TouchPhase> Touch Touch Phase = None
 		<System.Single> Touch Touch Contact? = 0
 		<System.Int32> Touch Tap Count = 0
 		<System.Int32> Touch Display Index = 0
 		<System.Single> Touch Indirect Touch? = 0
 		<System.Single> Touch Tap = 0
-		<System.Double> Touch Start Time = 258.212683199999
+		<System.Double> Touch Start Time = 0
 		<UnityEngine.Vector2> Touch Start Position
-			<System.Single> Touch Touch Start Position X = 720
-			<System.Single> Touch Touch Start Position Y = 1076
+			<System.Single> Touch Touch Start Position X = 0
+			<System.Single> Touch Touch Start Position Y = 0
 	<UnityEngine.InputSystem.LowLevel.TouchState> Touch
 		<System.Int32> Touch Touch ID = 0
 		<UnityEngine.Vector2> Touch Position
