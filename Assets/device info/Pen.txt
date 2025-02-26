@@ -1,0 +1,31 @@
+4  Pen:  
+DISABLED
+
+	<UnityEngine.Vector2> Position
+		<System.Single> Position X = 0
+		<System.Single> Position Y = 0
+	<UnityEngine.Vector2> Delta
+		<System.Single> Delta Up = 0
+		<System.Single> Delta Down = 0
+		<System.Single> Delta Left = 0
+		<System.Single> Delta Right = 0
+		<System.Single> Delta X = 0
+		<System.Single> Delta Y = 0
+	<UnityEngine.Vector2> Tilt
+		<System.Single> Tilt X = 0
+		<System.Single> Tilt Y = 0
+	<System.Single> Pressure = 0
+	<System.Single> Twist = 0
+	<System.Single> Tip = 0
+	<System.Single> Press = 0
+	<System.Single> Eraser = 0
+	<System.Single> In Range? = 0
+	<System.Single> Barrel Button #1 = 0
+	<System.Single> Barrel Button #2 = 0
+	<System.Single> Barrel Button #3 = 0
+	<System.Single> Barrel Button #4 = 0
+	<UnityEngine.Vector2> Radius
+		<System.Single> Radius X = 0
+		<System.Single> Radius Y = 0
+	<System.Int32> pointerId = 0
+	<System.Int32> Display Index = 0

@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "750e7742-a8c6-49b3-b5b4-545b4bf78303",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -48,7 +57,7 @@
                 {
                     "name": "",
                     "id": "161dab36-bd9e-4ed1-8bba-1eafd5c60102",
-                    "path": "<Sensor>/angularVelocity",
+                    "path": "<Gyroscope>/angularVelocity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -59,11 +68,61 @@
                 {
                     "name": "",
                     "id": "80853d5e-9346-4716-8936-d591b45a7d56",
-                    "path": "<Sensor>/acceleration",
+                    "path": "<Accelerometer>/acceleration",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Accelerometer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4e7cbc0-5448-4a0a-98e9-e9b553d238f5",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "531dc6af-dca9-4899-96e5-0a3d3269f58d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Turn",
+            "id": "b7027e24-6646-484d-9b89-db35e9e6781d",
+            "actions": [
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "98e252b0-25be-4a90-b905-ec495c14fee8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4fb40c2f-6207-442a-aa7e-6bc2c10ee149",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,0 +1,7 @@
+34  LinearAccelerationSensor:  
+DISABLED
+
+	<UnityEngine.Vector3> Acceleration
+		<System.Single> Acceleration X = 0
+		<System.Single> Acceleration Y = 0
+		<System.Single> Acceleration Z = 0
