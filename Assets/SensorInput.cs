@@ -85,18 +85,18 @@ public class SensorInput : MonoBehaviour
 
 #endif
 
-    Touchscreen touchscreen => devices[touchscreenLayout] as Touchscreen;
-    Accelerometer accelerometer => devices[accelerometerLayout] as Accelerometer;
-    Gyroscope gyroscope => devices[gyroscopeLayout] as Gyroscope;
-    AttitudeSensor attitudeSensor => devices[attituteSensorLayout] as AttitudeSensor;
-    GravitySensor gravitySensor => devices[gravitySensorLayout] as GravitySensor;
-    LinearAccelerationSensor linearAccelerationSensor => devices[linearAccelerationSensorLayout] as LinearAccelerationSensor;
-    LightSensor lightSensor => devices[lightSensorLayout] as LightSensor;
-    ProximitySensor proximitySensor => devices[proximitySensorLayout] as ProximitySensor;
-    AmbientTemperatureSensor ambientTemperatureSensor => devices[ambientTemperatureSensorLayout] as AmbientTemperatureSensor;
-    HumiditySensor relativeHumiditySensor => devices[humiditySensorLayout] as HumiditySensor;
-    MagneticFieldSensor magneticFieldSensor => devices[magneticFieldSensorLayout] as MagneticFieldSensor;
-    PressureSensor pressureSensor => devices[pressureSensorLayout] as PressureSensor;
+    public Touchscreen touchscreen => devices[touchscreenLayout] as Touchscreen;
+    public Accelerometer accelerometer => devices[accelerometerLayout] as Accelerometer;
+    public Gyroscope gyroscope => devices[gyroscopeLayout] as Gyroscope;
+    public AttitudeSensor attitudeSensor => devices[attituteSensorLayout] as AttitudeSensor;
+    public GravitySensor gravitySensor => devices[gravitySensorLayout] as GravitySensor;
+    public LinearAccelerationSensor linearAccelerationSensor => devices[linearAccelerationSensorLayout] as LinearAccelerationSensor;
+    public LightSensor lightSensor => devices[lightSensorLayout] as LightSensor;
+    public ProximitySensor proximitySensor => devices[proximitySensorLayout] as ProximitySensor;
+    public AmbientTemperatureSensor ambientTemperatureSensor => devices[ambientTemperatureSensorLayout] as AmbientTemperatureSensor;
+    public HumiditySensor relativeHumiditySensor => devices[humiditySensorLayout] as HumiditySensor;
+    public MagneticFieldSensor magneticFieldSensor => devices[magneticFieldSensorLayout] as MagneticFieldSensor;
+    public PressureSensor pressureSensor => devices[pressureSensorLayout] as PressureSensor;
 
 
     Vector3 acceleration;
