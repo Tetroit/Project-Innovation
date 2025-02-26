@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class CirclePuzzle : MonoBehaviour
 {
@@ -12,13 +14,17 @@ public class CirclePuzzle : MonoBehaviour
     private bool puzzleIsSolved = false;
 
     private ProjectInnovation controls;
+    private float turnDirection = 0f;
+    private float turnSpeed = 50f;
+
+    public string currentWheel;
 
     private void Awake()
     {
         controls = new ProjectInnovation();
 
-        controls.Turn.Left.performed += ctx => TurnWheel(-1);
-        //controls.Sensors.Click.performed += ctx => TouchScreenSelect();
+        controls.Turn.Left.performed += ctx => StartTurning(-1);
+        controls.Turn.Left.canceled += ctx => StopTurning();
     }
 
     private void OnEnable()
@@ -33,18 +39,23 @@ public class CirclePuzzle : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Wheels[1].transform.localRotation.y);
         if (!puzzleIsSolved)
         {
             CheckIfPuzzleIsSolved();
             CheckIfWheelsAreInCorrectPosition();
             MakeSureWheelDoesNotGoOutOfBounds();
+            CheckWhichWheelIsSelected();
         }
     }
 
-    private void TurnWheel(int direction)
+    private void StartTurning(int direction)
     {
-        Wheels[chosenWheel].transform.Rotate(0, direction, 0);
+        turnDirection = direction;
+    }
+
+    private void StopTurning()
+    {
+        turnDirection = 0;
     }
 
     private void ChangeWheel(int direction)
@@ -75,4 +86,27 @@ public class CirclePuzzle : MonoBehaviour
             chosenWheel = Wheels.Length - 1;
     }
 
+    private void CheckWhichWheelIsSelected()
+    {
+        if (InputManager.Instance != null && InputManager.Instance.hit.collider != null)
+        {
+            GameObject hitObject = InputManager.Instance.hit.collider.gameObject;
+            currentWheel = hitObject.name;
+
+            int index = System.Array.IndexOf(Wheels, hitObject);
+            if (index >= 0)
+            {
+                chosenWheel = index;
+            }
+        }
+        else
+        {
+            currentWheel = "";
+        }
+
+        if (turnDirection != 0)
+        {
+            Wheels[chosenWheel].transform.Rotate(0, turnDirection * turnSpeed * Time.deltaTime, 0);
+        }
+    }
 }

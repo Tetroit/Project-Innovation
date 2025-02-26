@@ -3,11 +3,25 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public InputActionAsset inputActions; // Assign in Inspector
+    public static InputManager Instance { get; private set; }
+
+    public InputActionAsset inputActions; 
     private InputAction clickAction;
+
+    public RaycastHit hit { get; private set; }
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         var sensorMap = inputActions.FindActionMap("Sensors");
         clickAction = sensorMap.FindAction("Click");
 
@@ -33,9 +47,15 @@ public class InputManager : MonoBehaviour
     public void TouchScreenSelect()
     {
         Ray ray = Camera.main.ScreenPointToRay(Pointer.current.position.ReadValue());
-        if (Physics.Raycast(ray, out RaycastHit hit, 100))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100))
         {
+            hit = hitInfo; // Store hit information
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
         }
+        else
+        {
+            Debug.Log("No object hit.");
+        }
     }
+
 }
