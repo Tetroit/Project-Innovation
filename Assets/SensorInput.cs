@@ -32,6 +32,7 @@ using LightSensor = UnityEngine.InputSystem.Android.AndroidLightSensor;
 
 public class SensorInput : MonoBehaviour
 {
+    SensorInput instance;
 
     [SerializeField]
     TextMeshProUGUI accelerometerInfo;
@@ -57,6 +58,7 @@ public class SensorInput : MonoBehaviour
     string accelerometerLayout = "Accelerometer";
     string gyroscopeLayout = "Gyroscope";
 
+    //unavailable on editor
     string lightSensorLayout = "LightSensor";
     string proximitySensorLayout = "ProximitySensor";
     string ambientTemperatureSensorLayout = "AmbientTemperatureSensor";
@@ -106,6 +108,14 @@ public class SensorInput : MonoBehaviour
 
     int currentDeviceId = 0;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+    }
     private void OnEnable()
     {
         Invoke(nameof(InputSystemFindDevices), sensorDetectionDelay);
