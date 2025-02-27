@@ -204,7 +204,8 @@ public class SensorInput : MonoBehaviour
 
             newFiles += path + '\n';
         }
-        sensorInfo.text = newFiles;
+        if (sensorInfo != null)
+            sensorInfo.text = newFiles;
 #endif
         initialized = true;
     }

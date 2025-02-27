@@ -44,7 +44,7 @@ public class CirclePuzzleReal : MonoBehaviour
 
         if (circlePuzzleIsSolved == true && puzzleIsSolved == false)
         {
-            ChangeSymbol();
+            //ChangeSymbol();
             CheckIfColorsAreCorrect();
         }
         ChooseWheel();
@@ -61,29 +61,39 @@ public class CirclePuzzleReal : MonoBehaviour
 
     private void TurnWheel()
     {
-        if (Input.GetKey("left"))
+        if (SensorInput.instance.DeviceFound(SensorInput.accelerometerLayout))
         {
-            Debug.Log("left held");
-            Wheels[chosenItem].transform.Rotate(0, -1, 0);
-        }
+            var acc = SensorInput.instance.accelerometer;
+            var acceleration = SensorInput.instance.GetControlValue(acc.acceleration);
 
-        if (Input.GetKey("right"))
-        {
-            Debug.Log("right held");
-            Wheels[chosenItem].transform.Rotate(0, 1, 0);
+            Debug.Log(acceleration);
+
+            if ( acceleration.x > 0.3)
+            {
+                Debug.Log("right held");
+                Wheels[chosenItem].transform.Rotate(0, Time.deltaTime*60, 0);
+            }
+            if (acceleration.x < -0.3)
+            {
+                Debug.Log("left held");
+                Wheels[chosenItem].transform.Rotate(0, -Time.deltaTime * 60, 0);
+            }
         }
     }
 
     private void ChooseWheel()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (SensorInput.instance.isInitialized)
         {
-            chosenItem++;
-        }
+            if (SensorInput.instance.keyboard.upArrowKey.wasPressedThisFrame)
+            {
+                chosenItem++;
+            }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            chosenItem--;
+            if (SensorInput.instance.keyboard.downArrowKey.wasPressedThisFrame)
+            {
+                chosenItem--;
+            }
         }
 
     }
