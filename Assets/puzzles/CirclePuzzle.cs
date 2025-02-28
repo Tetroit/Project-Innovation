@@ -1,15 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 public class CirclePuzzle : MonoBehaviour
 {
     [SerializeField] private GameObject[] Wheels;
+    [SerializeField] private GameObject[] Buttons;
+    [SerializeField] private Material[] materials;  
     private int chosenWheel = 0;
+    private int[] materialIndices;
     private bool isWheelOneInCorrectPosition = false;
     private bool isWheelTwoInCorrectPosition = false;
     private bool puzzleIsSolved = false;
+
+    [SerializeField]
+    Vector3 startRot = new Vector3(0, 0, 0);
+    [SerializeField]
+    Vector3 endRot = new Vector3(0, 0, 0);
+    [SerializeField]
+    Quaternion phoneRotation;
 
     private ProjectInnovation controls;
     private float turnDirection = 0f;
@@ -27,6 +39,8 @@ public class CirclePuzzle : MonoBehaviour
         controls.Turn.Left.canceled += ctx => StopTurning();
         controls.Turn.Right.performed += ctx => StartTurning(-1);
         controls.Turn.Right.canceled += ctx => StopTurning();
+
+        materialIndices = new int[Buttons.Length];
     }
 
     private void OnEnable()
@@ -47,15 +61,16 @@ public class CirclePuzzle : MonoBehaviour
             CheckIfWheelsAreInCorrectPosition();
             MakeSureWheelDoesNotGoOutOfBounds();
             CheckWhichWheelIsSelected();
+            PhoneOrientation();
         }
 
 
 
-        
-            
+        // Debug.Log(SensorInput.instance.accelerometer);
 
 
     }
+
 
     private void StartTurning(int direction)
     {
@@ -100,13 +115,21 @@ public class CirclePuzzle : MonoBehaviour
         if (InputManager.Instance != null && InputManager.Instance.hit.collider != null)
         {
             GameObject hitObject = InputManager.Instance.hit.collider.gameObject;
-            currentWheel = hitObject.name;
-
-            int index = System.Array.IndexOf(Wheels, hitObject);
-            if (index >= 0)
+            if (Wheels.Contains(hitObject))
             {
-                chosenWheel = index;
+                currentWheel = hitObject.name;
+
+                int index = System.Array.IndexOf(Wheels, hitObject);
+                if (index >= 0)
+                {
+                    chosenWheel = index;
+                }
             }
+            else if (Buttons.Contains(hitObject))
+            {
+                SetMaterial(hitObject);
+            }
+
         }
         else
         {
@@ -116,6 +139,41 @@ public class CirclePuzzle : MonoBehaviour
         if (turnDirection != 0)
         {
             Wheels[chosenWheel].transform.Rotate(0, turnDirection * turnSpeed * Time.deltaTime, 0);
+        }
+    }
+
+    private void PhoneOrientation()
+    {
+        if (SensorInput.instance.DeviceFound(SensorInput.accelerometerLayout))
+        {
+            var acc = SensorInput.instance.accelerometer;
+            var acceleration = SensorInput.instance.GetControlValue(acc.acceleration);
+
+            Debug.Log(acceleration);
+
+            if (acceleration.x > 0.2)
+            {
+                Debug.Log("right held");
+                Wheels[chosenWheel].transform.Rotate(0, Time.deltaTime * 60, 0);
+            }
+            if (acceleration.x < -0.2)
+            {
+                Debug.Log("left held");
+                Wheels[chosenWheel].transform.Rotate(0, -Time.deltaTime * 60, 0);
+            }
+        }
+    }
+
+    public void SetMaterial(GameObject hitObject)
+    {
+        int index = System.Array.IndexOf(Buttons, hitObject);
+        Debug.Log("Current index: " + index);
+
+        Renderer renderer = hitObject.GetComponent<Renderer>();
+        if (renderer != null && materials.Length > 0)
+        {
+            materialIndices[index] = (materialIndices[index] + 1) % materials.Length;
+            renderer.material = materials[materialIndices[index]];
         }
     }
 }

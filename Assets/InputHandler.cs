@@ -46,10 +46,10 @@ public class InputManager : MonoBehaviour
 
     public void TouchScreenSelect()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Pointer.current.position.ReadValue());
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100))
+        Ray ray = Camera.main.ScreenPointToRay(Touchscreen.current.position.ReadValue());
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 10))
         {
-            hit = hitInfo; // Store hit information
+            hit = hitInfo;
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
         }
         else

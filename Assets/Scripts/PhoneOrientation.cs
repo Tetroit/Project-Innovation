@@ -10,6 +10,8 @@ public class PhoneOrientation : MonoBehaviour
     Vector3 startRot = new Vector3(0, 0, 0);
     [SerializeField]
     Vector3 endRot = new Vector3(0, 0, 0);
+    [SerializeField]
+    Quaternion test;
 
     public bool invertX = false;
     public bool invertY = false;
@@ -56,6 +58,7 @@ public class PhoneOrientation : MonoBehaviour
 
             qat *= Quaternion.Euler(endRot);
             transform.rotation = qat;
+            test = qat;
         }
     }
 }

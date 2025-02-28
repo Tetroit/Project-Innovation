@@ -63,6 +63,7 @@ public class CirclePuzzleReal : MonoBehaviour
     {
         if (SensorInput.instance.DeviceFound(SensorInput.accelerometerLayout))
         {
+            Debug.Log("nos");
             var acc = SensorInput.instance.accelerometer;
             var acceleration = SensorInput.instance.GetControlValue(acc.acceleration);
 
@@ -98,7 +99,7 @@ public class CirclePuzzleReal : MonoBehaviour
 
     }
 
-    private void ChangeSymbol()
+/*    private void ChangeSymbol()
     {
         if (Input.GetKeyDown("right"))
         {
@@ -113,7 +114,7 @@ public class CirclePuzzleReal : MonoBehaviour
             symbolPositions[chosenItem].material.CopyPropertiesFromMaterial(materials[currentColor[chosenItem]]);
 
         }
-    }
+    }*/
 
     private void CheckIfWheelsAreInCorrectPosition()
     {

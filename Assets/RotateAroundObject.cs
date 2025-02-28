@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 public class RotateAroundObject : MonoBehaviour
 {
-    public Transform target; // Object to rotate around
+    public Transform target;
     public float rotationSpeed = 50f;
-    public Vector3 rotationAxis = Vector3.up; // Default rotation axis
+    public Vector3 rotationAxis = Vector3.up;
     private Vector2 touchDelta;
     private bool isTouching;
 
@@ -13,7 +13,6 @@ public class RotateAroundObject : MonoBehaviour
     {
         if (target != null)
         {
-            // Rotate using touch input
             if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
             {
                 if (!isTouching)
