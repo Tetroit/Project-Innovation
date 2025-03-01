@@ -17,7 +17,68 @@ void Clamp_float(float val, float min, float max, out float res)
 		res = val;
 	}
 }
-void RotateVector2_vector(float2 v, float angle, out float2 res)
+
+void Animate_float(float input, float speed, float fac, float limit, out float output)
+{
+	if (fac < 0)
+	{
+		fac+= ceil(-fac);
+	}
+	output = modf(fac, limit) * speed + input;
+}
+void Animate_float(float2 input, float2 speed, float fac, float limit, out float2 output)
+{
+	if (fac < 0)
+	{
+		fac+= ceil(-fac);
+	}
+	output = fmod(fac, limit) * speed + input;
+}
+
+void SwitchLoop_float (float input, float period, float transitionTime, out float fac)
+{
+	if (input < 0)
+	{
+		input += ceil(-input);
+	}
+	float modInput = fmod(input, period);
+	float halfp = period * 0.5;
+	float tp = halfp - transitionTime;
+	float transTimeInv = 1/transitionTime;
+
+	if (modInput < tp)
+	{
+		fac = 0;
+		return;
+	}
+
+	float tp2 = halfp;
+	
+	if (modInput < tp2)
+	{
+		fac = lerp(0.,1.,(modInput - tp) * transTimeInv);
+		return;
+	}
+
+	tp = period - transitionTime;
+	
+	if (modInput < tp)
+	{
+		fac = 1;
+		return;
+	}
+
+	tp2 = period;
+	
+	if (modInput < tp2)
+	{
+		fac = lerp(1.,0.,(modInput - tp) * transTimeInv);
+		return;
+	}
+	fac = 0;
+}
+
+void RotateVector2_float(float2 v, float angle, out float2 res)
 {
 	float s = sin(angle);
 	float c = cos(angle);

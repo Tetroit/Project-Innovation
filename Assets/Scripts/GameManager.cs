@@ -5,12 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameData gameData;
+    public LevelData levelData;
 
     public Vector2 Resolution => new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
-
-    float ghostTimer;
-    public float ghostTime;
 
     private void Awake()
     {
@@ -21,7 +18,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            instance.gameData = gameData;
+            instance.levelData = levelData;
             Destroy(gameObject);
         }
     }
