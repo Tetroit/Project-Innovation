@@ -144,10 +144,10 @@ public class CirclePuzzle : MonoBehaviour
 
     private void PhoneOrientation()
     {
-        if (SensorInput.instance.DeviceFound(SensorInput.accelerometerLayout))
+        if (SensorInput.DeviceFound(SensorInput.accelerometerLayout))
         {
-            var acc = SensorInput.instance.accelerometer;
-            var acceleration = SensorInput.instance.GetControlValue(acc.acceleration);
+            var acc = SensorInput.accelerometer;
+            var acceleration = SensorInput.GetControlValue(acc.acceleration);
 
             Debug.Log(acceleration);
 

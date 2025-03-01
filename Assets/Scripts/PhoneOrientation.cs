@@ -40,9 +40,9 @@ public class PhoneOrientation : MonoBehaviour
         if (SensorInput.instance.isInitialized)
         {
             Quaternion qat = Quaternion.Euler(startRot);
-            if (SensorInput.instance.DeviceFound(SensorInput.attituteSensorLayout))
+            if (SensorInput.DeviceFound(SensorInput.attituteSensorLayout))
                 //qat *= Quaternion.Inverse(SensorInput.instance.GetControlValue(SensorInput.instance.attitudeSensor.attitude));
-                qat *= SensorInput.instance.GetControlValue(SensorInput.instance.attitudeSensor.attitude);
+                qat *= SensorInput.GetControlValue(SensorInput.attitudeSensor.attitude);
 
             Vector3 euler = qat.eulerAngles;
             euler.x = -euler.x; // Invert the X-axis rotation

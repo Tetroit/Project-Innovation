@@ -96,21 +96,21 @@ public class SensorInput : MonoBehaviour
 
 #endif
 
-    public Keyboard keyboard => devices[keyboardLayout] as Keyboard;
-    public Mouse mouse => devices[mouseLayout] as Mouse;
-    public Pen pen => devices[penLayout] as Pen;
-    public Touchscreen touchscreen => devices[touchscreenLayout] as Touchscreen;
-    public Accelerometer accelerometer => devices[accelerometerLayout] as Accelerometer;
-    public Gyroscope gyroscope => devices[gyroscopeLayout] as Gyroscope;
-    public AttitudeSensor attitudeSensor => devices[attituteSensorLayout] as AttitudeSensor;
-    public GravitySensor gravitySensor => devices[gravitySensorLayout] as GravitySensor;
-    public LinearAccelerationSensor linearAccelerationSensor => devices[linearAccelerationSensorLayout] as LinearAccelerationSensor;
-    public LightSensor lightSensor => devices[lightSensorLayout] as LightSensor;
-    public ProximitySensor proximitySensor => devices[proximitySensorLayout] as ProximitySensor;
-    public AmbientTemperatureSensor ambientTemperatureSensor => devices[ambientTemperatureSensorLayout] as AmbientTemperatureSensor;
-    public HumiditySensor relativeHumiditySensor => devices[humiditySensorLayout] as HumiditySensor;
-    public MagneticFieldSensor magneticFieldSensor => devices[magneticFieldSensorLayout] as MagneticFieldSensor;
-    public PressureSensor pressureSensor => devices[pressureSensorLayout] as PressureSensor;
+    public static Keyboard keyboard => instance.devices[keyboardLayout] as Keyboard;
+    public static Mouse mouse => instance.devices[mouseLayout] as Mouse;
+    public static Pen pen => instance.devices[penLayout] as Pen;
+    public static Touchscreen touchscreen => instance.devices[touchscreenLayout] as Touchscreen;
+    public static Accelerometer accelerometer => instance.devices[accelerometerLayout] as Accelerometer;
+    public static Gyroscope gyroscope => instance.devices[gyroscopeLayout] as Gyroscope;
+    public static AttitudeSensor attitudeSensor => instance.devices[attituteSensorLayout] as AttitudeSensor;
+    public static GravitySensor gravitySensor => instance.devices[gravitySensorLayout] as GravitySensor;
+    public static LinearAccelerationSensor linearAccelerationSensor => instance.devices[linearAccelerationSensorLayout] as LinearAccelerationSensor;
+    public static LightSensor lightSensor => instance.devices[lightSensorLayout] as LightSensor;
+    public static ProximitySensor proximitySensor => instance.devices[proximitySensorLayout] as ProximitySensor;
+    public static AmbientTemperatureSensor ambientTemperatureSensor => instance.devices[ambientTemperatureSensorLayout] as AmbientTemperatureSensor;
+    public static HumiditySensor relativeHumiditySensor => instance.devices[humiditySensorLayout] as HumiditySensor;
+    public static MagneticFieldSensor magneticFieldSensor => instance.devices[magneticFieldSensorLayout] as MagneticFieldSensor;
+    public static PressureSensor pressureSensor => instance.devices[pressureSensorLayout] as PressureSensor;
 
 
     Vector3 acceleration;
@@ -159,21 +159,21 @@ public class SensorInput : MonoBehaviour
         //        InputSystem.RemoveDevice(InputSystem.devices[0]);
         //}
     }
-    public T GetControlValue<T> (InputControl<T> control) where T : struct
+    public static T GetControlValue<T> (InputControl<T> control) where T : struct
     {
         if (!control.device.enabled)
             InputSystem.EnableDevice(control.device);
         return control.ReadValue();
     }
-    public object GetControlValueObject(InputControl control)
+    public static object GetControlValueObject(InputControl control)
     {
         if (!control.device.enabled)
             InputSystem.EnableDevice(control.device);
         return control.ReadValueAsObject();
     }
-    public bool DeviceFound(string layout)
+    public static bool DeviceFound(string layout)
     {
-        return devices.ContainsKey(layout);
+        return instance.devices.ContainsKey(layout);
     }
     void InputSystemFindDevices()
     {

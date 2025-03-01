@@ -61,11 +61,11 @@ public class CirclePuzzleReal : MonoBehaviour
 
     private void TurnWheel()
     {
-        if (SensorInput.instance.DeviceFound(SensorInput.accelerometerLayout))
+        if (SensorInput.DeviceFound(SensorInput.accelerometerLayout))
         {
             Debug.Log("nos");
-            var acc = SensorInput.instance.accelerometer;
-            var acceleration = SensorInput.instance.GetControlValue(acc.acceleration);
+            var acc = SensorInput.accelerometer;
+            var acceleration = SensorInput.GetControlValue(acc.acceleration);
 
             Debug.Log(acceleration);
 
@@ -86,12 +86,12 @@ public class CirclePuzzleReal : MonoBehaviour
     {
         if (SensorInput.instance.isInitialized)
         {
-            if (SensorInput.instance.keyboard.upArrowKey.wasPressedThisFrame)
+            if (SensorInput.keyboard.upArrowKey.wasPressedThisFrame)
             {
                 chosenItem++;
             }
 
-            if (SensorInput.instance.keyboard.downArrowKey.wasPressedThisFrame)
+            if (SensorInput.keyboard.downArrowKey.wasPressedThisFrame)
             {
                 chosenItem--;
             }
