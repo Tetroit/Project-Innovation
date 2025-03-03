@@ -125,6 +125,7 @@ public class SensorInput : MonoBehaviour
     bool initialized = false;
     public bool isInitialized => initialized;
 
+    public static Action OnInitialise;
     private void Awake()
     {
         if (instance == null)
@@ -208,6 +209,7 @@ public class SensorInput : MonoBehaviour
             sensorInfo.text = newFiles;
 #endif
         initialized = true;
+        OnInitialise?.Invoke();
     }
     void Update()
     {
