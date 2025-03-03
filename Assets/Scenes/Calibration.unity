@@ -1273,6 +1273,7 @@ MonoBehaviour:
   button: {fileID: 774088774}
   retryButton: {fileID: 2034922384}
   indicatorMaterial: {fileID: 2100000, guid: bc22229f7f54cb54daeeb43ed91b467c, type: 2}
+  animationTime: 1
 --- !u!4 &1134119297
 Transform:
   m_ObjectHideFlags: 0

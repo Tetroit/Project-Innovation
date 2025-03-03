@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,11 +33,22 @@ public class Calibration : MonoBehaviour
     bool isCalibrated = false;
     [SerializeField]
     Material indicatorMaterial;
+
+    Tween alphaUp;
+    Tween alphaDown;
+
+    public float animationTime = 0.5f;
     private void Start()
     {
-        button.onClick.AddListener(NextStep);
-        retryButton.onClick.AddListener(Retry);
+        button.onClick.AddListener(OnNextButton);
+        retryButton.onClick.AddListener(OnRetryButton);
         buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+
+        alphaDown = DOTween.ToAlpha(() => description.color, x => description.color = x, 0, animationTime);
+        alphaUp = DOTween.ToAlpha(() => description.color, x => description.color = x, 1, animationTime);
+
+        description.color = description.color.WithAlpha(0);
+
         SetState(0);
     }
 
@@ -44,32 +57,52 @@ public class Calibration : MonoBehaviour
         if (isCalibrated)
             UpdateLight();
     }
+    void OnNextButton()
+    {
+        if (alphaDown != null && alphaDown.active) return;
+        if (alphaUp != null && alphaUp.active)
+            DOTween.Kill(alphaUp);
+        alphaDown = DOTween.ToAlpha(() => description.color, x => description.color = x, 0, animationTime);
+        alphaDown.OnComplete(NextStep);
+    }
+    void OnRetryButton()
+    {
+        if (alphaUp != null && alphaUp.active)
+            DOTween.Pause(alphaUp);
+        alphaDown = DOTween.ToAlpha(() => description.color, x => description.color = x, 0, animationTime);
+        alphaDown.OnComplete(Retry);
+    }
     void NextStep()
     {
+        alphaUp = DOTween.ToAlpha(() => description.color, x => description.color = x, 1, animationTime);
         SetState(step + 1);
-    }
-    void RecordDark()
-    {
-        GameManager.instance.RecordDark();
-        NextStep();
-    }
-    void RecordLight()
-    {
-        GameManager.instance.RecordLight();
-        NextStep();
-    }
-    void UpdateLight()
-    {
-        indicatorMaterial.SetFloat("_Fac", GameManager.instance.lightFac);
     }
     void Retry()
     {
         isCalibrated = false;
         retryButton.gameObject.SetActive(false);
+        alphaUp = DOTween.ToAlpha(() => description.color, x => description.color = x, 1, animationTime);
         SetState(Steps.WAIT_LIGHT);
+    }
+    void RecordDark()
+    {
+        GameManager.instance.RecordDark();
+        alphaDown = DOTween.ToAlpha(() => description.color, x => description.color = x, 0, animationTime);
+        alphaDown.OnComplete(NextStep);
+    }
+    void RecordLight()
+    {
+        GameManager.instance.RecordLight();
+        alphaDown = DOTween.ToAlpha(() => description.color, x => description.color = x, 0, animationTime);
+        alphaDown.OnComplete(NextStep);
+    }
+    void UpdateLight()
+    {
+        indicatorMaterial.SetFloat("_Fac", GameManager.instance.lightFac);
     }
     void SetState(Steps step)
     {
+        alphaUp = DOTween.ToAlpha(() => description.color, x => description.color = x, 1, animationTime);
         this.step = step;
 
         switch(step)
