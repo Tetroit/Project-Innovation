@@ -8,6 +8,7 @@ public class RotateAroundObject : MonoBehaviour
     public Vector3 rotationAxis = Vector3.up;
     private Vector2 touchDelta;
     private bool isTouching;
+    public LayerMask cubeLayer; 
 
     void Update()
     {
@@ -15,6 +16,16 @@ public class RotateAroundObject : MonoBehaviour
         {
             if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
             {
+                Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+                Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.layer == Mathf.Log(cubeLayer.value, 2))
+                {
+                    isTouching = false;
+                    return;
+                }
+
                 if (!isTouching)
                 {
                     isTouching = true;
