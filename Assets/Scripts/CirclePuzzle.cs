@@ -38,9 +38,9 @@ public class CirclePuzzle : MonoBehaviour
     {
         controls = new ProjectInnovation();
 
-        controls.Turn.Left.performed += ctx => StartTurning(1);
+        controls.Turn.Left.performed += ctx => StartTurning(-1);
         controls.Turn.Left.canceled += ctx => StopTurning();
-        controls.Turn.Right.performed += ctx => StartTurning(-1);
+        controls.Turn.Right.performed += ctx => StartTurning(1);
         controls.Turn.Right.canceled += ctx => StopTurning();
 
         materialIndices = new int[Buttons.Length];
@@ -58,12 +58,13 @@ public class CirclePuzzle : MonoBehaviour
 
     private void Update()
     {
-        if (!puzzleIsSolved)
-        {
+
             CheckIfPuzzleIsSolved();
             CheckIfWheelsAreInCorrectPosition();
             MakeSureWheelDoesNotGoOutOfBounds();
             CheckWhichWheelIsSelected();
+        if (!puzzleIsSolved)
+        {
             PhoneOrientation();
         }
 
@@ -130,7 +131,7 @@ public class CirclePuzzle : MonoBehaviour
             }
             else if (Buttons.Contains(hitObject))
             {
-                if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+                if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame && puzzleIsSolved)
                 {
                     SetMaterial(hitObject);
                 }
@@ -142,9 +143,9 @@ public class CirclePuzzle : MonoBehaviour
             currentWheel = "";
         }
 
-        if (turnDirection != 0)
+        if (turnDirection != 0 && !puzzleIsSolved)
         {
-            Wheels[chosenWheel].transform.Rotate(0, turnDirection * turnSpeed * Time.deltaTime, 0);
+            Wheels[chosenWheel].transform.Rotate(0, 0, turnDirection * turnSpeed * Time.deltaTime);
         }
     }
 
@@ -160,12 +161,12 @@ public class CirclePuzzle : MonoBehaviour
             if (acceleration.x > 0.2)
             {
                 Debug.Log("right held");
-                Wheels[chosenWheel].transform.Rotate(0, Time.deltaTime * 60, 0);
+                Wheels[chosenWheel].transform.Rotate(0, 0, Time.deltaTime * 60);
             }
             if (acceleration.x < -0.2)
             {
                 Debug.Log("left held");
-                Wheels[chosenWheel].transform.Rotate(0, -Time.deltaTime * 60, 0);
+                Wheels[chosenWheel].transform.Rotate(0, 0, -Time.deltaTime * 60);
             }
         }
     }
