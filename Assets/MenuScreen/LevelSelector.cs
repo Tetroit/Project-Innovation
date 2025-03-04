@@ -14,10 +14,15 @@ public class LevelSelector : MonoBehaviour
     private int currentLevelIndex = 0;
     private int totalLevels;
 
+    private Quaternion targetRotation;
+    private GameObject[] PuzzleBoxes;
+    public Vector3 rotationSpeed = new Vector3(30f, 30f, 0f); // Adjust speeds for X and Y
+
     void Start()
     {
         totalLevels = contentPanel.childCount;
         UpdatePosition();
+        targetRotation = contentPanel.GetChild(currentLevelIndex).transform.rotation;
     }
 
     void Update()
@@ -56,6 +61,7 @@ public class LevelSelector : MonoBehaviour
 
         PuzzleDiscriptionChanger();
         KeepCurrentLevelIndexInBounds();
+        RotateCubes();
     }
 
     void HandleSwipe(Vector2 swipeDelta)
@@ -136,5 +142,15 @@ public class LevelSelector : MonoBehaviour
             currentLevelIndex = 0;
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
         }
+    }
+
+    private void RotateCubes()
+    {
+        //PuzzleBoxes[currentLevelIndex].transform.Rotate(10f, 0f, 0f);
+        //contentPanel.GetChild(currentLevelIndex).transform.Rotate(1f, 1f, 1f);
+
+        Quaternion targetRotation = contentPanel.GetChild(currentLevelIndex).transform.rotation * Quaternion.Euler(rotationSpeed * Time.deltaTime);
+        contentPanel.GetChild(currentLevelIndex).transform.rotation = Quaternion.RotateTowards(contentPanel.GetChild(currentLevelIndex).transform.rotation, targetRotation, rotationSpeed.magnitude * Time.deltaTime);
+
     }
 }

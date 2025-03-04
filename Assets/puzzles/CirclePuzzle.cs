@@ -9,12 +9,15 @@ public class CirclePuzzle : MonoBehaviour
 {
     [SerializeField] private GameObject[] Wheels;
     [SerializeField] private GameObject[] Buttons;
-    [SerializeField] private Material[] materials;  
+    [SerializeField] private Material[] materials;
+
+    [SerializeField] private bool DoOnce;
     private int chosenWheel = 0;
     private int[] materialIndices;
     private bool isWheelOneInCorrectPosition = false;
     private bool isWheelTwoInCorrectPosition = false;
     private bool puzzleIsSolved = false;
+    
 
     [SerializeField]
     Vector3 startRot = new Vector3(0, 0, 0);
@@ -127,7 +130,10 @@ public class CirclePuzzle : MonoBehaviour
             }
             else if (Buttons.Contains(hitObject))
             {
-                SetMaterial(hitObject);
+                if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+                {
+                    SetMaterial(hitObject);
+                }
             }
 
         }
@@ -172,8 +178,10 @@ public class CirclePuzzle : MonoBehaviour
         Renderer renderer = hitObject.GetComponent<Renderer>();
         if (renderer != null && materials.Length > 0)
         {
-            materialIndices[index] = (materialIndices[index] + 1) % materials.Length;
-            renderer.material = materials[materialIndices[index]];
+
+                materialIndices[index] = (materialIndices[index] + 1) % materials.Length;
+                renderer.material = materials[materialIndices[index]];
+                DoOnce = true;    
         }
     }
 }
