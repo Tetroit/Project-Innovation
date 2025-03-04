@@ -103,9 +103,9 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Blinding_Fac: 1
+    - _Blinding_Fac: 0
     - _Blinding_Factor: 0
-    - _Blinding_Radius: 0.854
+    - _Blinding_Radius: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -120,9 +120,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Gray_Fac: 1.708
+    - _Gray_Fac: 0
     - _Gray_Factor: 0
-    - _Gray_Radius: 1.708
+    - _Gray_Radius: 0
     - _Intensity: 0
     - _Mask_Depth: 1
     - _Metallic: 0
@@ -142,7 +142,7 @@ Material:
     - _Surface: 0
     - _White_Noise: 1.42
     - _White_Noise_Color: 0
-    - _White_Noise_Fac: 0.854
+    - _White_Noise_Fac: 0
     - _White_Noise_Scale: 986.17
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -151,7 +151,7 @@ Material:
     - _Blinding_Clamp: {r: 0, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Gray_Clamp: {r: 0.427, g: 1, b: 0, a: 0}
+    - _Gray_Clamp: {r: 0, g: 1, b: 0, a: 0}
     - _Noise_Velocity: {r: 49.44, g: 21.59, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _White_Noise_Color: {r: 0.772108, g: 0.1745283, b: 1, a: 0}
