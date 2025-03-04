@@ -92,8 +92,8 @@ public class CirclePuzzle : MonoBehaviour
 
     private void CheckIfWheelsAreInCorrectPosition()
     {
-        isWheelOneInCorrectPosition = Mathf.Abs(Wheels[1].transform.localRotation.y * Mathf.Rad2Deg) <= 2;
-        isWheelTwoInCorrectPosition = Mathf.Abs(Wheels[2].transform.localRotation.y * Mathf.Rad2Deg) <= 2;
+        isWheelOneInCorrectPosition = Mathf.Abs(Wheels[1].transform.localRotation.z * Mathf.Rad2Deg) <= 2;
+        isWheelTwoInCorrectPosition = Mathf.Abs(Wheels[2].transform.localRotation.z * Mathf.Rad2Deg) <= 2;
     }
 
     private void CheckIfPuzzleIsSolved()
