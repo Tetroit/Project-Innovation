@@ -134,11 +134,11 @@ public class LevelSelector : MonoBehaviour
     {
         if (currentLevelIndex < 0)
         {
-            currentLevelIndex = totalLevels -1;
+            currentLevelIndex = totalLevels -2;
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
         }
 
-        if (currentLevelIndex > totalLevels -1)
+        if (currentLevelIndex > totalLevels -2)
         {
             currentLevelIndex = 0;
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
