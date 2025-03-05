@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Collider))]
-public class PuzzleElement : MonoBehaviour
+public abstract  class PuzzleElement : MonoBehaviour
 {
     public Collider coll;
     public bool isSolved = false;
@@ -18,24 +18,23 @@ public class PuzzleElement : MonoBehaviour
     {
         PuzzleManager.Remove(this);
     }
-    private void Update()
+    private void LateUpdate()
     {
-        if (!isSolved && !isBlocked)
+        if (PuzzleManager.instance.current == this)
             Move();
     }
     public void Select()
     {
         var mr = GetComponent<MeshRenderer>();
         mr.material.color = Color.yellow;
+        //Move();
     }
     public void Deselect()
     {
         var mr = GetComponent<MeshRenderer>();
-        mr.material.color = Color.white;
+        mr.material.color = Color.gray;
     }
 
-    public virtual void Move()
-    {
-
-    }
+    public abstract void Move();
+    public abstract void OnSolved();
 }

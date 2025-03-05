@@ -1,10 +1,12 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -12,7 +14,8 @@ public class GameManager : MonoBehaviour
 
     public float lightSamplingRate = 0.1f;
     public int lightSamples = 10;
-    public Vector2 lightLimits = new Vector2(3, 100);
+    public float lightThreshold = 0.2f;
+    public Vector2 lightLimits = new Vector2(1, 4);
     Queue<float> lightData = new();
     float m_lightLevel;
     float m_lightFac;
@@ -26,16 +29,33 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     bool DisplayLogInEditor = true;
 
+
+    public Action onSwitchLight;
+    public Action onSwitchDark;
     public float lightFac => m_lightFac;
+    public float lightAverage { get; private set; }
+    public bool isLight;
+    public bool isDark => !isLight;
+
+    public float ghostTimeTotal;
+    [SerializeField]
+    float ghostTimer;
+    public Action<float> onGhostTimer;
+    public Action onGhostFail;
+    public Action onGhostSuccess;
     public Vector2 Resolution => new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
 
     public TextMeshProUGUI infoDisplay;
     private void Awake()
     {
+        //level data must be present!
         if (levelData == null)
             levelData = FindObjectOfType<LevelData>();
         if (levelData == null)
             Debug.LogError("No level data found");
+
+
+        //singleton
         if (instance == null)
         {
             instance = this;
@@ -51,9 +71,24 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SensorInput.OnInitialise += SensorInputInitialised;
+        if (m_lightFac > 0.5f) 
+            onSwitchLight?.Invoke();
+        else
+            onSwitchDark?.Invoke();
     }
     private void Update()
     {
+        //decrease timer when it is dark
+        if (isDark)
+            onGhostTimer?.Invoke(ghostTimer += Time.deltaTime);
+        if (ghostTimer > ghostTimeTotal)
+        {
+            Debug.Log("u gay");
+            onGhostFail?.Invoke();
+        }
+            
+
+        //debug, nothing to see here
 #if UNITY_EDITOR
         if (DisplayLogInEditor)
             DisplayInfo();
@@ -65,9 +100,21 @@ public class GameManager : MonoBehaviour
         else if (infoDisplay != null)
             infoDisplay.gameObject.SetActive(false);
 #endif
+        //simulates light if no light sensor
         if (!hasLightSensor)
             SimulateLight();
     }
+
+    public void PuzzlesCompleted()
+    {
+        Debug.Log("u win");
+        onGhostSuccess?.Invoke();
+    }
+    /// <summary>
+    /// generates random values from reasonable range, that is similar to LightSensor behaviour.
+    /// press o to increase light.
+    /// press i to decrease light.
+    /// </summary>
     void SimulateLight()
     {
         if (Keyboard.current.oKey.isPressed)
@@ -80,6 +127,9 @@ public class GameManager : MonoBehaviour
         simulatedLightData = Mathf.Clamp(simulatedLightData, 0, 1000);
 
     }
+    /// <summary>
+    /// just debug, nothing is happening here really
+    /// </summary>
     public void DisplayInfo()
     {
         if (infoDisplay == null) return;
@@ -100,6 +150,9 @@ public class GameManager : MonoBehaviour
 
         infoDisplay.text = res;
     }
+    /// <summary>
+    /// Start reading Light Sensor data
+    /// </summary>
     public void SensorInputInitialised()
     {
         StartCoroutine(ProcessLightData());
@@ -112,14 +165,24 @@ public class GameManager : MonoBehaviour
     {
         lightSamplingRate = period;
     }
+    /// <summary>
+    /// sets LIGHT limit. For calibration
+    /// </summary>
     public void RecordLight()
     {
         lightLimits.y = m_lightLevel;
     }
+    /// <summary>
+    /// sets DARK limit. For calibration
+    /// </summary>
     public void RecordDark()
     {
         lightLimits.x = m_lightLevel;
     }
+    /// <summary>
+    /// processes light info
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ProcessLightData()
     {
         while (true)
@@ -146,9 +209,30 @@ public class GameManager : MonoBehaviour
             else
                 m_lightLevel = 0;
 
-            m_lightFac = Mathf.Clamp((m_lightLevel - lightLimits.x) / (lightLimits.y - lightLimits.x), 0, 1);
+            var lnmin = Mathf.Log(lightLimits.x);
+            var lnmax = Mathf.Log(lightLimits.y);
+            var lnlevel = Mathf.Log(m_lightLevel);
 
-            Debug.Log(lightFac);
+            m_lightFac = Mathf.Clamp((lnlevel - lnmin) / (lnmax - lnmin), 0, 1);
+            lightAverage = (lnmax + lnmin) / 2;
+
+            var init = isLight;
+
+            isLight = isLight ? 
+                m_lightFac > 0.5f - lightThreshold : 
+                (m_lightFac > 0.5f + lightThreshold);
+
+            if (init && !isLight)
+            {
+                Debug.Log("dark");
+                onSwitchDark?.Invoke();
+            }
+            if (!init && isLight)
+            {
+                Debug.Log("dark");
+                onSwitchLight?.Invoke();
+            }
+
 
             yield return new WaitForSeconds(lightSamplingRate);
         }
