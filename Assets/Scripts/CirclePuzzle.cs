@@ -33,6 +33,7 @@ public class CirclePuzzle : MonoBehaviour
     public string currentWheel;
     Vector3 acceleration;
 
+    bool colorChange = false;
 
     private void Awake()
     {
