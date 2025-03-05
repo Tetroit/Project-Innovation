@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -152,5 +153,10 @@ public class LevelSelector : MonoBehaviour
         Quaternion targetRotation = contentPanel.GetChild(currentLevelIndex).transform.rotation * Quaternion.Euler(rotationSpeed * Time.deltaTime);
         contentPanel.GetChild(currentLevelIndex).transform.rotation = Quaternion.RotateTowards(contentPanel.GetChild(currentLevelIndex).transform.rotation, targetRotation, rotationSpeed.magnitude * Time.deltaTime);
 
+    }
+
+    private void StartPressed()
+    {
+        SceneManager.LoadScene(currentLevelIndex);
     }
 }

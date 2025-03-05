@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class LevelData : MonoBehaviour
 {
+    public PuzzleManager puzzleManager;
 }

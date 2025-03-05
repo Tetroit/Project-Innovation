@@ -1,5 +1,5 @@
-4  Pen:  
-DISABLED
+3  Pen:  
+ENABLED
 
 	<UnityEngine.Vector2> Position
 		<System.Single> Position X = 0

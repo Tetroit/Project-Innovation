@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI infoDisplay;
     private void Awake()
     {
+        if (levelData == null)
+            levelData = FindObjectOfType<LevelData>();
+        if (levelData == null)
+            Debug.LogError("No level data found");
         if (instance == null)
         {
             instance = this;
