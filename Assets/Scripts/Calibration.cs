@@ -50,6 +50,8 @@ public class Calibration : MonoBehaviour
         description.color = description.color.WithAlpha(0);
 
         SetState(0);
+
+        indicatorMaterial.SetFloat("_Fac", 1);
     }
 
     private void Update()
