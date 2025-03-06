@@ -7,15 +7,26 @@ public class RotateAroundObject : MonoBehaviour
     public float rotationSpeed = 50f;
     public Vector3 rotationAxis = Vector3.up;
     public LayerMask cubeLayer;
-    public float damping = 5f; 
+    public float damping = 5f;
+    public float defaultCameraDistance = 5f;
 
-    private Vector2 touchDelta;
     private Vector2 lastTouchDelta;
     private Vector2 inertia;
     private bool isTouching;
     private float verticalAngle = 0f;
     private float minVerticalAngle = -90f;
     private float maxVerticalAngle = 90f;
+    private Vector3 initialOffset;
+
+    void Start()
+    {
+        if (target != null)
+        {
+            initialOffset = (transform.position - target.position).normalized * defaultCameraDistance;
+            transform.position = target.position + initialOffset;
+            transform.LookAt(target);
+        }
+    }
 
     void Update()
     {
@@ -34,13 +45,7 @@ public class RotateAroundObject : MonoBehaviour
                 }
 
                 Vector2 touchMovement = Touchscreen.current.primaryTouch.delta.ReadValue();
-                transform.RotateAround(target.position, Vector3.up, touchMovement.x * rotationSpeed * Time.deltaTime * 0.1f);
-
-                float verticalRotation = -touchMovement.y * rotationSpeed * Time.deltaTime * 0.1f;
-                float newVerticalAngle = Mathf.Clamp(verticalAngle + verticalRotation, minVerticalAngle, maxVerticalAngle);
-
-                transform.RotateAround(target.position, transform.right, newVerticalAngle - verticalAngle);
-                verticalAngle = newVerticalAngle;
+                RotateCamera(touchMovement);
 
                 lastTouchDelta = touchMovement;
                 isTouching = true;
@@ -54,19 +59,25 @@ public class RotateAroundObject : MonoBehaviour
                 isTouching = false;
             }
 
-            // Apply inertia if not touching
             if (!isTouching && inertia.magnitude > 0.01f)
             {
-                transform.RotateAround(target.position, Vector3.up, inertia.x * rotationSpeed * Time.deltaTime * 0.1f);
-
-                float verticalRotation = -inertia.y * rotationSpeed * Time.deltaTime * 0.1f;
-                float newVerticalAngle = Mathf.Clamp(verticalAngle + verticalRotation, minVerticalAngle, maxVerticalAngle);
-
-                transform.RotateAround(target.position, transform.right, newVerticalAngle - verticalAngle);
-                verticalAngle = newVerticalAngle;
-
+                RotateCamera(inertia);
                 inertia = Vector2.Lerp(inertia, Vector2.zero, Time.deltaTime * damping);
             }
         }
+    }
+
+    void RotateCamera(Vector2 movement)
+    {
+        transform.RotateAround(target.position, Vector3.up, movement.x * rotationSpeed * Time.deltaTime * 0.1f);
+
+        float verticalRotation = -movement.y * rotationSpeed * Time.deltaTime * 0.1f;
+        float newVerticalAngle = Mathf.Clamp(verticalAngle + verticalRotation, minVerticalAngle, maxVerticalAngle);
+
+        transform.RotateAround(target.position, transform.right, newVerticalAngle - verticalAngle);
+        verticalAngle = newVerticalAngle;
+
+        Vector3 direction = (transform.position - target.position).normalized;
+        transform.position = target.position + direction * defaultCameraDistance;
     }
 }

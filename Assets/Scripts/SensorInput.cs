@@ -330,7 +330,7 @@ public class SensorInput : MonoBehaviour
     {
         if (!DeviceFound(accelerometerLayout)) return;
 
-        Debug.Log("Accelerometer: " + accelerometer.enabled);
+        //Debug.Log("Accelerometer: " + accelerometer.enabled);
 
         if (accelerometer.enabled)
             acceleration = GetControlValue(accelerometer.acceleration);
@@ -344,7 +344,7 @@ public class SensorInput : MonoBehaviour
         if (!DeviceFound(gyroscopeLayout)) return;
 
         InputSystem.EnableDevice(gyroscope);
-        Debug.Log("Gyroscope: " + gyroscope.enabled);
+        //Debug.Log("Gyroscope: " + gyroscope.enabled);
 
         if (gyroscope.enabled)
             angularVelocity = gyroscope.angularVelocity.ReadValue();

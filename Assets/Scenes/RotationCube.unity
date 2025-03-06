@@ -734,6 +734,7 @@ MonoBehaviour:
   cubeLayer:
     serializedVersion: 2
     m_Bits: 8
+  damping: 3
 --- !u!114 &727381579
 MonoBehaviour:
   m_ObjectHideFlags: 0

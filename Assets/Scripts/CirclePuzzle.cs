@@ -102,8 +102,8 @@ public class CirclePuzzle : MonoBehaviour
     {
         if (isWheelOneInCorrectPosition && isWheelTwoInCorrectPosition)
         {
-            Debug.Log("solved");
-            puzzleIsSolved = true;
+            //Debug.Log("solved");
+            //puzzleIsSolved = true;
         }
     }
 
