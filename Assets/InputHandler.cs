@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
     private void OnClick()
     {
         Debug.Log("Click detected!");
-        TouchScreenSelect();
+        //TouchScreenSelect();
     }
 
     public void TouchScreenSelect()

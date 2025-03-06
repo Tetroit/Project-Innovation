@@ -15,7 +15,7 @@ public class ImageButton : PuzzleElement
     public override void Move()
     {
         if (SensorInput.DeviceFound(SensorInput.touchscreenLayout))
-            if (SensorInput.touchscreen.primaryTouch.tap.wasPressedThisFrame)
+            if (SensorInput.touchscreen.primaryTouch.press.wasPressedThisFrame)
             {
                 SetIcon((currentIcon+1) % icons.Count);
                 material.SetTexture("_MagicMask", icons[currentIcon]);

@@ -50,10 +50,15 @@ public class PuzzleManager : MonoBehaviour
     }
     private void Update()
     {
-        if (SensorInput.DeviceFound(SensorInput.touchscreenLayout) && SensorInput.touchscreen.primaryTouch.tap.wasPressedThisFrame)
+        if (SensorInput.DeviceFound(SensorInput.touchscreenLayout))
         {
-            Ray ray = m_cam.ScreenPointToRay(SensorInput.GetControlValue(SensorInput.touchscreen.position));
-            CheckSelection(ray);
+            Debug.Log("Topuch: " + SensorInput.touchscreen.position.ReadValue());
+            if (SensorInput.touchscreen.press.wasPressedThisFrame)
+            {
+                Debug.Log("tap");
+                Ray ray = m_cam.ScreenPointToRay(SensorInput.GetControlValue(SensorInput.touchscreen.position));
+                CheckSelection(ray);
+            }
         }
         foreach (var puzzle in puzzles)
         {
