@@ -9,7 +9,14 @@ public abstract class Puzzle : MonoBehaviour
     protected List<PuzzleElement> elements;
     public Action<Puzzle> onSolved;
 
+    /// <summary>
+    /// true if the puzzle is solved
+    /// </summary>
     public bool isSolved;
+    /// <summary>
+    /// Return 
+    /// </summary>
+    /// <returns></returns>
     public abstract bool CheckCondition();
     public void Check()
     {
@@ -18,6 +25,9 @@ public abstract class Puzzle : MonoBehaviour
             OnSolved();
         }
     }
+    /// <summary>
+    /// Initial setup for the puzzle
+    /// </summary>
     protected abstract void Setup();
     protected void OnEnable()
     {
@@ -28,7 +38,9 @@ public abstract class Puzzle : MonoBehaviour
     {
         PuzzleManager.Remove(this);
     }
-    
+    /// <summary>
+    /// Is called when the puzzle is solved
+    /// </summary>
     protected void OnSolved()
     {
         isSolved = true;

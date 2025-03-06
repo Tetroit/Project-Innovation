@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Rendering.FilterWindow;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PuzzleManager : MonoBehaviour
     public int completedPuzzles = 0;
     void CheckSelection(Ray ray)
     {
+        float distance = 99999;
+        PuzzleElement toEnable = null;
         foreach (PuzzleElement element in collection)
         {
             if(element.isSolved || element.isBlocked) continue;
@@ -21,16 +24,18 @@ public class PuzzleManager : MonoBehaviour
             RaycastHit hit;
             if (element.coll.Raycast(ray, out hit, float.MaxValue))
             {
-                if (current != null)
-                {
-                    DeselectCurrent();
-                    if (element == current) continue;
-                }
-                current = element;
-                element.Select();
-
-                return;
+                if (hit.distance > distance) continue;
+                distance = hit.distance;
+                toEnable = element;
             }
+        }
+        if (toEnable != null)
+        {
+            if (current != null)
+                DeselectCurrent();
+            current = toEnable;
+            toEnable.Select();
+            return;
         }
         if (current == null) return;
         DeselectCurrent();
@@ -55,7 +60,6 @@ public class PuzzleManager : MonoBehaviour
             Debug.Log("Topuch: " + SensorInput.touchscreen.position.ReadValue());
             if (SensorInput.touchscreen.press.wasPressedThisFrame)
             {
-                Debug.Log("tap");
                 Ray ray = m_cam.ScreenPointToRay(SensorInput.GetControlValue(SensorInput.touchscreen.position));
                 CheckSelection(ray);
             }

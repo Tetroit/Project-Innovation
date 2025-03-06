@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ImageButton : PuzzleElement
 {
-    public List<Texture> icons;
+    public List<Material> icons;
     public int currentIcon = 0;
-    Material material;
+    MeshRenderer mr;
 
     private void Start()
     {
-        material = GetComponent<MeshRenderer>().material;
+        mr = GetComponent<MeshRenderer>();
     }
     public override void Move()
     {
@@ -18,7 +18,6 @@ public class ImageButton : PuzzleElement
             if (SensorInput.touchscreen.primaryTouch.press.wasPressedThisFrame)
             {
                 SetIcon((currentIcon+1) % icons.Count);
-                material.SetTexture("_MagicMask", icons[currentIcon]);
             }
     }
 
@@ -28,6 +27,6 @@ public class ImageButton : PuzzleElement
     public void SetIcon(int icon)
     {
         currentIcon = icon;
-        material.SetTexture("_MagicMask", icons[currentIcon]);
+        mr.SetMaterials(new List<Material>() { icons[icon] });
     }
 }

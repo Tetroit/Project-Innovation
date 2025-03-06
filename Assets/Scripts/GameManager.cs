@@ -135,18 +135,16 @@ public class GameManager : MonoBehaviour
         if (infoDisplay == null) return;
 
         string res = "Sensor found: \n";
-        res += SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString() + '\n';
-        res += "Data: \n";
-        foreach (var item in lightData)
-        {
-            res += "\t" + item.ToString() + "\n";
-        }
+        res += "\nLight Sensor:" + SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString() + '\n';
         res += "\nAverage: \n";
         res += m_lightLevel;
         res += "\nFac: \n";
         res += m_lightFac;
         res += "\nDark state ---- Light state: \n";
-        res += lightLimits.x + "----" + lightLimits.y;
+        res += lightLimits.x + "----" + lightLimits.y + "\n";
+        res += "";
+        res += "\nTouhcscreen:" + SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString() + '\n';
+        res += "\nPosition:" + SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString();
 
         infoDisplay.text = res;
     }
@@ -179,6 +177,7 @@ public class GameManager : MonoBehaviour
     {
         lightLimits.x = m_lightLevel;
     }
+
     /// <summary>
     /// processes light info
     /// </summary>

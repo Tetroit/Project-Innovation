@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Alpha_mat
+  m_Name: Alpha_mat red
   m_Shader: {fileID: -6465566751694194690, guid: e647f349f1f7f2847951539c9d0b78b5,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -45,21 +45,21 @@ Material:
     - _Alpha: 0.99999243
     - _Contrast: 5
     - _Distortion: 0.09
-    - _Emission: 2
+    - _Emission: 20
     - _MaskRainbow: 0.5
-    - _Mask_Emission_Strength: 2
+    - _Mask_Emission_Strength: 7
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rainbow: 0.5
     m_Colors:
     - _Color: {r: 0.60807145, g: 0.10234956, b: 0.9433962, a: 0}
     - _Mask_Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Mask_Emission: {r: 0, g: 1, b: 1, a: 0}
+    - _Mask_Emission: {r: 1, g: 0, b: 0.11518669, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Resolution: {r: 10, g: 10, b: 0, a: 0}
     - _Scroll: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8665465897374350414
+--- !u!114 &2111597377685173525
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
