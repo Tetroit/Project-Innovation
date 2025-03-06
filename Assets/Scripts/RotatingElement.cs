@@ -12,7 +12,7 @@ public class RotatingElement : PuzzleElement
         float angle = 0;
         if (SensorInput.DeviceFound(SensorInput.gravitySensorLayout))
         {
-            angle = SensorInput.GetControlValue(SensorInput.gravitySensor.gravity).x * speed;
+            angle = SensorInput.GetControlValue(SensorInput.gravitySensor.gravity).x * -speed;
         }
         else
         {

@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.99999243
+    - _Alpha: 0.0041282773
     - _Contrast: 5
     - _Distortion: 0.09
     - _Emission: 20
