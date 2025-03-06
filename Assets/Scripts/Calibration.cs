@@ -47,7 +47,9 @@ public class Calibration : MonoBehaviour
         alphaDown = DOTween.ToAlpha(() => description.color, x => description.color = x, 0, animationTime);
         alphaUp = DOTween.ToAlpha(() => description.color, x => description.color = x, 1, animationTime);
 
-        description.color = description.color.WithAlpha(0);
+        var col = description.color;
+        col.a = 0;
+        description.color = col;
 
         SetState(0);
 

@@ -1412,6 +1412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sensor input
       objectReference: {fileID: 0}
+    - target: {fileID: 1506396899669887070, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: sensorInfo
+      value: 
+      objectReference: {fileID: 275725051}
     - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
         type: 3}
       propertyPath: m_LocalPosition.x
