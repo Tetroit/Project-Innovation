@@ -27,6 +27,7 @@ public class ImageButton : PuzzleElement
     public void SetIcon(int icon)
     {
         currentIcon = icon;
+        if (mr == null) mr = GetComponent<MeshRenderer>();
         mr.SetMaterials(new List<Material>() { icons[icon] });
     }
 }

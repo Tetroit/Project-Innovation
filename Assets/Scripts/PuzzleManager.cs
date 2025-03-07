@@ -31,13 +31,11 @@ public class PuzzleManager : MonoBehaviour
         }
         if (toEnable != null)
         {
-            if (current != null)
-                DeselectCurrent();
+            DeselectCurrent();
             current = toEnable;
             toEnable.Select();
             return;
         }
-        if (current == null) return;
         DeselectCurrent();
     }
     private void OnEnable()
@@ -92,6 +90,7 @@ public class PuzzleManager : MonoBehaviour
 
     public static void DeselectCurrent()
     {
+        if (instance.current == null) return;
         instance.current.Deselect();
         instance.current = null;
     }
