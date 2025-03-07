@@ -51,7 +51,7 @@ public abstract class Puzzle : MonoBehaviour
             {
                 element.Deselect();
             }
-            element.isSolved = true;
+            element.MarkSolved();
             element.OnSolved();
         }
         onSolved?.Invoke(this);

@@ -87,8 +87,24 @@ public class VisualManager : MonoBehaviour
     {
         distortionFac = time/GameManager.instance.ghostTimeTotal;
     }
+    [ContextMenu("Reset Postprocessing Material")]
+    public void ResetState()
+    {
+        SetState(0);
+    }
+
+    [ContextMenu("Set Full Distortion")]
+    public void SetFull()
+    {
+        SetState(1);
+    }
     public void SetState(float norm)
     {
+        if (vignette == null)
+            volume.profile.TryGet(out vignette);
+        if (lensDistortion == null)
+            volume.profile.TryGet(out lensDistortion);
+
         vignette.intensity.Override(Mathf.Lerp(VIntensity.x, VIntensity.y, norm));
         lensDistortion.intensity.Override(Mathf.Lerp(LDIntensity.x, LDIntensity.y, norm));
 

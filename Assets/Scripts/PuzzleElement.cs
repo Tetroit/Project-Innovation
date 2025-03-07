@@ -7,8 +7,9 @@ using UnityEngine.InputSystem;
 public abstract  class PuzzleElement : MonoBehaviour
 {
     public Collider coll;
-    public bool isSolved = false;
-    public bool isBlocked = false;
+    public bool isSolved { get; private set; } = false;
+    public bool isBlocked { get; private set; } = false;
+
     protected void OnEnable()
     {
         coll = GetComponent<Collider>();
@@ -34,7 +35,7 @@ public abstract  class PuzzleElement : MonoBehaviour
         var mr = GetComponent<MeshRenderer>();
         mr.material.color = Color.gray;
     }
-
+    public void MarkSolved() { isSolved = true; }
     public abstract void Move();
     public abstract void OnSolved();
 }
