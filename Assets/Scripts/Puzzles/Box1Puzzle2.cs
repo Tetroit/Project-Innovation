@@ -25,6 +25,7 @@ public class Box1Puzzle2 : Puzzle
 
     protected override void Setup()
     {
-
+        for (int i = 0; i<4; i++)
+            button(i).SetIcon(Random.Range(0, 5));
     }
 }
