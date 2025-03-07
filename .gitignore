@@ -71,3 +71,27 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+Assets/Materials/Alpha_mat red.mat
+
+Assets/Materials/Alpha_mat.mat
+
+Assets/Materials/Delta_mat.mat
+
+Assets/Materials/Lamda_mat.mat
+
+Assets/Materials/Pi_mat.mat
+
+Assets/Materials/ScorpionFull_mat.mat
+
+Assets/Materials/ScorpionIner_mat.mat
+
+Assets/Materials/ScorpionMiddle_mat.mat
+
+Assets/Materials/ScorpionOutside_mat.mat
+
+Assets/Materials/Star_mat.mat
+
+Assets/Materials/SymbolBack_mat.mat
+
+Assets/Shaders/PostProcessingMat.mat
