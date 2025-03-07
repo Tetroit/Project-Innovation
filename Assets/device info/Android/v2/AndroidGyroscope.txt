@@ -1,0 +1,5 @@
+	<UnityEngine.Vector3> Angular Velocity
+		<System.Single> Angular Velocity X = 0
+		<System.Single> Angular Velocity Y = 0
+		<System.Single> Angular Velocity Z = 0
+

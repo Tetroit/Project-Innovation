@@ -1,0 +1,5 @@
+	<UnityEngine.Vector3> Magnetic Field
+		<System.Single> Magnetic Field X = 0
+		<System.Single> Magnetic Field Y = 0
+		<System.Single> Magnetic Field Z = 0
+

@@ -37,7 +37,7 @@ public class PhoneOrientation : MonoBehaviour
         //    transform.position = target.transform.position + dir;
         //}
 
-        if (SensorInput.instance.isInitialized)
+        if (SensorInput.isInitialized)
         {
             Quaternion qat = Quaternion.Euler(startRot);
             if (SensorInput.DeviceFound(SensorInput.attituteSensorLayout))

@@ -1,0 +1,5 @@
+	<UnityEngine.Vector3> acceleration
+		<System.Single> acceleration X = 0
+		<System.Single> acceleration Y = 0
+		<System.Single> acceleration Z = 0
+

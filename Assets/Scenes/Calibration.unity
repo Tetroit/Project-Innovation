@@ -805,59 +805,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401568289}
   m_CullTransparentMesh: 1
---- !u!1 &696745467
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 696745469}
-  - component: {fileID: 696745468}
-  m_Layer: 0
-  m_Name: Game Manager (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &696745468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696745467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d8d7dde1e5b6e4ab5844e521704400, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelData: {fileID: 1535532924}
-  lightSamplingRate: 0.02
-  lightSamples: 10
-  lightThreshold: 0.2
-  lightLimits: {x: 3, y: 100}
-  DisplayLogInBuild: 0
-  DisplayLogInEditor: 1
-  isLight: 0
-  ghostTimer: 0
---- !u!4 &696745469
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696745467}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &774088772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1503314489}
   - component: {fileID: 1503314488}
+  - component: {fileID: 1503314490}
   m_Layer: 0
   m_Name: Sensor Info
   m_TagString: Untagged
@@ -1567,6 +1515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51988a3fd5bc0fd43afa860acc97c36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisplayInfoInEditor: 1
+  DisplayInfoInBuild: 0
   accelerometerInfo: {fileID: 0}
   gyroscopeInfo: {fileID: 0}
   lightSensorInfo: {fileID: 0}
@@ -1587,6 +1537,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1503314490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503314487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4caec28ef2a762a43ad3ff91f7181b79,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Sensors
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1535532923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,7 +1819,6 @@ SceneRoots:
   - {fileID: 159830562}
   - {fileID: 1281220975}
   - {fileID: 29586748}
-  - {fileID: 696745469}
   - {fileID: 1134119297}
   - {fileID: 1503314489}
   - {fileID: 1035995407}

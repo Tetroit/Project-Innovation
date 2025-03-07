@@ -1,7 +1,7 @@
-33  GravitySensor:  
-DISABLED
+43  GravitySensor:  
+ENABLED
 
 	<UnityEngine.Vector3> Gravity
-		<System.Single> Gravity X = 0
-		<System.Single> Gravity Y = 0
-		<System.Single> Gravity Z = 0
+		<System.Single> Gravity X = 0.00113264
+		<System.Single> Gravity Y = -0.0008849024
+		<System.Single> Gravity Z = -0.999999

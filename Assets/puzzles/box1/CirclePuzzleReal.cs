@@ -84,7 +84,7 @@ public class CirclePuzzleReal : MonoBehaviour
 
     private void ChooseWheel()
     {
-        if (SensorInput.instance.isInitialized)
+        if (SensorInput.isInitialized)
         {
             if (SensorInput.keyboard.upArrowKey.wasPressedThisFrame)
             {

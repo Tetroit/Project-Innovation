@@ -68,7 +68,13 @@ public class VisualManager : MonoBehaviour
         GameManager.instance.onSwitchDark -= SwitchToDark;
         GameManager.instance.onGhostTimer -= OnGhostTimer;
     }
-
+    private void Start()
+    {
+        if (GameManager.instance.isLight)
+            SwitchToLight();
+        else
+            SwitchToDark();
+    }
     private void Update()
     {
         SetState(distortionFac * (1-transitionFac));

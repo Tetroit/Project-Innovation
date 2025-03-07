@@ -1,7 +1,7 @@
-31  Gyroscope:  
+47  Gyroscope:  
 ENABLED
 
 	<UnityEngine.Vector3> Angular Velocity
-		<System.Single> Angular Velocity X = -0.0004660395
-		<System.Single> Angular Velocity Y = -0.001264964
-		<System.Single> Angular Velocity Z = 0.001731004
+		<System.Single> Angular Velocity X = -0.00122173
+		<System.Single> Angular Velocity Y = 0.00122173
+		<System.Single> Angular Velocity Z = 0.00122173

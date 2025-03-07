@@ -89,7 +89,8 @@ public class GameManager : MonoBehaviour
                 onGhostFail?.Invoke();
             }
         }
-            
+        if (SensorInput.isInitialized)
+            ProcessLightData();
 
         //debug, nothing to see here
 #if UNITY_EDITOR
@@ -135,19 +136,25 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void DisplayInfo()
     {
-        if (infoDisplay == null) return;
+        if (infoDisplay == null || !SensorInput.isInitialized) return;
 
         string res = "Sensor found: \n";
-        res += "\nLight Sensor:" + SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString() + '\n';
-        res += "\nAverage: \n";
-        res += m_lightLevel;
-        res += "\nFac: \n";
-        res += m_lightFac;
-        res += "\nDark state ---- Light state: \n";
-        res += lightLimits.x + "----" + lightLimits.y + "\n";
-        res += "";
-        res += "\nTouhcscreen:" + SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString() + '\n';
-        res += "\nPosition:" + SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString();
+        if (SensorInput.DeviceFound(SensorInput.lightSensorLayout))
+        {
+            res += "\nLight Sensor:\nRaw:" + SensorInput.GetControlValue(SensorInput.lightSensor.lightLevel) + '\n';
+            res += "\nAverage: \n";
+            res += m_lightLevel;
+            res += "\nFac: \n";
+            res += m_lightFac;
+            res += "\nDark state ---- Light state: \n";
+            res += lightLimits.x + "----" + lightLimits.y + "\n";
+            res += "";
+        }
+        if (SensorInput.DeviceFound(SensorInput.touchscreenLayout))
+        {
+            res += "\nTouhcscreen:" + SensorInput.DeviceFound(SensorInput.lightSensorLayout).ToString() + '\n';
+            res += "\nPosition:" + SensorInput.GetControlValue(SensorInput.touchscreen.position);
+        }
 
         infoDisplay.text = res;
     }
@@ -156,7 +163,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SensorInputInitialised()
     {
-        StartCoroutine(ProcessLightData());
     }
     /// <summary>
     /// Changes how frequently game processes light sensor data
@@ -185,58 +191,52 @@ public class GameManager : MonoBehaviour
     /// processes light info
     /// </summary>
     /// <returns></returns>
-    IEnumerator ProcessLightData()
+    void ProcessLightData()
     {
-        while (true)
+        while (lightData.Count >= lightSamples)
+            lightData.Dequeue();
+
+        if (hasLightSensor)
+            lightData.Enqueue(SensorInput.GetControlValue(SensorInput.lightSensor.lightLevel));
+        else
+            lightData.Enqueue(simulatedLightData);
+
+        if (lightData.Count > 0)
         {
-            while (lightData.Count >= lightSamples)
-                lightData.Dequeue();
 
-            if (hasLightSensor)
-                lightData.Enqueue(SensorInput.GetControlValue(SensorInput.lightSensor.lightLevel));
-            else
-                lightData.Enqueue(simulatedLightData);
-
-            if (lightData.Count > 0)
+            float res = 0;
+            foreach (var value in lightData)
             {
-
-                float res = 0;
-                foreach (var value in lightData)
-                {
-                    res += value;
-                }
-                res /= lightData.Count;
-                m_lightLevel = res;
+                res += value;
             }
-            else
-                m_lightLevel = 0;
+            res /= lightData.Count;
+            m_lightLevel = res;
+        }
+        else
+            m_lightLevel = 0;
 
-            var lnmin = Mathf.Log(lightLimits.x);
-            var lnmax = Mathf.Log(lightLimits.y);
-            var lnlevel = Mathf.Log(m_lightLevel);
+        var lnmin = Mathf.Log(lightLimits.x);
+        var lnmax = Mathf.Log(lightLimits.y);
+        var lnlevel = Mathf.Log(m_lightLevel);
 
-            m_lightFac = Mathf.Clamp((lnlevel - lnmin) / (lnmax - lnmin), 0, 1);
-            lightAverage = (lnmax + lnmin) / 2;
+        m_lightFac = Mathf.Clamp((lnlevel - lnmin) / (lnmax - lnmin), 0, 1);
+        lightAverage = (lnmax + lnmin) / 2;
 
-            var init = isLight;
+        var init = isLight;
 
-            isLight = isLight ? 
-                m_lightFac > 0.5f - lightThreshold : 
-                (m_lightFac > 0.5f + lightThreshold);
+        isLight = isLight ? 
+            m_lightFac > 0.5f - lightThreshold : 
+            (m_lightFac > 0.5f + lightThreshold);
 
-            if (init && !isLight)
-            {
-                Debug.Log("dark");
-                onSwitchDark?.Invoke();
-            }
-            if (!init && isLight)
-            {
-                Debug.Log("light");
-                onSwitchLight?.Invoke();
-            }
-
-
-            yield return new WaitForSeconds(lightSamplingRate);
+        if (init && !isLight)
+        {
+            Debug.Log("dark");
+            onSwitchDark?.Invoke();
+        }
+        if (!init && isLight)
+        {
+            Debug.Log("light");
+            onSwitchLight?.Invoke();
         }
     }
 }

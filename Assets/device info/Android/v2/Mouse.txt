@@ -1,0 +1,31 @@
+	<UnityEngine.Vector2> Position
+		<System.Single> Position X = 0
+		<System.Single> Position Y = 0
+	<UnityEngine.Vector2> Delta
+		<System.Single> Delta Up = 0
+		<System.Single> Delta Down = 0
+		<System.Single> Delta Left = 0
+		<System.Single> Delta Right = 0
+		<System.Single> Delta X = 0
+		<System.Single> Delta Y = 0
+	<UnityEngine.Vector2> Scroll
+		<System.Single> Scroll Up = 0
+		<System.Single> Scroll Down = 0
+		<System.Single> Scroll Left = 0
+		<System.Single> Scroll Right = 0
+		<System.Single> Scroll Left/Right = 0
+		<System.Single> Scroll Up/Down = 0
+	<System.Single> Press = 0
+	<System.Single> Left Button = 0
+	<System.Single> Right Button = 0
+	<System.Single> Middle Button = 0
+	<System.Single> Forward = 0
+	<System.Single> Back = 0
+	<System.Single> Pressure = 1
+	<UnityEngine.Vector2> Radius
+		<System.Single> Radius X = 0
+		<System.Single> Radius Y = 0
+	<System.Int32> pointerId = 0
+	<System.Int32> Display Index = 0
+	<System.Int32> Click Count = 0
+

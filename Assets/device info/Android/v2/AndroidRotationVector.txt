@@ -1,0 +1,6 @@
+	<UnityEngine.Quaternion> Attitude
+		<System.Single> Attitude X = 0
+		<System.Single> Attitude Y = 0
+		<System.Single> Attitude Z = 0
+		<System.Single> Attitude W = 0
+

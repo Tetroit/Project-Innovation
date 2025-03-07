@@ -45,6 +45,8 @@ public class SensorInput : MonoBehaviour
 {
     public static SensorInput instance;
 
+    public bool DisplayInfoInEditor = true;
+    public bool DisplayInfoInBuild = true;
     [SerializeField]
     TextMeshProUGUI accelerometerInfo;
     [SerializeField]
@@ -99,7 +101,7 @@ public class SensorInput : MonoBehaviour
     public static Keyboard keyboard => instance.devices[keyboardLayout] as Keyboard;
     public static Mouse mouse => instance.devices[mouseLayout] as Mouse;
     public static Pen pen => instance.devices[penLayout] as Pen;
-    public static Touchscreen touchscreen => instance.devices[touchscreenLayout] as Touchscreen;
+    public static Touchscreen touchscreen => Touchscreen.current;
     public static Accelerometer accelerometer => instance.devices[accelerometerLayout] as Accelerometer;
     public static Gyroscope gyroscope => instance.devices[gyroscopeLayout] as Gyroscope;
     public static AttitudeSensor attitudeSensor => instance.devices[attituteSensorLayout] as AttitudeSensor;
@@ -122,17 +124,22 @@ public class SensorInput : MonoBehaviour
 
     int currentDeviceId = 0;
 
-    bool initialized = false;
-    public bool isInitialized => initialized;
+    static bool initialized = false;
+    public static bool isInitialized => initialized;
 
     public static Action OnInitialise;
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
+        {
+            instance.sensorInfo = sensorInfo;
             Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
+        }
     }
     private void OnEnable()
     {
@@ -218,14 +225,18 @@ public class SensorInput : MonoBehaviour
         InputSystemGyroscope();
 
 #if UNITY_EDITOR
+        //editor
         DisplaySensorInfo();
 #else
+        //build
         DisplaySensorChecklist();
         InputSystemLightSensor();
 #endif
     }
     void DisplaySensorChecklist()
     {
+        if (sensorInfo == null || !DisplayInfoInBuild) return;
+
         string deviceChecklist = "Devices:\n";
 
         deviceChecklist += '\n';
@@ -256,7 +267,7 @@ public class SensorInput : MonoBehaviour
     }
     void DisplaySensorInfo()
     {
-        if (sensorInfo == null) return;
+        if (sensorInfo == null || !DisplayInfoInEditor) return;
 
         //listing all sensors
         string sensors = "";
@@ -265,14 +276,12 @@ public class SensorInput : MonoBehaviour
 
         if (Keyboard.current.aKey.wasPressedThisFrame)
         {
-            Debug.Log("aKey");
             currentDeviceId--;
             if (currentDeviceId < 0)
                 currentDeviceId = InputSystem.devices.Count - 1;
         }
         if (Keyboard.current.dKey.wasPressedThisFrame)
         {
-            Debug.Log("dKey");
             currentDeviceId++;
             if (currentDeviceId >= InputSystem.devices.Count)
                 currentDeviceId = 0;
