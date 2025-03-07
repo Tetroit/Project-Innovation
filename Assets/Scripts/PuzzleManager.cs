@@ -55,7 +55,6 @@ public class PuzzleManager : MonoBehaviour
     {
         if (SensorInput.DeviceFound(SensorInput.touchscreenLayout))
         {
-            Debug.Log("Topuch: " + SensorInput.touchscreen.position.ReadValue());
             if (SensorInput.touchscreen.press.wasPressedThisFrame)
             {
                 Ray ray = m_cam.ScreenPointToRay(SensorInput.GetControlValue(SensorInput.touchscreen.position));

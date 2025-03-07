@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public bool isLight;
     public bool isDark => !isLight;
 
-    public float ghostTimeTotal;
+    public float ghostTimeTotal => levelData.ghostTimer;
     [SerializeField]
     float ghostTimer;
     public Action<float> onGhostTimer;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public Action onGhostSuccess;
     public Vector2 Resolution => new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
 
-    public TextMeshProUGUI infoDisplay;
+    public TextMeshProUGUI infoDisplay => levelData.infoDisplay;
     private void Awake()
     {
         //level data must be present!
@@ -78,13 +78,16 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        //decrease timer when it is dark
-        if (isDark)
-            onGhostTimer?.Invoke(ghostTimer += Time.deltaTime);
-        if (ghostTimer > ghostTimeTotal)
+        if (levelData.shouldRunGhostTimer)
         {
-            Debug.Log("u gay");
-            onGhostFail?.Invoke();
+            //decrease timer when it is dark
+            if (isDark)
+                onGhostTimer?.Invoke(ghostTimer += Time.deltaTime);
+            if (ghostTimer > ghostTimeTotal)
+            {
+                Debug.Log("u gay");
+                onGhostFail?.Invoke();
+            }
         }
             
 
@@ -228,7 +231,7 @@ public class GameManager : MonoBehaviour
             }
             if (!init && isLight)
             {
-                Debug.Log("dark");
+                Debug.Log("light");
                 onSwitchLight?.Invoke();
             }
 
