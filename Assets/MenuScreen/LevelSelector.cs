@@ -107,13 +107,13 @@ public class LevelSelector : MonoBehaviour
         switch (currentLevelIndex)
         {
             case 0:
-                PuzzleDescription.text = "puzzle 1 discription";
+                PuzzleDescription.text = "Scorpio puzzle";
                 break;
             case 1:
-                PuzzleDescription.text = "puzzle 2 discription";
+                PuzzleDescription.text = "Orrery puzzle";
                 break;
             case 2:
-                PuzzleDescription.text = "puzzle 3 discription";
+                PuzzleDescription.text = "Summer triangle puzzle";
                 break;
         }
     }
@@ -134,11 +134,11 @@ public class LevelSelector : MonoBehaviour
     {
         if (currentLevelIndex < 0)
         {
-            currentLevelIndex = totalLevels -2;
+            currentLevelIndex = totalLevels -1;
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
         }
 
-        if (currentLevelIndex > totalLevels -2)
+        if (currentLevelIndex > totalLevels -1)
         {
             currentLevelIndex = 0;
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
@@ -155,8 +155,9 @@ public class LevelSelector : MonoBehaviour
 
     }
 
-    private void StartPressed()
+    public void StartPressed()
     {
-        SceneManager.LoadScene(currentLevelIndex);
+        SceneManager.LoadScene(1);
+        
     }
 }
