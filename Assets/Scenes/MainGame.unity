@@ -1414,7 +1414,6 @@ GameObject:
   - component: {fileID: 842354166}
   - component: {fileID: 842354165}
   - component: {fileID: 842354164}
-  - component: {fileID: 842354163}
   m_Layer: 3
   m_Name: star4_texture (4)
   m_TagString: Untagged
@@ -1437,28 +1436,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1219011742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &842354163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842354161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ad4394a105a344a986416be3c4b9bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coll: {fileID: 0}
-  isSolved: 0
-  isBlocked: 1
-  icons:
-  - {fileID: 2800000, guid: a4339f2d6d865704da70165dcbbb7b72, type: 3}
-  - {fileID: 2800000, guid: c3bd0c0d6e6f68044b0fc99c125777b0, type: 3}
-  - {fileID: 2800000, guid: 4c0c8a60a9a8cf447873c5a1708787ec, type: 3}
-  - {fileID: 2800000, guid: a4d7d20cba79a3f4e93fdae1d045ff19, type: 3}
-  - {fileID: 2800000, guid: d0e64e1b1a164234ead51d0ad78cebc6, type: 3}
-  currentIcon: 3
 --- !u!64 &842354164
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1621,7 +1598,6 @@ GameObject:
   - component: {fileID: 923758508}
   - component: {fileID: 923758507}
   - component: {fileID: 923758506}
-  - component: {fileID: 923758505}
   m_Layer: 3
   m_Name: star4_texture (3)
   m_TagString: Untagged
@@ -1644,28 +1620,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1219011742}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!114 &923758505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923758503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ad4394a105a344a986416be3c4b9bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coll: {fileID: 0}
-  isSolved: 0
-  isBlocked: 1
-  icons:
-  - {fileID: 2800000, guid: a4339f2d6d865704da70165dcbbb7b72, type: 3}
-  - {fileID: 2800000, guid: c3bd0c0d6e6f68044b0fc99c125777b0, type: 3}
-  - {fileID: 2800000, guid: 4c0c8a60a9a8cf447873c5a1708787ec, type: 3}
-  - {fileID: 2800000, guid: a4d7d20cba79a3f4e93fdae1d045ff19, type: 3}
-  - {fileID: 2800000, guid: d0e64e1b1a164234ead51d0ad78cebc6, type: 3}
-  currentIcon: 3
 --- !u!64 &923758506
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2122,7 +2076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: {fileID: 0}
-  isSolved: 1
+  isSolved: 0
   isBlocked: 0
   icons:
   - {fileID: 2100000, guid: 2b426548a0f0dc6498ea78488b4a11bb, type: 2}
@@ -2143,7 +2097,6 @@ GameObject:
   - component: {fileID: 1402826645}
   - component: {fileID: 1402826644}
   - component: {fileID: 1402826643}
-  - component: {fileID: 1402826642}
   m_Layer: 3
   m_Name: star4_texture (2)
   m_TagString: Untagged
@@ -2166,28 +2119,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 174129146}
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 90}
---- !u!114 &1402826642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402826640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ad4394a105a344a986416be3c4b9bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coll: {fileID: 0}
-  isSolved: 0
-  isBlocked: 1
-  icons:
-  - {fileID: 2800000, guid: a4339f2d6d865704da70165dcbbb7b72, type: 3}
-  - {fileID: 2800000, guid: c3bd0c0d6e6f68044b0fc99c125777b0, type: 3}
-  - {fileID: 2800000, guid: 4c0c8a60a9a8cf447873c5a1708787ec, type: 3}
-  - {fileID: 2800000, guid: a4d7d20cba79a3f4e93fdae1d045ff19, type: 3}
-  - {fileID: 2800000, guid: d0e64e1b1a164234ead51d0ad78cebc6, type: 3}
-  currentIcon: 3
 --- !u!64 &1402826643
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2583,7 +2514,6 @@ GameObject:
   - component: {fileID: 2066232473}
   - component: {fileID: 2066232472}
   - component: {fileID: 2066232471}
-  - component: {fileID: 2066232470}
   m_Layer: 3
   m_Name: star4_texture (1)
   m_TagString: Untagged
@@ -2606,28 +2536,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1219011742}
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
---- !u!114 &2066232470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066232468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ad4394a105a344a986416be3c4b9bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coll: {fileID: 0}
-  isSolved: 0
-  isBlocked: 1
-  icons:
-  - {fileID: 2800000, guid: a4339f2d6d865704da70165dcbbb7b72, type: 3}
-  - {fileID: 2800000, guid: c3bd0c0d6e6f68044b0fc99c125777b0, type: 3}
-  - {fileID: 2800000, guid: 4c0c8a60a9a8cf447873c5a1708787ec, type: 3}
-  - {fileID: 2800000, guid: a4d7d20cba79a3f4e93fdae1d045ff19, type: 3}
-  - {fileID: 2800000, guid: d0e64e1b1a164234ead51d0ad78cebc6, type: 3}
-  currentIcon: 3
 --- !u!64 &2066232471
 MeshCollider:
   m_ObjectHideFlags: 0
