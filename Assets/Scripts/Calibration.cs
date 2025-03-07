@@ -5,6 +5,7 @@ using System.Numerics;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Calibration : MonoBehaviour
@@ -161,6 +162,8 @@ public class Calibration : MonoBehaviour
                 retryButton.gameObject.SetActive(false);
                 buttonText.text = "Finish";
                 description.text = "The ghosts are ready! Press \"Finish\" to start the game";
+                SceneManager.LoadScene(2);
+                
                 break;
 
         }

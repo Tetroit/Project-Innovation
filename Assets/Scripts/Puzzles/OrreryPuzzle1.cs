@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrreryPuzzle1 : MonoBehaviour
+public class OrreryPuzzle1 : Puzzle
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Setup()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    public override bool CheckCondition()
     {
-        
+        float rot1 = elements[0].transform.rotation.eulerAngles.z;
+        float rot2 = elements[1].transform.rotation.eulerAngles.z;
+        float rot3 = elements[2].transform.rotation.eulerAngles.z;
+        if (Mathf.Abs(rot1 - rot2) < 10f && Mathf.Abs(rot3 - rot2) < 10f)
+            return true;
+        return false;
     }
 }
