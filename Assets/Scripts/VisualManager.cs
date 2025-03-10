@@ -25,7 +25,9 @@ public class VisualManager : MonoBehaviour
     float distortionFac = 0;
     Tween transition;
     bool midTransition => (transition != null && transition.active);
-    
+
+    public AnimationCurve pulseCurve;
+
     [Header("Wobble Noise")]
     public Vector2 NFac;
     [Header("White Noise")]
@@ -46,6 +48,10 @@ public class VisualManager : MonoBehaviour
     public Vector2 GRadius;
     public Vector2 GClampStart;
     public Vector2 GClampEnd;
+
+    [Header("Hall of mirrors")]
+    public Vector2 HoMScale;
+    public Vector2 HoMOpacity;
 
     [Header("Glow materials")]
     [SerializeField]
@@ -70,6 +76,7 @@ public class VisualManager : MonoBehaviour
     }
     private void Start()
     {
+        SetPulse(0);
         if (GameManager.instance.isLight)
             SwitchToLight();
         else
@@ -92,6 +99,19 @@ public class VisualManager : MonoBehaviour
     public void OnGhostTimer(float time)
     {
         distortionFac = time/GameManager.instance.ghostTimeTotal;
+        PulseTimer(GameManager.instance.ghostTimeTotal - time);
+    }
+    public void PulseTimer(float timeLeft)
+    {
+        if (timeLeft > 10)
+            return;
+        if (timeLeft > 4)
+        {
+            SetPulse(1- (timeLeft % 2)/2);
+            return;
+        }
+        SetPulse(1 - timeLeft % 1);
+        return;
     }
     [ContextMenu("Reset Postprocessing Material")]
     public void ResetState()
@@ -124,6 +144,13 @@ public class VisualManager : MonoBehaviour
         ppMat.SetVector("_Gray_Clamp", Vector2.Lerp(GClampStart, GClampEnd, norm));
     }
 
+    public void SetPulse(float norm)
+    {
+        norm = Mathf.Clamp01(pulseCurve.Evaluate(norm));
+
+        ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, norm));
+        ppMat.SetFloat("_Reflection_Scale", Mathf.Lerp(HoMScale.x, HoMScale.y, norm));
+    }
     public void SwitchToLight()
     {
         Debug.Log("Switching to light");

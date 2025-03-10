@@ -133,6 +133,8 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Reflection_Opacity: 0.81
+    - _Reflection_Scale: 0.87
     - _Scale: 100
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
