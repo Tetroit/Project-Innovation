@@ -27,6 +27,7 @@ public class VisualManager : MonoBehaviour
     bool midTransition => (transition != null && transition.active);
 
     public AnimationCurve pulseCurve;
+    float pulseIntensity = 0;
 
     [Header("Wobble Noise")]
     public Vector2 NFac;
@@ -105,6 +106,7 @@ public class VisualManager : MonoBehaviour
     {
         if (timeLeft > 10)
             return;
+        pulseIntensity = 1 - (timeLeft / 10);
         if (timeLeft > 4)
         {
             SetPulse(1- (timeLeft % 2)/2);
@@ -148,7 +150,7 @@ public class VisualManager : MonoBehaviour
     {
         norm = Mathf.Clamp01(pulseCurve.Evaluate(norm));
 
-        ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, norm));
+        ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, norm * pulseIntensity));
         ppMat.SetFloat("_Reflection_Scale", Mathf.Lerp(HoMScale.x, HoMScale.y, norm));
     }
     public void SwitchToLight()
