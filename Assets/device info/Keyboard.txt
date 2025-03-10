@@ -1,4 +1,4 @@
-1  Keyboard:  
+2  Keyboard:  
 ENABLED
 
 	<System.Single> Any Key = 1
@@ -21,7 +21,7 @@ ENABLED
 	<System.Single> Down = 0
 	<System.Single> Left = 0
 	<System.Single> Right = 0
-	<System.Single> A = 1
+	<System.Single> A = 0
 	<System.Single> B = 0
 	<System.Single> C = 0
 	<System.Single> D = 0

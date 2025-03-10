@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8143bc4befd194892dc9ff864e6293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_cam: {fileID: 0}
+  m_cam: {fileID: 1251045460}
   collection: []
   puzzles: []
   completedPuzzles: 0
@@ -942,7 +942,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f77190e250805459048291f6830f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldRunGhostTimer: 1
+  ghostTimer: 60
   puzzleManager: {fileID: 45103753}
+  infoDisplay: {fileID: 0}
 --- !u!4 &566046851
 Transform:
   m_ObjectHideFlags: 0
@@ -1018,6 +1021,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4525281465825642169, guid: 6a41be4a16da0a94a95b10d578c3ca3d,
         type: 3}
+      propertyPath: isLight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525281465825642169, guid: 6a41be4a16da0a94a95b10d578c3ca3d,
+        type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 566046850}
+    - target: {fileID: 4525281465825642169, guid: 6a41be4a16da0a94a95b10d578c3ca3d,
+        type: 3}
       propertyPath: ghostTimeTotal
       value: 60
       objectReference: {fileID: 0}
@@ -1029,7 +1042,7 @@ PrefabInstance:
     - target: {fileID: 4525281465825642169, guid: 6a41be4a16da0a94a95b10d578c3ca3d,
         type: 3}
       propertyPath: DisplayLogInBuild
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4525281465825642169, guid: 6a41be4a16da0a94a95b10d578c3ca3d,
         type: 3}
@@ -1046,6 +1059,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a41be4a16da0a94a95b10d578c3ca3d, type: 3}
+--- !u!114 &588861933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2349441020869906354, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+    type: 3}
+  m_PrefabInstance: {fileID: 1369922087569230408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ad4394a105a344a986416be3c4b9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &699493500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2146,11 @@ PrefabInstance:
       propertyPath: sensorInfo
       value: 
       objectReference: {fileID: 275725051}
+    - target: {fileID: 2459077903343331178, guid: bc4a262c062d29442a98b92f6b724cc4,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1251045460}
     - target: {fileID: 6870345587990504167, guid: bc4a262c062d29442a98b92f6b724cc4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2416,18 +2446,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797442379}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1835148396 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2349441020869906354, guid: a7473bfd7cf9e2644b6ba54c0a770367,
-    type: 3}
-  m_PrefabInstance: {fileID: 1369922087569230408}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ad4394a105a344a986416be3c4b9bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2024327269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,7 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elements:
-  - {fileID: 1835148396}
+  - {fileID: 588861933}
   - {fileID: 498461375}
   - {fileID: 1398719359}
   - {fileID: 282235768}
