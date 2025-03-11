@@ -15,6 +15,8 @@ public class VisualManager : MonoBehaviour
     [SerializeField]
     Material PostProcessingMaterial;
     [SerializeField]
+    Material SkyboxMaterial;
+    [SerializeField]
     Light globalLight;
 
     [Header("Light settings")]
@@ -28,6 +30,8 @@ public class VisualManager : MonoBehaviour
 
     public AnimationCurve pulseCurve;
     float pulseIntensity = 0;
+    float pulseFac = 0;
+    float pulseOpacity = 0;
 
     [Header("Wobble Noise")]
     public Vector2 NFac;
@@ -59,6 +63,7 @@ public class VisualManager : MonoBehaviour
     List<Material> glowMaterials;
 
     public Material ppMat => PostProcessingMaterial;
+    public Material sbMat => SkyboxMaterial;
 
     private void OnEnable()
     {
@@ -90,6 +95,12 @@ public class VisualManager : MonoBehaviour
         if (midTransition)
         {
             globalLight.color = Color.Lerp(darkColor, lightColor, transitionFac);
+            pulseOpacity = 1-transitionFac;
+
+            ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, pulseFac * pulseIntensity * pulseOpacity));
+            ppMat.SetFloat("_Reflection_Scale", Mathf.Lerp(HoMScale.x, HoMScale.y, pulseFac * pulseOpacity));
+
+            sbMat.SetFloat("_Fac", transitionFac);
 
             foreach (var mat in glowMaterials)
             {
@@ -119,6 +130,7 @@ public class VisualManager : MonoBehaviour
     public void ResetState()
     {
         SetState(0);
+        SetPulse(0);
     }
 
     [ContextMenu("Set Full Distortion")]
@@ -148,10 +160,9 @@ public class VisualManager : MonoBehaviour
 
     public void SetPulse(float norm)
     {
-        norm = Mathf.Clamp01(pulseCurve.Evaluate(norm));
-
-        ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, norm * pulseIntensity));
-        ppMat.SetFloat("_Reflection_Scale", Mathf.Lerp(HoMScale.x, HoMScale.y, norm));
+        pulseFac = Mathf.Clamp01(pulseCurve.Evaluate(norm));
+        ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, pulseFac * pulseIntensity));
+        ppMat.SetFloat("_Reflection_Scale", Mathf.Lerp(HoMScale.x, HoMScale.y, pulseFac));
     }
     public void SwitchToLight()
     {

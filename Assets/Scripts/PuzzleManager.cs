@@ -25,12 +25,12 @@ public class PuzzleManager : MonoBehaviour
             Debug.Log("ray check " + current?.name);
             RaycastHit hit;
             if (element.coll.Raycast(ray, out hit, float.MaxValue))
+            {
                 if (TutorialUITextManager.TTCount != 3) //
                 {                                       //
-            TutorialUITextManager.TTCount = 3;          //Line from designer Lluis, if it break anything delete
+                    TutorialUITextManager.TTCount = 3;          //Line from designer Lluis, if it break anything delete
                     return;                             //
                 }                                       //
-            {
                 if (hit.distance > distance) continue;
                 distance = hit.distance;
                 toEnable = element;
