@@ -21,7 +21,7 @@ public abstract  class PuzzleElement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (PuzzleManager.instance.current == this)
+        if (PuzzleManager.instance != null && PuzzleManager.instance.current == this)
             Move();
     }
     public virtual void Select()
