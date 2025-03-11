@@ -100,7 +100,8 @@ public class VisualManager : MonoBehaviour
             ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, pulseFac * pulseIntensity * pulseOpacity));
             ppMat.SetFloat("_Reflection_Scale", Mathf.Lerp(HoMScale.x, HoMScale.y, pulseFac * pulseOpacity));
 
-            sbMat.SetFloat("_Fac", transitionFac);
+            if (sbMat != null)
+                sbMat.SetFloat("_Fac", transitionFac);
 
             foreach (var mat in glowMaterials)
             {
