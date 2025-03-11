@@ -215,9 +215,9 @@ public class GameManager : MonoBehaviour
         else
             m_lightLevel = 0;
 
-        var lnmin = Mathf.Log(lightLimits.x);
-        var lnmax = Mathf.Log(lightLimits.y);
-        var lnlevel = Mathf.Log(m_lightLevel);
+        var lnmin = Mathf.Log(lightLimits.x+1);
+        var lnmax = Mathf.Log(lightLimits.y+1);
+        var lnlevel = Mathf.Log(m_lightLevel+1);
 
         m_lightFac = Mathf.Clamp((lnlevel - lnmin) / (lnmax - lnmin), 0, 1);
         lightAverage = (lnmax + lnmin) / 2;

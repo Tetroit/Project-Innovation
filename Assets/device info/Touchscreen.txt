@@ -1,11 +1,11 @@
-24  Touchscreen:  
+38  Touchscreen:  
 ENABLED
 
 	<UnityEngine.InputSystem.LowLevel.TouchState> Primary Touch
-		<System.Int32> Primary Touch Touch ID = 53
+		<System.Int32> Primary Touch Touch ID = 8
 		<UnityEngine.Vector2> Primary Touch Position
-			<System.Single> Primary Touch Primary Touch Position X = 792.5
-			<System.Single> Primary Touch Primary Touch Position Y = 1195
+			<System.Single> Primary Touch Primary Touch Position X = 774.7702
+			<System.Single> Primary Touch Primary Touch Position Y = 1302.314
 		<UnityEngine.Vector2> Primary Touch Delta
 			<System.Single> Primary Touch Primary Touch Delta Up = 0
 			<System.Single> Primary Touch Primary Touch Delta Down = 0
@@ -23,13 +23,13 @@ ENABLED
 		<System.Int32> Primary Touch Display Index = 0
 		<System.Single> Primary Touch Indirect Touch? = 0
 		<System.Single> Primary Touch Tap = 1
-		<System.Double> Primary Touch Start Time = 46.9690926
+		<System.Double> Primary Touch Start Time = 11.5722401999992
 		<UnityEngine.Vector2> Primary Touch Start Position
-			<System.Single> Primary Touch Primary Touch Start Position X = 792.5
-			<System.Single> Primary Touch Primary Touch Start Position Y = 1195
+			<System.Single> Primary Touch Primary Touch Start Position X = 774.7702
+			<System.Single> Primary Touch Primary Touch Start Position Y = 1302.314
 	<UnityEngine.Vector2> Position
-		<System.Single> Position X = 792.5
-		<System.Single> Position Y = 1195
+		<System.Single> Position X = 774.7702
+		<System.Single> Position Y = 1302.314
 	<UnityEngine.Vector2> Delta
 		<System.Single> Delta Up = 0
 		<System.Single> Delta Down = 0
@@ -43,10 +43,10 @@ ENABLED
 		<System.Single> Radius Y = 0
 	<System.Single> Press = 0
 	<UnityEngine.InputSystem.LowLevel.TouchState> Touch
-		<System.Int32> Touch Touch ID = 53
+		<System.Int32> Touch Touch ID = 8
 		<UnityEngine.Vector2> Touch Position
-			<System.Single> Touch Touch Position X = 792.5
-			<System.Single> Touch Touch Position Y = 1195
+			<System.Single> Touch Touch Position X = 774.7702
+			<System.Single> Touch Touch Position Y = 1302.314
 		<UnityEngine.Vector2> Touch Delta
 			<System.Single> Touch Touch Delta Up = 0
 			<System.Single> Touch Touch Delta Down = 0
@@ -64,10 +64,10 @@ ENABLED
 		<System.Int32> Touch Display Index = 0
 		<System.Single> Touch Indirect Touch? = 0
 		<System.Single> Touch Tap = 1
-		<System.Double> Touch Start Time = 46.9690926
+		<System.Double> Touch Start Time = 11.5722401999992
 		<UnityEngine.Vector2> Touch Start Position
-			<System.Single> Touch Touch Start Position X = 792.5
-			<System.Single> Touch Touch Start Position Y = 1195
+			<System.Single> Touch Touch Start Position X = 774.7702
+			<System.Single> Touch Touch Start Position Y = 1302.314
 	<UnityEngine.InputSystem.LowLevel.TouchState> Touch
 		<System.Int32> Touch Touch ID = 0
 		<UnityEngine.Vector2> Touch Position

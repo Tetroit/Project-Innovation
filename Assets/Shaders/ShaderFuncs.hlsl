@@ -1,6 +1,18 @@
 #ifndef SHADERFUNCS
 #define SHADERFUNCS
 
+//#define FORCE_VIRTUAL_TEXTURING_OFF 1
+
+//#if defined(_FORWARD_PLUS)
+//#define _ADDITIONAL_LIGHTS 1
+//#undef _ADDITIONAL_LIGHTS_VERTEX
+//#define USE_FORWARD_PLUS 1
+//#else
+//#define USE_FORWARD_PLUS 0
+//#endif
+
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+//#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 
 void Clamp_float(float val, float min, float max, out float res)
 {
@@ -168,4 +180,18 @@ void Voronoi2_float(float2 uv, float2 scale, float2 off, float power, bool edge,
 	}
 	fac = res;
 }
+
+//TEXTURE2D_X(_BlitTexture);
+//float4 Unity_Universal_SampleBuffer_BlitSource_float(float2 uv)
+//{
+//    uint2 pixelCoords = uint2(uv * _ScreenSize.xy);
+//    return LOAD_TEXTURE2D_X_LOD(_BlitTexture, pixelCoords, 0);
+//}
+
+void Reflections_float(float4 IN, float repeats, float scale, float aberration, float opacity, out float4 OUT)
+{
+	OUT = IN;
+}
+
+
 #endif
