@@ -19,11 +19,11 @@ public class TutorialUITextManager : MonoBehaviour
     }
 
     public TutorialStage currentStage = TutorialStage.TT1;
-    public TMP_Text tutorialText; // Assign in Inspector
-    PuzzleManager puzzleManager; // Reference to your puzzle system
-    SensorInput sensorInput; // Reference to player movement
-    Calibration calibration; // Reference to light calibration
-    InputManager inputManager;
+    public TMP_Text tutorialText; 
+    PuzzleManager puzzleManager;  // 
+    SensorInput sensorInput;      // 
+    Calibration calibration;      // No clue why I need this tbh
+    InputManager inputManager;    //
     public static int TTCount = 0;     
     public int timer = 0;
     private bool hasUpdatedTTCount = false;
@@ -60,6 +60,7 @@ public class TutorialUITextManager : MonoBehaviour
                 }
 
                 break;
+
             case TutorialStage.TT2:
                 if(TTCount == 1)
                 {
@@ -81,6 +82,7 @@ public class TutorialUITextManager : MonoBehaviour
                 {
                     NextStage();
                 }
+
                 break;
 
             case TutorialStage.TT5:
@@ -88,6 +90,7 @@ public class TutorialUITextManager : MonoBehaviour
                 {
                     NextStage();
                 }
+
                 break;
 
             case TutorialStage.TT6:
@@ -95,6 +98,7 @@ public class TutorialUITextManager : MonoBehaviour
                 {
                     NextStage();
                 }
+
                 break;
         }
     }
@@ -129,6 +133,7 @@ public class TutorialUITextManager : MonoBehaviour
             currentStage++;
             hasUpdatedTTCount = false; // Allow next TTCount update
             UpdateTutorialText();
+            
         }
     }
 
