@@ -36,16 +36,16 @@ public class TutorialUITextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckTutorialProgress();
+       // CheckTutorialProgress();
 
-        if (!hasUpdatedTTCount)
+       /* if (!hasUpdatedTTCount)
         {
             TTCount = 1;
             hasUpdatedTTCount = true;
             Debug.Log("This Works?");
             
         }
-        else timer++;
+        else timer++;*/
 
         UpdateTutorialText();
 

@@ -420,6 +420,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
         type: 3}
+      propertyPath: PostProcessingMaterial
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: d38822ae0dbf1814dabf165a9ec58cd3,
+        type: 3}
+    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
+        type: 3}
       propertyPath: glowMaterials.Array.size
       value: 16
       objectReference: {fileID: 0}
@@ -4844,7 +4850,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 553029385}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4978,9 +4984,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.7946, y: 4.7946, z: 4.7946}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 120721415}
-  m_Father: {fileID: 214514306}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5130,11 +5135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ac993b1ed3ed6438d7d9655d626e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseScreen: {fileID: 214514305}
-  pauseButton: {fileID: 1167046757}
-  continueButton: {fileID: 460106700}
+  pauseScreen: {fileID: 0}
+  pauseButton: {fileID: 0}
+  continueButton: {fileID: 0}
   resetButton: {fileID: 1822662826}
-  quitButton: {fileID: 553029386}
+  quitButton: {fileID: 0}
 --- !u!114 &2002243789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5209,9 +5214,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1002666468}
-  - {fileID: 214514306}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5712,3 +5715,6 @@ SceneRoots:
   - {fileID: 723680883}
   - {fileID: 926717453}
   - {fileID: 1049693772}
+  - {fileID: 1601673264}
+  - {fileID: 1822662825}
+  - {fileID: 2002243792}
