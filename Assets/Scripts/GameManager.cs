@@ -232,6 +232,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("dark");
             onSwitchDark?.Invoke();
+
+            if (TutorialUITextManager.TTCount != 2) //
+            {                                       //
+                TutorialUITextManager.TTCount = 2;  //Lines from designer Lluis, if it break anything delete
+                return;                             //
+            }                                       //
         }
         if (!init && isLight)
         {

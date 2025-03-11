@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
+    TutorialUITextManager tutorialUiTextManager;
     public static PuzzleManager instance;
 
     public Camera m_cam;
@@ -13,16 +14,22 @@ public class PuzzleManager : MonoBehaviour
     public List<PuzzleElement> collection = new();
     public List<Puzzle> puzzles = new();
     public int completedPuzzles = 0;
+    
     void CheckSelection(Ray ray)
     {
         float distance = 99999;
         PuzzleElement toEnable = null;
         foreach (PuzzleElement element in collection)
         {
-            if(element.isSolved || element.isBlocked) continue;
+            if (element.isSolved || element.isBlocked) continue;
             Debug.Log("ray check " + current?.name);
             RaycastHit hit;
             if (element.coll.Raycast(ray, out hit, float.MaxValue))
+                if (TutorialUITextManager.TTCount != 3) //
+                {                                       //
+            TutorialUITextManager.TTCount = 3;          //Line from designer Lluis, if it break anything delete
+                    return;                             //
+                }                                       //
             {
                 if (hit.distance > distance) continue;
                 distance = hit.distance;
@@ -80,6 +87,11 @@ public class PuzzleManager : MonoBehaviour
     {
         instance.puzzles.Add(puzzle);
         puzzle.onSolved += instance.OnPuzzleComplete;
+        if (TutorialUITextManager.TTCount != 4) //
+        {                                       //
+            TutorialUITextManager.TTCount = 4;  //Line from designer Lluis, if it break anything delete
+            return;                             //
+        }                                       //
     }
     public static void Remove(Puzzle puzzle)
     {
@@ -97,6 +109,11 @@ public class PuzzleManager : MonoBehaviour
     public void OnPuzzleComplete(Puzzle puzzle)
     {
         completedPuzzles++;
+        if (TutorialUITextManager.TTCount != 5) //
+        {                                       //
+            TutorialUITextManager.TTCount = 5;  //Line from designer Lluis, if it break anything delete
+            return;                             //
+        }                                       //
         if (completedPuzzles == puzzles.Count)
         {
             GameManager.instance.PuzzlesCompleted();
