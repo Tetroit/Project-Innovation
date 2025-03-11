@@ -126,7 +126,7 @@ Material:
     - _Intensity: 0
     - _Mask_Depth: 1
     - _Metallic: 0
-    - _Noise_Intensity: 0
+    - _Noise_Intensity: 0.0069830557
     - _Noise_Mask_Depth: 0
     - _Noise_Scale: 10
     - _OcclusionStrength: 1
