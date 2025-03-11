@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using Unity.VisualScripting;
+using static UnityEngine.InputManagerEntry;
+using UnityEngine.InputSystem;
 
 public class TutorialUITextManager : MonoBehaviour
 {
@@ -21,8 +23,8 @@ public class TutorialUITextManager : MonoBehaviour
     public TutorialStage currentStage = TutorialStage.TT1;
     public TMP_Text tutorialText; 
     PuzzleManager puzzleManager;  // 
-    SensorInput sensorInput;      // 
-    Calibration calibration;      // No clue why I need this tbh
+    SensorInput sensorInput;      // No clue why I need this tbh
+    Calibration calibration;      // 
     InputManager inputManager;    //
     public static int TTCount = 0;     
     public int timer = 0;
@@ -36,21 +38,31 @@ public class TutorialUITextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // CheckTutorialProgress();
+        // CheckTutorialProgress();
 
-       /* if (!hasUpdatedTTCount)
+        /* if (!hasUpdatedTTCount)
+         {
+             TTCount = 1;
+             hasUpdatedTTCount = true;
+             Debug.Log("This Works?");
+
+         }
+         else timer++;*/
+
+        /*RotatingElement.onFirstElementClicked
+        RotatingElement.onFirstElementRotated
+        GameManager.instance.onFirstSwitchDark
+        Box1Puzzle1.onComplete(find in Puzzles object under PuzzleManager in scene)
+        Box1Puzzle2.onComplete(find in Puzzles object under PuzzleManager in scene)*/
+        if(Keyboard.current.qKey.wasPressedThisFrame)
         {
-            TTCount = 1;
-            hasUpdatedTTCount = true;
-            Debug.Log("This Works?");
-            
+            currentStage++;
         }
-        else timer++;*/
 
         UpdateTutorialText();
 
     }
-    void CheckTutorialProgress() 
+   /* void CheckTutorialProgress() 
     {
         switch (currentStage)
         {
@@ -114,32 +126,35 @@ public class TutorialUITextManager : MonoBehaviour
 
                 break;
         }
-    }
+    }*/
     void UpdateTutorialText()
     {
         switch (currentStage)
         {
             case TutorialStage.TT0:
-                tutorialText.text = "Solve the puzzle on the box to release the Spirit";
+                tutorialText.text = "Solve the puzzle on the box to release the Spirit"; //default text (start)
                 break;
             case TutorialStage.TT1:
-                tutorialText.text = "To solve the puzzle you need to first press and align the Constellation by rotating your phone";
+                tutorialText.text = "To solve the puzzle you need to first press and align the Constellation by rotating your phone"; //click on gear
                 break;
             case TutorialStage.TT2:
-                tutorialText.text = "But you can only see the Constellation in the dark, so you have to turn the lights off";
+                tutorialText.text = "But you can only see the Constellation in the dark, so you have to turn the lights off"; //rotate gear
                 break;
             case TutorialStage.TT3:
-                tutorialText.text = "Be careful in the dark, if you spend too much time in here you will lose";
+                tutorialText.text = "Be careful in the dark, if you spend too much time in here you will lose"; //turn light off
                 break;
             case TutorialStage.TT4:
-                tutorialText.text = "Now you should be able to input the Constellation Signs in the Stars";
+                tutorialText.text = "Now you should be able to input the Constellation Signs in the Stars"; //complete turning part
                 break;
             case TutorialStage.TT5:
-                tutorialText.text = "You have completed the Tutorial!";
+                tutorialText.text = "You have completed the Tutorial!"; //complete sign input
+                break;
+            default:
+                currentStage = 0;
                 break;
         }
     }
-    void NextStage()
+    /*void NextStage()
     {
         //if ((int)currentStage < System.Enum.GetValues(typeof(TutorialStage)).Length - 1)
             Debug.Log("NextStage works");
@@ -148,6 +163,6 @@ public class TutorialUITextManager : MonoBehaviour
             UpdateTutorialText();
             
         
-    }
+    }*/
 
 }
