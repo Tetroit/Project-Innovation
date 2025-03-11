@@ -1,4 +1,4 @@
-1  Keyboard:  
+2  Keyboard:  
 ENABLED
 
 	<System.Single> Any Key = 1
@@ -6,8 +6,8 @@ ENABLED
 	<System.Single> Space = 0
 	<System.Single> Enter = 0
 	<System.Single> Tab = 0
-	<System.Single> ` = 0
-	<System.Single> ' = 0
+	<System.Single> Grave = 0
+	<System.Single> `' = 0
 	<System.Single> ; = 0
 	<System.Single> , = 0
 	<System.Single> . = 0
@@ -37,7 +37,7 @@ ENABLED
 	<System.Single> N = 0
 	<System.Single> O = 0
 	<System.Single> P = 0
-	<System.Single> Q = 0
+	<System.Single> Q = 1
 	<System.Single> R = 0
 	<System.Single> S = 1
 	<System.Single> T = 0
@@ -70,23 +70,23 @@ ENABLED
 	<System.Single> Right Windows = 0
 	<System.Single> Application = 0
 	<System.Single> Backspace = 0
-	<System.Single> Page Down = 0
-	<System.Single> Page Up = 0
+	<System.Single> Pgdown = 0
+	<System.Single> Pgup = 0
 	<System.Single> Home = 0
 	<System.Single> End = 0
 	<System.Single> Insert = 0
 	<System.Single> Delete = 0
-	<System.Single> Caps Lock = 0
+	<System.Single> Capslock = 0
 	<System.Single> Num Lock = 0
 	<System.Single> Prnt Scrn = 0
 	<System.Single> Scroll Lock = 0
 	<System.Single> Break = 0
 	<System.Single> Num Enter = 0
-	<System.Single> Num / = 0
+	<System.Single> Num Divide = 0
 	<System.Single> * = 0
 	<System.Single> + = 0
 	<System.Single> - = 0
-	<System.Single> Num Del = 0
+	<System.Single> Num Decimal = 0
 	<System.Single> Num 5 = 0
 	<System.Single> Num 1 = 0
 	<System.Single> Num 2 = 0
