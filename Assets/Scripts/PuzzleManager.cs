@@ -77,7 +77,8 @@ public class PuzzleManager : MonoBehaviour
 
     public static void Add(PuzzleElement element)
     {
-        instance.collection.Add(element);
+        if (instance != null)
+            instance.collection.Add(element);
     }
     public static void Remove(PuzzleElement element)
     {

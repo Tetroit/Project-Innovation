@@ -48,8 +48,18 @@ MonoBehaviour:
   volume: {fileID: 0}
   PostProcessingMaterial: {fileID: 2100000, guid: 5d257d1491c700c42870ebc41ea41644,
     type: 2}
-  ghostTimer: 0
-  ghostTime: 10
+  SkyboxMaterial: {fileID: 0}
+  globalLight: {fileID: 0}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  darkColor: {r: 0.3, g: 0, b: 0.6, a: 1}
+  transitionTime: 0
+  pulseCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  NFac: {x: 0, y: 0}
   WNFac: {x: 0, y: 1}
   VIntensity: {x: 0, y: 0.4}
   LDIntensity: {x: 0, y: -0.5}
@@ -61,3 +71,6 @@ MonoBehaviour:
   GRadius: {x: 0, y: 2}
   GClampStart: {x: 0, y: 1}
   GClampEnd: {x: 0.5, y: 1}
+  HoMScale: {x: 1, y: 0.95}
+  HoMOpacity: {x: 0, y: 0.8}
+  glowMaterials: []
