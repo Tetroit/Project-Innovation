@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: c4d4f790740600649a6bde6f07be48c3
+  - enabled: 0
+    path: Assets/Scenes/SecondPuzzle.unity
+    guid: 6533276900a924d499a66555594b0739
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5781ac69c9dea524083faf45075158d7,
       type: 2}

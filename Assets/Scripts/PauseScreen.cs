@@ -16,10 +16,10 @@ public class PauseScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //pauseScreen.SetActive(false);
+        pauseScreen.SetActive(false);
 
         pauseButton.onClick.AddListener(PausePressed);
-        continueButton.onClick.AddListener(PausePressed);
+        continueButton.onClick.AddListener(ContinuePressed);
         resetButton.onClick.AddListener(ResetPuzzlePressed);
         quitButton.onClick.AddListener(QuitPressed);
     }
