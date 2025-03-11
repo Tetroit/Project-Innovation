@@ -19,6 +19,7 @@ public class Calibration : MonoBehaviour
         PROCESS_DARK = 4,
         CHECK = 5,
         COMPLETE = 6,
+        NEXTSCENE = 7,
     }
 
     Steps step = Steps.INIT;
@@ -115,16 +116,17 @@ public class Calibration : MonoBehaviour
             case Steps.INIT:
 
                 retryButton.gameObject.SetActive(false);
-                buttonText.text = "Next";
-                description.text = "Welcome to Ghost Box!\nPlease complete a short calibration process " +
-                    "before you start playing to ensure you get full experience from the game.\nPress \"Next\" when ready!";
+                buttonText.text = "Continue";
+                description.text = "Spirit Box uses your\nphones light-sensor.\nFor the best experience please complete a short calibration process ";
+                //+
+                //    "before you start playing to ensure you get full experience from the game.\nPress \"Next\" when ready!";
                 break;
 
             case Steps.WAIT_LIGHT:
 
                 indicatorMaterial.SetFloat("_Fac", 1);
-                description.text = "First, turn on the light and press \"Next\".\nMake sure your light source is directly above the screen.";
-                buttonText.text = "Next";
+                description.text = "First, turn on the lights in your room and press \"Next\".\nMake sure your light source is directly above the screen.";
+                buttonText.text = "Continue";
                 break;
 
             case Steps.PROCESS_LIGHT:
@@ -138,8 +140,9 @@ public class Calibration : MonoBehaviour
 
                 indicatorMaterial.SetFloat("_Fac", 0);
                 button.enabled = true;
-                description.text = "Done! Now turn off the light and press \"Next\".\n(don't worry, ghosts are not ready yet)";
-                buttonText.text = "Next";
+                description.text = "Done! Now turn off the light in your room and press \"Continue\".";
+                    //"\n(don't worry, ghosts are not ready yet)";
+                buttonText.text = "Continue";
                 break;
 
             case Steps.PROCESS_DARK:
@@ -154,7 +157,7 @@ public class Calibration : MonoBehaviour
                 isCalibrated = true;
                 button.enabled = true;
                 retryButton.gameObject.SetActive(true);
-                description.text = "Great! Now try turning the light on and off to see if you are happy with this setting.\nPress \"Next\" to continue.\nPress \"Retry\" if you are not satisfied";
+                description.text = "Great! Now try turning your lights on and off to see if you are happy with this setting.\nPress \"Retry\" if you are not satisfied";
                 break;
 
             case Steps.COMPLETE:
@@ -162,8 +165,13 @@ public class Calibration : MonoBehaviour
                 retryButton.gameObject.SetActive(false);
                 buttonText.text = "Finish";
                 description.text = "The ghosts are ready! Press \"Finish\" to start the game";
-                SceneManager.LoadScene(2);
                 
+                
+                break;
+
+            case Steps.NEXTSCENE:
+
+                SceneManager.LoadScene(2);
                 break;
 
         }

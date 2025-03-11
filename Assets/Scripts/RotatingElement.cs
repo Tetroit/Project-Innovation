@@ -28,4 +28,15 @@ public class RotatingElement : PuzzleElement
         var mr = GetComponent<MeshRenderer>();
         mr.material.color = Color.green;
     }
+
+    public override void Select()
+    {
+        var mr = GetComponent<MeshRenderer>();
+        mr.material.color = Color.yellow;
+    }
+    public override void Deselect()
+    {
+        var mr = GetComponent<MeshRenderer>();
+        mr.material.color = Color.gray;
+    }
 }

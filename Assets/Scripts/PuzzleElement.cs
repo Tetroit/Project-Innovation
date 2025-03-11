@@ -24,16 +24,12 @@ public abstract  class PuzzleElement : MonoBehaviour
         if (PuzzleManager.instance.current == this)
             Move();
     }
-    public void Select()
+    public virtual void Select()
     {
-        var mr = GetComponent<MeshRenderer>();
-        mr.material.color = Color.yellow;
         //Move();
     }
-    public void Deselect()
+    public virtual void Deselect()
     {
-        var mr = GetComponent<MeshRenderer>();
-        mr.material.color = Color.gray;
     }
     public void MarkSolved() { isSolved = true; }
     public abstract void Move();
