@@ -17,11 +17,11 @@ public class PuzzleManager : MonoBehaviour
     
     void CheckSelection(Ray ray)
     {
-        float distance = 99999;
+        float distance = 99;
         PuzzleElement toEnable = null;
         foreach (PuzzleElement element in collection)
         {
-            if (element.isSolved || element.isBlocked) continue;
+            if (element.isSolved || element.isBlocked || !collection.Contains(element)) continue;
             Debug.Log("ray check " + current?.name);
             RaycastHit hit;
             if (element.coll.Raycast(ray, out hit, float.MaxValue))
