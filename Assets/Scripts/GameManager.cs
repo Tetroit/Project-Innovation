@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     float m_lightLevel;
     float m_lightFac;
 
+    public string selectedLevelName;
+
     float simulatedLightData;
     float simulatedLightLevel;
     public bool hasLightSensor => SensorInput.DeviceFound(SensorInput.lightSensorLayout);
@@ -78,6 +80,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+
         if (levelData.shouldRunGhostTimer)
         {
             //decrease timer when it is dark

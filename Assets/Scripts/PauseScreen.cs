@@ -12,12 +12,13 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private Button resetButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private Button RecalibrateButton;
 
     // Start is called before the first frame update
     void Start()
     {
         pauseScreen.SetActive(false);
-
+        RecalibrateButton.onClick.AddListener(RecalibratePressed);
         pauseButton.onClick.AddListener(PausePressed);
         continueButton.onClick.AddListener(ContinuePressed);
         resetButton.onClick.AddListener(ResetPuzzlePressed);
@@ -30,7 +31,12 @@ public class PauseScreen : MonoBehaviour
 
     }
 
-   public void PausePressed()
+    void RecalibratePressed()
+    {
+        SceneManager.LoadScene("Calibration");
+    }
+
+    void PausePressed()
     {
         pauseScreen.SetActive(true);
     }

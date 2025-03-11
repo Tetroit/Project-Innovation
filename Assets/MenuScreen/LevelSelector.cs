@@ -1,7 +1,9 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -18,6 +20,11 @@ public class LevelSelector : MonoBehaviour
     private Quaternion targetRotation;
     private GameObject[] PuzzleBoxes;
     public Vector3 rotationSpeed = new Vector3(30f, 30f, 0f); // Adjust speeds for X and Y
+
+    [SerializeField] private GameObject startButtonImage;
+    [SerializeField] private TextMeshProUGUI startButtonText;
+
+    private bool canStart = true;
 
     void Start()
     {
@@ -63,6 +70,7 @@ public class LevelSelector : MonoBehaviour
         PuzzleDiscriptionChanger();
         KeepCurrentLevelIndexInBounds();
         RotateCubes();
+        GrayOutIncompleteLevels();
     }
 
     void HandleSwipe(Vector2 swipeDelta)
@@ -108,12 +116,15 @@ public class LevelSelector : MonoBehaviour
         {
             case 0:
                 PuzzleDescription.text = "Scorpio puzzle";
+                GameManager.instance.selectedLevelName = "MainGame";
                 break;
             case 1:
                 PuzzleDescription.text = "Orrery puzzle";
+                GameManager.instance.selectedLevelName = "SecondPuzzle";
                 break;
             case 2:
                 PuzzleDescription.text = "Summer triangle puzzle";
+                GameManager.instance.selectedLevelName = "PyramidPuzzle";
                 break;
         }
     }
@@ -155,9 +166,28 @@ public class LevelSelector : MonoBehaviour
 
     }
 
-    public void StartPressed()
+    void StartPressed()
     {
-        SceneManager.LoadScene(1);
+        if(canStart == true)
+        {
+            SceneManager.LoadScene("Calibration");
+        }
         
+    }
+
+    private void GrayOutIncompleteLevels()
+    {
+    if (GameManager.instance.selectedLevelName == "PyramidPuzzle")
+    {
+            //startButtonText.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            startButtonImage.GetComponent<Image>().color = new Color32(157, 157, 157, 200);
+            canStart = false;
+    }
+        else
+        {
+            //startButtonText.GetComponent<Image>().color = new Color32(219, 252, 241, 255);
+            startButtonImage.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            canStart = true;
+        }
     }
 }
