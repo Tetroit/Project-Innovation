@@ -125,7 +125,7 @@ public class Calibration : MonoBehaviour
             case Steps.WAIT_LIGHT:
 
                 indicatorMaterial.SetFloat("_Fac", 1);
-                description.text = "First, turn on the lights in your room and press \"Next\".\nMake sure your light source is directly above the screen.";
+                description.text = "First, turn on the lights in your room and press \"Continue\".\nMake sure your light source is directly above the screen.";
                 buttonText.text = "Continue";
                 break;
 
