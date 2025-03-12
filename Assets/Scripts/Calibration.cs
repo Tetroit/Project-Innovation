@@ -133,7 +133,7 @@ public class Calibration : MonoBehaviour
 
                 description.text = "Collecting light energy for the ghosts...";
                 button.enabled = false;
-                Invoke(nameof(RecordLight), 1);
+                Invoke(nameof(RecordLight), 3);
                 break;
 
             case Steps.WAIT_DARK:
@@ -149,7 +149,7 @@ public class Calibration : MonoBehaviour
 
                 description.text = "Luring dark spirits to your device...";
                 button.enabled = false;
-                Invoke(nameof(RecordDark), 1);
+                Invoke(nameof(RecordDark), 3);
                 break;
 
             case Steps.CHECK:

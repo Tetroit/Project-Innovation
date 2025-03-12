@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using Unity.VisualScripting;
-using static UnityEngine.InputManagerEntry;
+//using static UnityEngine.InputManagerEntry;
 using UnityEngine.InputSystem;
 
 public class TutorialUITextManager : MonoBehaviour
