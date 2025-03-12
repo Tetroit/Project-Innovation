@@ -46,20 +46,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   volume: {fileID: 0}
-  PostProcessingMaterial: {fileID: 2100000, guid: 5d257d1491c700c42870ebc41ea41644,
-    type: 2}
-  SkyboxMaterial: {fileID: 0}
+  PostProcessingMaterial: {fileID: -876546973899608171, guid: d38822ae0dbf1814dabf165a9ec58cd3,
+    type: 3}
+  SkyboxMaterial: {fileID: 2100000, guid: 117eecdd54c16ac4a9c89e67c4505d9a, type: 2}
   globalLight: {fileID: 0}
   lightColor: {r: 1, g: 1, b: 1, a: 1}
   darkColor: {r: 0.3, g: 0, b: 0.6, a: 1}
-  transitionTime: 0
+  transitionTime: 0.5
   pulseCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0000076293945
+      inSlope: 5.000001
+      outSlope: 5.000001
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2
+      value: 1.0000079
+      inSlope: -0.11534793
+      outSlope: -0.11534793
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.19756365
+    - serializedVersion: 3
+      time: 1
+      value: 0.000008637086
+      inSlope: -1.249999
+      outSlope: -1.249999
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  NFac: {x: 0, y: 0}
+  NFac: {x: 0, y: 0.01}
   WNFac: {x: 0, y: 1}
   VIntensity: {x: 0, y: 0.4}
   LDIntensity: {x: 0, y: -0.5}
@@ -73,4 +100,20 @@ MonoBehaviour:
   GClampEnd: {x: 0.5, y: 1}
   HoMScale: {x: 1, y: 0.95}
   HoMOpacity: {x: 0, y: 0.8}
-  glowMaterials: []
+  glowMaterials:
+  - {fileID: 2100000, guid: bb10e01d777fee2428306a736972c962, type: 2}
+  - {fileID: 2100000, guid: 6e619cb3463cc024696be76b9381b49c, type: 2}
+  - {fileID: 2100000, guid: ffea83f79eb981e4aa332a1914947073, type: 2}
+  - {fileID: 2100000, guid: 4ced8673d7902254bb97c0d99b4d0f27, type: 2}
+  - {fileID: 2100000, guid: 7116092bf37c26c43ba8aca1f58d4523, type: 2}
+  - {fileID: 2100000, guid: 168e1da5083a0ba41afead581eadf795, type: 2}
+  - {fileID: 2100000, guid: 43c82cc3719941f448862338ab678905, type: 2}
+  - {fileID: 2100000, guid: 07ad2143e2ce6d84c8d100b8803033f5, type: 2}
+  - {fileID: 2100000, guid: ad6239725a68d3348aedc70efde67148, type: 2}
+  - {fileID: 2100000, guid: cc1fc233dc334d847942109131043536, type: 2}
+  - {fileID: 2100000, guid: 2b426548a0f0dc6498ea78488b4a11bb, type: 2}
+  - {fileID: 2100000, guid: 46c535b4bed4dd5439cb236e206d48f4, type: 2}
+  - {fileID: 2100000, guid: 31d3f82099bf84344865c9394cac877b, type: 2}
+  - {fileID: 2100000, guid: 706a2fb5e811f5640b8c3d4b87fda029, type: 2}
+  - {fileID: 2100000, guid: 94c7192cfc21db549870bdd6d27c7f81, type: 2}
+  - {fileID: 2100000, guid: 3199c079efd9fdd4eba824b0ea46e368, type: 2}
