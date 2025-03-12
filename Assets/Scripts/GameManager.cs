@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     float m_lightLevel;
     float m_lightFac;
 
-    public string selectedLevelName;
+    public string selectedLevelName = "MainGame";
 
     float simulatedLightData;
     float simulatedLightLevel;
@@ -246,11 +246,7 @@ public class GameManager : MonoBehaviour
                 firstSwitchDark = true;
                 onFirstSwitchDark?.Invoke();
             }
-            if (TutorialUITextManager.TTCount != 2) //
-            {                                       //
-                TutorialUITextManager.TTCount = 2;  //Lines from designer Lluis, if it break anything delete
-                return;                             //
-            }                                       //
+            
         }
         if (!init && isLight)
         {

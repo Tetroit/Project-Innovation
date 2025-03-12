@@ -1,0 +1,81 @@
+[LOG] System::create                           : Header version = 2.02.26. Current version = 2.02.26.
+[LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
+[LOG] SystemI::init                            : Initialize version=20226 (148250), maxchannels=256, flags=0x00020000
+[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
+[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 12.00ms, DSP buffer: 1024 * 4
+[LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
+[LOG] AsyncManager::init                       : manager 0000028FC60D62A8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : done
+[LOG] PlaybackSystem::init                     : 
+[LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
+[LOG] PlaybackSystem::init                     : done
+[LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
+[LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSound                     : filename = FMOD/project innovation fmod/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 00000290BE455A28, queue head = 00000290197D0E18, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000290BE455A28
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/project innovation fmod/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 515200
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 9504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000290BB1CB490
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='noise', format=5, channels=2, frequency=48000, lengthbytes=31808, lengthpcm=191996, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.706177.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000290BE455A28
+[LOG] SystemI::createSound                     : filename = FMOD/project innovation fmod/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 00000290BE455368, queue head = 00000290197D0E18, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000290BE455368
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD/project innovation fmod/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 515200
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 9504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000290BB1CBC10
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='whispers', format=5, channels=2, frequency=48000, lengthbytes=145280, lengthpcm=551990, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.894989.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000290BE455368
+[LOG] SoundI::release                          : whispers (00000290BE455368)
+[LOG] SoundI::release                          :     whispers (00000290BB4670E8)
+[LOG] SoundI::release                          :     whispers (00000290BE4556C8)
+[LOG] SoundI::release                          : noise (00000290BE455A28)
+[LOG] SoundI::release                          :     noise (00000290BB467288)
+[LOG] SoundI::release                          :     noise (00000290BE455008)
+[LOG] SoundI::release                          : calm background music (000002909366D288)
+[LOG] SoundI::release                          :     calm background music (0000028DFA9F8C78)
+[LOG] SoundI::release                          :     calm background music (0000028DF2C2AEE8)
+[LOG] SoundI::release                          :  (00000290996EC628)
+[LOG] SoundI::release                          :     heartbeat1 (0000028DF9756098)
+[LOG] SoundI::release                          :  (00000290996ECA78)
+[LOG] SoundI::release                          :     heartbeat2 (0000028DF9756BF8)
+[LOG] SoundI::release                          :  (00000290996EC4B8)
+[LOG] SoundI::release                          :     heartbeat3 (0000028DF9756578)
+[LOG] SoundI::release                          :  (00000290996EC348)
+[LOG] SoundI::release                          :     heartbeat4 (0000028FC6006638)
+[LOG] SoundI::release                          :  (00000290996EC908)
+[LOG] SoundI::release                          :     heartbeat5 (0000028DF97568B8)
+[LOG] SoundI::release                          :  (00000290996EC798)
+[LOG] SoundI::release                          :     dark ambience (0000028DF9756238)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
+[ERR] assert                                   : assertion: 'gSystemInitCount == 0' failed
