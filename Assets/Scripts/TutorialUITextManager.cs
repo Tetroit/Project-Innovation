@@ -21,11 +21,12 @@ public class TutorialUITextManager : MonoBehaviour
     }
 
     public TutorialStage currentStage = TutorialStage.TT1;
-    public TMP_Text tutorialText; 
-    PuzzleManager puzzleManager;  // 
-    SensorInput sensorInput;      // No clue why I need this tbh
-    Calibration calibration;      // 
-    InputManager inputManager;    //
+    public TMP_Text tutorialText;
+    [SerializeField]
+    Box1Puzzle1 puzzle1;
+    [SerializeField]
+    Box1Puzzle2 puzzle2;
+
     public static int TTCount = 0;     
     public int timer = 0;
     private bool hasUpdatedTTCount = false;
@@ -33,6 +34,14 @@ public class TutorialUITextManager : MonoBehaviour
     void Start()
     {
         UpdateTutorialText();
+    }
+    private void OnEnable()
+    {
+        RotatingElement.onFirstElementClicked += SetStageClickOnGear;
+        RotatingElement.onFirstElementRotated += SetStageRotateGear;
+        GameManager.instance.onFirstSwitchDark += SetStageTurnOffLight;
+        puzzle1.onSolved += SetStageRotatingPuzzleSolved;
+        puzzle2.onSolved += SetStageSignPuzzleSolved;
     }
 
     // Update is called once per frame
@@ -49,11 +58,6 @@ public class TutorialUITextManager : MonoBehaviour
          }
          else timer++;*/
 
-        /*RotatingElement.onFirstElementClicked
-        RotatingElement.onFirstElementRotated
-        GameManager.instance.onFirstSwitchDark
-        Box1Puzzle1.onComplete(find in Puzzles object under PuzzleManager in scene)
-        Box1Puzzle2.onComplete(find in Puzzles object under PuzzleManager in scene)*/
         if(Keyboard.current.qKey.wasPressedThisFrame)
         {
             currentStage++;
@@ -62,71 +66,91 @@ public class TutorialUITextManager : MonoBehaviour
         UpdateTutorialText();
 
     }
-   /* void CheckTutorialProgress() 
+
+    void SetStage(TutorialStage stage)
     {
-        switch (currentStage)
-        {
-            case TutorialStage.TT0: 
-                if(TTCount == 0)
-                {
-                    NextStage();
-                    Debug.Log("0");
-                    hasUpdatedTTCount = true;
-                }
+        currentStage = stage;
+        UpdateTutorialText();
+    }
 
-                break;
+    void SetStageClickOnGear() => SetStage(TutorialStage.TT1);
+    void SetStageRotateGear()
+    {
+        GameManager.instance.onSwitchDark += SetStageTurnOffLight;
+        SetStage(TutorialStage.TT2);
+    }
+    void SetStageTurnOffLight()
+    {
+        GameManager.instance.onSwitchDark -= SetStageTurnOffLight;
+        SetStage(TutorialStage.TT3);
+    }
+    void SetStageRotatingPuzzleSolved(Puzzle puzzle) => SetStage(TutorialStage.TT4);
+    void SetStageSignPuzzleSolved(Puzzle puzzle) => SetStage(TutorialStage.TT5);
+    /* void CheckTutorialProgress() 
+     {
+         switch (currentStage)
+         {
+             case TutorialStage.TT0: 
+                 if(TTCount == 0)
+                 {
+                     NextStage();
+                     Debug.Log("0");
+                     hasUpdatedTTCount = true;
+                 }
 
-            case TutorialStage.TT1:
-                if(TTCount == 1)
-                {
-                    NextStage();
-                    Debug.Log("1");
-                    hasUpdatedTTCount = true;
-                }
+                 break;
 
-                break;
+             case TutorialStage.TT1:
+                 if(TTCount == 1)
+                 {
+                     NextStage();
+                     Debug.Log("1");
+                     hasUpdatedTTCount = true;
+                 }
 
-            case TutorialStage.TT2:
-                if(TTCount == 2)
-                {
-                    NextStage();
-                    Debug.Log("2");
-                    hasUpdatedTTCount = true;
-                }
-                
-                break;
+                 break;
 
-            case TutorialStage.TT3:
-                if(TTCount == 3)
-                {
-                    NextStage();
-                    Debug.Log("3");
-                    hasUpdatedTTCount = true;
-                }
+             case TutorialStage.TT2:
+                 if(TTCount == 2)
+                 {
+                     NextStage();
+                     Debug.Log("2");
+                     hasUpdatedTTCount = true;
+                 }
 
-                break;
+                 break;
 
-            case TutorialStage.TT4:
-                if(TTCount == 4)
-                {
-                    NextStage();
-                    Debug.Log("4");
-                    hasUpdatedTTCount = true;
-                }
+             case TutorialStage.TT3:
+                 if(TTCount == 3)
+                 {
+                     NextStage();
+                     Debug.Log("3");
+                     hasUpdatedTTCount = true;
+                 }
 
-                break;
+                 break;
 
-            case TutorialStage.TT5:
-                if(TTCount == 5)
-                {
-                    NextStage();
-                    Debug.Log("5");
-                    hasUpdatedTTCount = true;
-                }
+             case TutorialStage.TT4:
+                 if(TTCount == 4)
+                 {
+                     NextStage();
+                     Debug.Log("4");
+                     hasUpdatedTTCount = true;
+                 }
 
-                break;
-        }
-    }*/
+                 break;
+
+             case TutorialStage.TT5:
+                 if(TTCount == 5)
+                 {
+                     NextStage();
+                     Debug.Log("5");
+                     hasUpdatedTTCount = true;
+                 }
+
+                 break;
+         }
+     }*/
     void UpdateTutorialText()
     {
         switch (currentStage)
