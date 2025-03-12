@@ -24,17 +24,23 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] private GameObject startButtonImage;
     [SerializeField] private TextMeshProUGUI startButtonText;
 
+    [SerializeField] private GameObject recalibrateButton;
+
     private bool canStart = true;
+    private bool DoOnce = false;
 
     void Start()
     {
         totalLevels = contentPanel.childCount;
         UpdatePosition();
         targetRotation = contentPanel.GetChild(currentLevelIndex).transform.rotation;
+        CheckIfEligableForRecalibration();
     }
 
     void Update()
     {
+
+
         // For Touch Input
         if (Touchscreen.current != null)
         {
@@ -90,6 +96,7 @@ public class LevelSelector : MonoBehaviour
                 Debug.Log("Swiped left. New index: " + currentLevelIndex);
             }
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
+            DoOnce = false;
         }
     }
 
@@ -115,16 +122,28 @@ public class LevelSelector : MonoBehaviour
         switch (currentLevelIndex)
         {
             case 0:
-                PuzzleDescription.text = "Scorpio puzzle";
-                GameManager.instance.selectedLevelName = "MainGame";
+                if (DoOnce == false)
+                {
+                    PuzzleDescription.text = "Scorpio puzzle";
+                    GameManager.instance.selectedLevelName = "MainGame";
+                    DoOnce = true;
+                }
                 break;
             case 1:
-                PuzzleDescription.text = "Orrery puzzle";
-                GameManager.instance.selectedLevelName = "SecondPuzzle";
+                if (DoOnce == false)
+                {
+                    PuzzleDescription.text = "Orrery puzzle";
+                    GameManager.instance.selectedLevelName = "SecondPuzzle";
+                    DoOnce = true;
+                }
                 break;
             case 2:
-                PuzzleDescription.text = "Summer triangle puzzle";
-                GameManager.instance.selectedLevelName = "PyramidPuzzle";
+                if (DoOnce == false)
+                {
+                    PuzzleDescription.text = "Summer triangle puzzle";
+                    GameManager.instance.selectedLevelName = "PyramidPuzzle";
+                    DoOnce = true;
+                }
                 break;
         }
     }
@@ -133,23 +152,25 @@ public class LevelSelector : MonoBehaviour
     {
         currentLevelIndex--;
         StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
+        DoOnce = false;
     }
 
-   public void RightButtonPressed()
+    public void RightButtonPressed()
     {
         currentLevelIndex++;
         StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
+        DoOnce = false;
     }
 
     void KeepCurrentLevelIndexInBounds()
     {
         if (currentLevelIndex < 0)
         {
-            currentLevelIndex = totalLevels -1;
+            currentLevelIndex = totalLevels - 1;
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
         }
 
-        if (currentLevelIndex > totalLevels -1)
+        if (currentLevelIndex > totalLevels - 1)
         {
             currentLevelIndex = 0;
             StartCoroutine(SmoothMove(contentPanel.anchoredPosition, new Vector2(-currentLevelIndex * spacing, 0)));
@@ -168,26 +189,53 @@ public class LevelSelector : MonoBehaviour
 
     void StartPressed()
     {
-        if(canStart == true)
+        if (canStart == true)
         {
-            SceneManager.LoadScene("Calibration");
+            if (GameManager.instance.isCalibrated)
+            {
+                SceneManager.LoadScene(GameManager.instance.selectedLevelName);
+            }
+            else
+            {
+                SceneManager.LoadScene("Calibration");
+            }
         }
-        
+
+    }
+
+    public void RecalibratePressed()
+    {
+        GameManager.instance.selectedLevelName = "MenuScreen";
+        SceneManager.LoadScene("Calibration");
     }
 
     private void GrayOutIncompleteLevels()
     {
-    if (GameManager.instance.selectedLevelName == "PyramidPuzzle")
-    {
+        if (GameManager.instance.selectedLevelName == "PyramidPuzzle")
+        {
             //startButtonText.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
             startButtonImage.GetComponent<Image>().color = new Color32(157, 157, 157, 200);
             canStart = false;
-    }
+        }
         else
         {
             //startButtonText.GetComponent<Image>().color = new Color32(219, 252, 241, 255);
             startButtonImage.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             canStart = true;
+        }
+    }
+
+    private void CheckIfEligableForRecalibration()
+    {
+        if (GameManager.instance.isCalibrated)
+        {
+            recalibrateButton.SetActive(true);
+            Debug.Log("true");
+        }
+        else
+        {
+            recalibrateButton.SetActive(false);
+            Debug.Log("false");
         }
     }
 }
