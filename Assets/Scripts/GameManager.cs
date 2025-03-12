@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     public Action onSwitchLight;
     public Action onSwitchDark;
+    bool firstSwitchDark = false;
+    public Action onFirstSwitchDark;
     public float lightFac => m_lightFac;
     public float lightAverage { get; private set; }
     public bool isLight;
@@ -236,6 +238,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("dark");
             onSwitchDark?.Invoke();
 
+            if (!firstSwitchDark)
+            {
+                firstSwitchDark = true;
+                onFirstSwitchDark?.Invoke();
+            }
             if (TutorialUITextManager.TTCount != 2) //
             {                                       //
                 TutorialUITextManager.TTCount = 2;  //Lines from designer Lluis, if it break anything delete
