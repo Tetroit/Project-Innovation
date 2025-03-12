@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     float simulatedLightData;
     float simulatedLightLevel;
     public bool hasLightSensor => SensorInput.DeviceFound(SensorInput.lightSensorLayout);
+    public bool isCalibrated { get; private set; } = false;
 
     [SerializeField]
     bool DisplayLogInBuild = true;
@@ -191,6 +192,8 @@ public class GameManager : MonoBehaviour
     {
         lightLimits.x = m_lightLevel;
     }
+
+    public void MarkCalibrated() => isCalibrated = true;
 
     /// <summary>
     /// processes light info

@@ -44,20 +44,10 @@ public class TutorialUITextManager : MonoBehaviour
         puzzle2.onSolved += SetStageSignPuzzleSolved;
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
-        // CheckTutorialProgress();
-
-        /* if (!hasUpdatedTTCount)
-         {
-             TTCount = 1;
-             hasUpdatedTTCount = true;
-             Debug.Log("This Works?");
-
-         }
-         else timer++;*/
-
+      
         if(Keyboard.current.qKey.wasPressedThisFrame)
         {
             currentStage++;
@@ -86,71 +76,7 @@ public class TutorialUITextManager : MonoBehaviour
     }
     void SetStageRotatingPuzzleSolved(Puzzle puzzle) => SetStage(TutorialStage.TT4);
     void SetStageSignPuzzleSolved(Puzzle puzzle) => SetStage(TutorialStage.TT5);
-    /* void CheckTutorialProgress() 
-     {
-         switch (currentStage)
-         {
-             case TutorialStage.TT0: 
-                 if(TTCount == 0)
-                 {
-                     NextStage();
-                     Debug.Log("0");
-                     hasUpdatedTTCount = true;
-                 }
-
-                 break;
-
-             case TutorialStage.TT1:
-                 if(TTCount == 1)
-                 {
-                     NextStage();
-                     Debug.Log("1");
-                     hasUpdatedTTCount = true;
-                 }
-
-                 break;
-
-             case TutorialStage.TT2:
-                 if(TTCount == 2)
-                 {
-                     NextStage();
-                     Debug.Log("2");
-                     hasUpdatedTTCount = true;
-                 }
-
-                 break;
-
-             case TutorialStage.TT3:
-                 if(TTCount == 3)
-                 {
-                     NextStage();
-                     Debug.Log("3");
-                     hasUpdatedTTCount = true;
-                 }
-
-                 break;
-
-             case TutorialStage.TT4:
-                 if(TTCount == 4)
-                 {
-                     NextStage();
-                     Debug.Log("4");
-                     hasUpdatedTTCount = true;
-                 }
-
-                 break;
-
-             case TutorialStage.TT5:
-                 if(TTCount == 5)
-                 {
-                     NextStage();
-                     Debug.Log("5");
-                     hasUpdatedTTCount = true;
-                 }
-
-                 break;
-         }
-     }*/
+ 
     void UpdateTutorialText()
     {
         switch (currentStage)
@@ -159,16 +85,16 @@ public class TutorialUITextManager : MonoBehaviour
                 tutorialText.text = "Solve the puzzle on the box to release the Spirit"; //default text (start)
                 break;
             case TutorialStage.TT1:
-                tutorialText.text = "To solve the puzzle you need to first press and align the Constellation by rotating your phone"; //click on gear
+                tutorialText.text = "To solve the puzzle you need to first press, align and connect the lines by rotating your phone"; //click on gear
                 break;
             case TutorialStage.TT2:
-                tutorialText.text = "But you can only see the Constellation in the dark, so you have to turn the lights off"; //rotate gear
+                tutorialText.text = "If you are strugeling to align the lines turn the light off, it might help you"; //rotate gear
                 break;
             case TutorialStage.TT3:
-                tutorialText.text = "Be careful in the dark, if you spend too much time in here you will lose"; //turn light off
+                tutorialText.text = "But be careful in the dark, if you spend too much time in here you will lose"; //turn light off
                 break;
             case TutorialStage.TT4:
-                tutorialText.text = "Now you should be able to input the Constellation Signs in the Stars"; //complete turning part
+                tutorialText.text = "Now you should be able to input the Constellation Signs in the Stars by pressing on the 4 on the same face"; //complete turning part
                 break;
             case TutorialStage.TT5:
                 tutorialText.text = "You have completed the Tutorial!"; //complete sign input
@@ -178,15 +104,6 @@ public class TutorialUITextManager : MonoBehaviour
                 break;
         }
     }
-    /*void NextStage()
-    {
-        //if ((int)currentStage < System.Enum.GetValues(typeof(TutorialStage)).Length - 1)
-            Debug.Log("NextStage works");
-            currentStage++;
-            hasUpdatedTTCount = false; // Allow next TTCount update
-            UpdateTutorialText();
-            
-        
-    }*/
+
 
 }

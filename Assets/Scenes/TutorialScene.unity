@@ -2690,6 +2690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 1
   tutorialText: {fileID: 1166824125}
+  puzzle1: {fileID: 2024327271}
+  puzzle2: {fileID: 2024327272}
   timer: 0
 --- !u!114 &1166824125
 MonoBehaviour:
@@ -3811,6 +3813,7 @@ MonoBehaviour:
   continueButton: {fileID: 460106700}
   resetButton: {fileID: 1822662826}
   quitButton: {fileID: 553029386}
+  RecalibrateButton: {fileID: 0}
 --- !u!114 &2002243789
 MonoBehaviour:
   m_ObjectHideFlags: 0
