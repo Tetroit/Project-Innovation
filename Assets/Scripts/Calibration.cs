@@ -171,6 +171,7 @@ public class Calibration : MonoBehaviour
 
             case Steps.NEXTSCENE:
 
+                GameManager.instance.MarkCalibrated();
                 SceneManager.LoadScene(GameManager.instance.selectedLevelName);
                 break;
 

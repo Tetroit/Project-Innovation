@@ -422,8 +422,7 @@ PrefabInstance:
         type: 3}
       propertyPath: PostProcessingMaterial
       value: 
-      objectReference: {fileID: -876546973899608171, guid: d38822ae0dbf1814dabf165a9ec58cd3,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 5d257d1491c700c42870ebc41ea41644, type: 2}
     - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
         type: 3}
       propertyPath: glowMaterials.Array.size
