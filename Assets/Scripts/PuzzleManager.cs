@@ -28,11 +28,7 @@ public class PuzzleManager : MonoBehaviour
             RaycastHit hit;
             if (element.coll.Raycast(ray, out hit, float.MaxValue))
             {
-               /* if (TutorialUITextManager.TTCount != 3) //
-                {                                       //
-                    TutorialUITextManager.TTCount = 3;          //Line from designer Lluis, if it break anything delete
-                    return;                             //
-                }                                       //*/
+               
                 if (hit.distance > distance) continue;
                 distance = hit.distance;
                 toEnable = element;
@@ -90,11 +86,7 @@ public class PuzzleManager : MonoBehaviour
     {
         instance.puzzles.Add(puzzle);
         puzzle.onSolved += instance.OnPuzzleComplete;
-       /* if (TutorialUITextManager.TTCount != 4) //
-        {                                       //
-            TutorialUITextManager.TTCount = 4;  //Line from designer Lluis, if it break anything delete
-            return;                             //
-        }                                       //*/
+       
     }
     public static void Remove(Puzzle puzzle)
     {
@@ -112,11 +104,7 @@ public class PuzzleManager : MonoBehaviour
     public void OnPuzzleComplete(Puzzle puzzle)
     {
         completedPuzzles++;
-       /* if (TutorialUITextManager.TTCount != 5) //
-        {                                       //
-            TutorialUITextManager.TTCount = 5;  //Line from designer Lluis, if it break anything delete
-            return;                             //
-        }                                       //*/
+       
         if (completedPuzzles == puzzles.Count)
         {
             GameManager.instance.PuzzlesCompleted();
