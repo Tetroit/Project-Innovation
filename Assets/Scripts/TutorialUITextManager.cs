@@ -46,9 +46,14 @@ public class TutorialUITextManager : MonoBehaviour
     {
         RotatingElement.onFirstElementClicked += SetStageClickOnGear;
         RotatingElement.onFirstElementRotated += SetStageRotateGear;
-        GameManager.instance.onFirstSwitchDark += SetStageTurnOffLight;
+        //GameManager.instance.onFirstSwitchDark += SetStageTurnOffLight;
         puzzle1.onSolved += SetStageRotatingPuzzleSolved;
         puzzle2.onSolved += SetStageSignPuzzleSolved;
+
+        //turn yellow whenever player switches off the light
+        GameManager.instance.onSwitchDark += SetTextToDark;
+        //turn black whenever player switches on the light
+        GameManager.instance.onSwitchLight += SetTextToLight;
     }
 
  
@@ -86,6 +91,14 @@ public class TutorialUITextManager : MonoBehaviour
     void SetStageRotatingPuzzleSolved(Puzzle puzzle) => SetStage(TutorialStage.TT4);
     void SetStageSignPuzzleSolved(Puzzle puzzle) => SetStage(TutorialStage.TT5);
  
+    void SetTextToDark()
+    {
+        GetComponent<TMP_Text>().color = Color.yellow;
+    }
+    void SetTextToLight()
+    {
+        GetComponent<TMP_Text>().color = Color.black;
+    }
     void UpdateTutorialText()
     {
         switch (currentStage)
@@ -93,7 +106,7 @@ public class TutorialUITextManager : MonoBehaviour
             case TutorialStage.TT0:
                 if (hasSeenTT0 == false)
                 { 
-                    GetComponent<TMP_Text>().color = Color.black;
+                    //GetComponent<TMP_Text>().color = Color.black;
                     tutorialText.text = "Solve the puzzle on the box to release the Spirit"; //default text (start)
                     hasSeenTT0 = true;
                 }
@@ -101,7 +114,7 @@ public class TutorialUITextManager : MonoBehaviour
             case TutorialStage.TT1:
                 if (hasSeenTT1 == false)
                 {
-                    GetComponent<TMP_Text>().color = Color.black;
+                    //GetComponent<TMP_Text>().color = Color.black;
                     tutorialText.text = "To solve the puzzle you need to first press, align and connect the lines by rotating your phone"; //click on gear
                     hasSeenTT1 = true;
                 }
@@ -109,7 +122,7 @@ public class TutorialUITextManager : MonoBehaviour
             case TutorialStage.TT2:
                 if (hasSeenTT2 == false)
                 {
-                    GetComponent<TMP_Text>().color = Color.black;
+                    //GetComponent<TMP_Text>().color = Color.black;
                     tutorialText.text = "If you are strugeling to align the lines turn the light off, it might help you"; //rotate gear
                     hasSeenTT2 = true;
                 }
@@ -117,7 +130,7 @@ public class TutorialUITextManager : MonoBehaviour
             case TutorialStage.TT3:
                 if (hasSeenTT3 == false)
                 {
-                    GetComponent<TMP_Text>().color = Color.yellow;
+                    //GetComponent<TMP_Text>().color = Color.yellow;
                     tutorialText.text = "But be careful in the dark, if you spend too much time in here you will lose"; //turn light off
                     hasSeenTT3 = true;
                 }
@@ -125,7 +138,7 @@ public class TutorialUITextManager : MonoBehaviour
             case TutorialStage.TT4:
                 if (hasSeenTT4 == false)
                 {
-                    GetComponent<TMP_Text>().color = Color.yellow;
+                    //GetComponent<TMP_Text>().color = Color.yellow;
                     tutorialText.text = "Now you should be able to input the Constellation Signs in the Stars by pressing on the 4 on the same face"; //complete turning part
                     hasSeenTT4 = true;
                 }
@@ -133,7 +146,7 @@ public class TutorialUITextManager : MonoBehaviour
             case TutorialStage.TT5:
                 if (hasSeenTT5 == false)
                 {
-                    GetComponent<TMP_Text>().color = Color.white;
+                    //GetComponent<TMP_Text>().color = Color.white;
                     tutorialText.text = "You have completed the Tutorial!"; //complete sign input
                     hasSeenTT5 = true;
                 }
