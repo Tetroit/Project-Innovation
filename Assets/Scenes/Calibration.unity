@@ -245,7 +245,7 @@ MonoBehaviour:
   lightSamples: 10
   lightThreshold: 0.2
   lightLimits: {x: 3, y: 100}
-  selectedLevelName: 
+  selectedLevelName: MainGame
   DisplayLogInBuild: 0
   DisplayLogInEditor: 1
   isLight: 0
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: bc22229f7f54cb54daeeb43ed91b467c, type: 2}
+  m_Material: {fileID: 2100000, guid: d29ae40e22a8628469b7d5957c37da01, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1818,7 +1818,7 @@ MonoBehaviour:
   description: {fileID: 401568291}
   button: {fileID: 774088774}
   retryButton: {fileID: 2034922384}
-  indicatorMaterial: {fileID: 2100000, guid: bc22229f7f54cb54daeeb43ed91b467c, type: 2}
+  indicatorMaterial: {fileID: 2100000, guid: d29ae40e22a8628469b7d5957c37da01, type: 2}
   animationTime: 1
 --- !u!4 &1134119297
 Transform:

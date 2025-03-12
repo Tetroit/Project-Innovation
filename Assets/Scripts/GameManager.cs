@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     float m_lightLevel;
     float m_lightFac;
 
-    public string selectedLevelName;
+    public string selectedLevelName = "MainGame";
 
     float simulatedLightData;
     float simulatedLightLevel;

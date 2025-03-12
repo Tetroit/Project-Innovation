@@ -375,29 +375,9 @@ PrefabInstance:
       objectReference: {fileID: 1251045460}
     - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
         type: 3}
-      propertyPath: NFac.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
-        type: 3}
       propertyPath: volume
       value: 
       objectReference: {fileID: 1128417545}
-    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
-        type: 3}
-      propertyPath: HoMScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
-        type: 3}
-      propertyPath: HoMScale.y
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
-        type: 3}
-      propertyPath: ghostTimer
-      value: 8.98
-      objectReference: {fileID: 0}
     - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
         type: 3}
       propertyPath: globalLight
@@ -415,14 +395,40 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 117eecdd54c16ac4a9c89e67c4505d9a, type: 2}
     - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
         type: 3}
+      propertyPath: fmodEvent.Path
+      value: event:/Background_musik
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
+        type: 3}
       propertyPath: transitionTime
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
         type: 3}
+      propertyPath: fmodEvent.Guid.Data1
+      value: -879044947
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
+        type: 3}
+      propertyPath: fmodEvent.Guid.Data2
+      value: 1121679819
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
+        type: 3}
+      propertyPath: fmodEvent.Guid.Data3
+      value: -41234301
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
+        type: 3}
+      propertyPath: fmodEvent.Guid.Data4
+      value: -1073536818
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
+        type: 3}
       propertyPath: PostProcessingMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 5d257d1491c700c42870ebc41ea41644, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: d38822ae0dbf1814dabf165a9ec58cd3,
+        type: 3}
     - target: {fileID: 8937112217669144991, guid: 8f970570d1f5726459152e76a1ea4eb5,
         type: 3}
       propertyPath: glowMaterials.Array.size
@@ -1414,6 +1420,69 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1369922087569230408}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &765253827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 765253829}
+  - component: {fileID: 765253830}
+  m_Layer: 0
+  m_Name: soundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &765253829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765253827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &765253830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765253827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -879044947
+      Data2: 1121679819
+      Data3: -41234301
+      Data4: -1073536818
+    Path: event:/Background_musik
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &811581088
 GameObject:
   m_ObjectHideFlags: 0
