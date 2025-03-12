@@ -1,5 +1,6 @@
 using DG.Tweening;
 using FMOD.Studio;
+using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -168,6 +169,8 @@ public class VisualManager : MonoBehaviour
     }
     public void SwitchToLight()
     {
+        // eventInstance.setParameterByName("darkness", 0);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("darkness", 0);
         Debug.Log("Switching to light");
         if (midTransition)
             transition.Kill();
@@ -175,6 +178,7 @@ public class VisualManager : MonoBehaviour
     }
     public void SwitchToDark()
     {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("darkness", 1);
         Debug.Log("Switching to dark");
         if (midTransition)
             transition.Kill();
