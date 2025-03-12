@@ -1,9 +1,9 @@
-2  Mouse:  
+3  Mouse:  
 ENABLED
 
 	<UnityEngine.Vector2> Position
-		<System.Single> Position X = 0
-		<System.Single> Position Y = 0
+		<System.Single> Position X = -Infinity
+		<System.Single> Position Y = -Infinity
 	<UnityEngine.Vector2> Delta
 		<System.Single> Delta Up = 0
 		<System.Single> Delta Down = 0
@@ -20,7 +20,7 @@ ENABLED
 		<System.Single> Scroll Up/Down = 0
 	<System.Single> Press = 0
 	<System.Single> Left Button = 0
-	<System.Single> Right Button = 0
+	<System.Single> Right Button = 1
 	<System.Single> Middle Button = 0
 	<System.Single> Forward = 0
 	<System.Single> Back = 0
@@ -30,4 +30,4 @@ ENABLED
 		<System.Single> Radius Y = 0
 	<System.Int32> pointerId = 0
 	<System.Int32> Display Index = 0
-	<System.Int32> Click Count = 0
+	<System.Int32> Click Count = 1

@@ -4323,6 +4323,7 @@ GameObject:
   - component: {fileID: 1251045462}
   - component: {fileID: 1251045463}
   - component: {fileID: 1251045464}
+  - component: {fileID: 1251045465}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4337,7 +4338,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251045458}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1251045460
 Camera:
   m_ObjectHideFlags: 0
@@ -4484,6 +4485,20 @@ MonoBehaviour:
   zoomSpeed: 0.1
   minZoom: 30
   maxZoom: 60
+--- !u!114 &1251045465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251045458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1386505989
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5118,69 @@ MonoBehaviour:
   mouthAnim: {fileID: 1564730740}
   boxDelay: 0
   ghostDelay: 4
+--- !u!1 &1865079957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865079959}
+  - component: {fileID: 1865079958}
+  m_Layer: 0
+  m_Name: SoundContoller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1865079958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865079957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -879044947
+      Data2: 1121679819
+      Data3: -41234301
+      Data4: -1073536818
+    Path: event:/Background_musik
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1865079959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865079957}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002243787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,6 +5218,7 @@ MonoBehaviour:
   continueButton: {fileID: 0}
   resetButton: {fileID: 1822662826}
   quitButton: {fileID: 0}
+  RecalibrateButton: {fileID: 0}
 --- !u!114 &2002243789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5718,3 +5797,4 @@ SceneRoots:
   - {fileID: 1601673264}
   - {fileID: 1822662825}
   - {fileID: 2002243792}
+  - {fileID: 1865079959}
