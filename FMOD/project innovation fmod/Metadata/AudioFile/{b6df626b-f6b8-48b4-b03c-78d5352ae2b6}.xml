@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b6df626b-f6b8-48b4-b03c-78d5352ae2b6}">
+		<property name="assetPath">
+			<value>high-quality-monster-screech-65012.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>15.119999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20193125-9630-42ed-8a86-c19e474a3e6b}</destination>
+		</relationship>
+	</object>
+</objects>
