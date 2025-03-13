@@ -39,17 +39,19 @@ public class PuzzleManager : MonoBehaviour
                      return;                             //
                  }                                       //*/
 
+                if (hit.collider.CompareTag("star"))
+                {
+                    Debug.Log("no raycast Hit");
+                    GameObject instantiatedParticle = Instantiate(functionParticle, hit.point, Quaternion.LookRotation(hit.normal));
+                    Destroy(instantiatedParticle, destroyParticleSystemTime);
+                }
+
                 DeselectCurrent();
                 current = element;
                 element.Select();
                 return; // Stops processing after the first valid hit
             }
-            else if(hit.normal != null && hit.collider.CompareTag("star"))
-            {
-                Debug.Log("no raycast Hit");
-                GameObject instantiatedParticle = Instantiate(functionParticle, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(instantiatedParticle, destroyParticleSystemTime);
-            }
+
         }
 
         DeselectCurrent();
