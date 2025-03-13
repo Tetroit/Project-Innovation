@@ -46,12 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   volume: {fileID: 0}
-  PostProcessingMaterial: {fileID: -876546973899608171, guid: d38822ae0dbf1814dabf165a9ec58cd3,
-    type: 3}
+  PostProcessingMaterial: {fileID: 2100000, guid: 5d257d1491c700c42870ebc41ea41644,
+    type: 2}
   SkyboxMaterial: {fileID: 2100000, guid: 117eecdd54c16ac4a9c89e67c4505d9a, type: 2}
   globalLight: {fileID: 0}
   lightColor: {r: 1, g: 1, b: 1, a: 1}
-  darkColor: {r: 0.3, g: 0, b: 0.6, a: 1}
+  darkColor: {r: 0.6051326, g: 0.5653702, b: 0.990566, a: 1}
   transitionTime: 0.5
   pulseCurve:
     serializedVersion: 2

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-//using static UnityEditor.Rendering.FilterWindow;
+using UnityEngineInternal;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -16,46 +16,56 @@ public class PuzzleManager : MonoBehaviour
     public List<PuzzleElement> collection = new();
     public List<Puzzle> puzzles = new();
     public int completedPuzzles = 0;
-    
+
+    public GameObject noFunctionParticle;
+
     void CheckSelection(Ray ray)
     {
-        float distance = 99;
-        PuzzleElement toEnable = null;
-        foreach (PuzzleElement element in collection)
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, float.MaxValue))
         {
-            if (element.isSolved || element.isBlocked || !collection.Contains(element)) continue;
-            Debug.Log("ray check " + current?.name);
-            RaycastHit hit;
-            if (element.coll.Raycast(ray, out hit, float.MaxValue))
+            PuzzleElement element = hit.transform.GetComponent<PuzzleElement>();
+
+            if (element != null && !element.isSolved && !element.isBlocked && collection.Contains(element))
             {
-               
-                if (hit.distance > distance) continue;
-                distance = hit.distance;
-                toEnable = element;
+                Debug.Log("Raycast hit: " + hit.transform.name);
+
+                /* if (TutorialUITextManager.TTCount != 3) //
+                 {                                       //
+                     TutorialUITextManager.TTCount = 3;  // Line from designer Lluis, if it breaks anything delete
+                     return;                             //
+                 }                                       //*/
+
+                DeselectCurrent();
+                current = element;
+                element.Select();
+                return; // Stops processing after the first valid hit
+            }
+            else if(hit.normal != null && hit.collider.CompareTag("star"))
+            {
+                Debug.Log("no raycast Hit");
+                Instantiate(noFunctionParticle, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
-        if (toEnable != null)
-        {
-            DeselectCurrent();
-            current = toEnable;
-            toEnable.Select();
-            return;
-        }
+
         DeselectCurrent();
     }
+
     private void OnEnable()
     {
         if (m_cam == null)
             m_cam = Camera.main;
     }
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
-
     }
+
     private void Update()
     {
         if (SensorInput.DeviceFound(SensorInput.touchscreenLayout))
@@ -66,6 +76,7 @@ public class PuzzleManager : MonoBehaviour
                 CheckSelection(ray);
             }
         }
+
         foreach (var puzzle in puzzles)
         {
             if (!puzzle.isSolved)
@@ -78,16 +89,24 @@ public class PuzzleManager : MonoBehaviour
         if (instance != null)
             instance.collection.Add(element);
     }
+
     public static void Remove(PuzzleElement element)
     {
         instance.collection.Remove(element);
     }
+
     public static void Add(Puzzle puzzle)
     {
         instance.puzzles.Add(puzzle);
         puzzle.onSolved += instance.OnPuzzleComplete;
-       
+
+        /* if (TutorialUITextManager.TTCount != 4) //
+         {                                       //
+             TutorialUITextManager.TTCount = 4;  // Line from designer Lluis, if it breaks anything delete
+             return;                             //
+         }                                       //*/
     }
+
     public static void Remove(Puzzle puzzle)
     {
         instance.puzzles.Remove(puzzle);
@@ -104,7 +123,13 @@ public class PuzzleManager : MonoBehaviour
     public void OnPuzzleComplete(Puzzle puzzle)
     {
         completedPuzzles++;
-       
+
+        /* if (TutorialUITextManager.TTCount != 5) //
+         {                                       //
+             TutorialUITextManager.TTCount = 5;  // Line from designer Lluis, if it breaks anything delete
+             return;                             //
+         }                                       //*/
+
         if (completedPuzzles == puzzles.Count)
         {
             GameManager.instance.PuzzlesCompleted();
