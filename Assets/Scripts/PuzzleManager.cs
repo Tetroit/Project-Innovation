@@ -41,7 +41,7 @@ public class PuzzleManager : MonoBehaviour
 
                 if (hit.collider.CompareTag("star"))
                 {
-                    Debug.Log("no raycast Hit");
+                    //Debug.Log("no raycast Hit");
                     GameObject instantiatedParticle = Instantiate(functionParticle, hit.point, Quaternion.LookRotation(hit.normal));
                     Destroy(instantiatedParticle, destroyParticleSystemTime);
                 }
