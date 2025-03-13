@@ -20,6 +20,7 @@ public class RotateAroundObject : MonoBehaviour
 
     void Start()
     {
+        GameManager.instance.isPaused = false;
         if (target != null)
         {
             initialOffset = (transform.position - target.position).normalized * defaultCameraDistance;
