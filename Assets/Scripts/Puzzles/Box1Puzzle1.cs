@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Box1Puzzle1 : Puzzle
 {
+    private FMOD.Studio.EventInstance puzzleSolvedSound;
+
     protected override void Setup()
     {
-
+        onSolved += PlayPuzzleSolvedSound;
     }
     public override bool CheckCondition()
     {
@@ -16,5 +18,14 @@ public class Box1Puzzle1 : Puzzle
         if (Mathf.Abs(rot1 - rot2) < 10f && Mathf.Abs(rot3 - rot2) < 10f)
             return true;
         return false;
+    }
+
+    void PlayPuzzleSolvedSound(Puzzle puzzle)
+    {
+        if (!puzzleSolvedSound.isValid())
+        {
+            puzzleSolvedSound = FMODUnity.RuntimeManager.CreateInstance("event:/Puzzle_solved");
+            puzzleSolvedSound.start();
+        }
     }
 }

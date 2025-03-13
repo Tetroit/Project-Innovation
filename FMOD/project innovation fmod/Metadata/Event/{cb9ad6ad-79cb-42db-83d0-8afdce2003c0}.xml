@@ -138,6 +138,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{a27b9e31-2736-427f-bf86-058db13e178c}">
+		<property name="volume">
+			<value>2.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{e88c7ce0-ddbd-4df3-8a3d-3d5e6c4edcf2}</destination>
 		</relationship>
@@ -218,6 +221,9 @@
 		</property>
 		<property name="length">
 			<value>0.80000000000000004</value>
+		</property>
+		<property name="pitch">
+			<value>5</value>
 		</property>
 		<property name="polyphony">
 			<value>32</value>
@@ -585,7 +591,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-80</value>
+			<value>-19.2000008</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{8ca89c8e-7c36-49cd-bafa-7d77fc79f72c}">
@@ -593,7 +599,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-8</value>
+			<value>-10</value>
 		</property>
 		<property name="curveShape">
 			<value>0.091953136</value>
@@ -628,7 +634,7 @@
 			<value>0.20000000000000001</value>
 		</property>
 		<property name="value">
-			<value>40</value>
+			<value>45</value>
 		</property>
 		<property name="curveShape">
 			<value>-0.433966756</value>
@@ -647,7 +653,7 @@
 			<value>0.20000000000000001</value>
 		</property>
 		<property name="value">
-			<value>-50</value>
+			<value>-42.5</value>
 		</property>
 		<property name="curveShape">
 			<value>-0.165897653</value>
@@ -658,7 +664,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-3</value>
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{1887bd40-0fae-4776-bd8a-1bd89b51148d}">

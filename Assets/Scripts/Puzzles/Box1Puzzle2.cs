@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Box1Puzzle2 : Puzzle
 {
+    private FMOD.Studio.EventInstance boxSolvedSound;
+
     enum symbols
     {
         ALPHA = 0,
@@ -25,7 +27,17 @@ public class Box1Puzzle2 : Puzzle
 
     protected override void Setup()
     {
+        onSolved += PlayBoxSolvedSound;
         for (int i = 0; i<4; i++)
             button(i).SetIcon(Random.Range(0, 5));
+    }
+
+    void PlayBoxSolvedSound(Puzzle puzzle)
+    {
+        if (!boxSolvedSound.isValid())
+        {
+            boxSolvedSound = FMODUnity.RuntimeManager.CreateInstance("event:/Puzzle_box_solved");
+            boxSolvedSound.start();
+        }
     }
 }

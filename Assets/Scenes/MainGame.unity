@@ -977,6 +977,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &415308033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1853987413491355959, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+    type: 3}
+  m_PrefabInstance: {fileID: 1369922087569230408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &498461375 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2878201950388447705, guid: a7473bfd7cf9e2644b6ba54c0a770367,
@@ -2071,6 +2077,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
         type: 3}
+      propertyPath: _unityOnBeginningReached.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
       propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -2101,6 +2112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
         type: 3}
+      propertyPath: _unityOnBeginningReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
       propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AnimationEnded
       objectReference: {fileID: 0}
@@ -2108,6 +2124,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: HidePauseButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
+      propertyPath: _unityOnBeginningReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
+      propertyPath: _unityOnBeginningReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
+      propertyPath: _unityOnBeginningReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAnimationSound
       objectReference: {fileID: 0}
     - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
         type: 3}
@@ -2126,12 +2157,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
         type: 3}
+      propertyPath: _unityOnBeginningReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Sound, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
       propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
         type: 3}
       propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773076021912247554, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
+      propertyPath: _unityOnBeginningReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1915575970366650605, guid: e1da55fe245cb174ea9de8e2ea3559c7,
@@ -4482,7 +4523,17 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1827052634}
+    - targetCorrespondingSourceObject: {fileID: 1915575970366650605, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1827052636}
   m_SourcePrefab: {fileID: 100100000, guid: e1da55fe245cb174ea9de8e2ea3559c7, type: 3}
+--- !u!1 &919614796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7866559403211946058, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+    type: 3}
+  m_PrefabInstance: {fileID: 1369922087569230408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926717450
 GameObject:
   m_ObjectHideFlags: 0
@@ -4696,6 +4747,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1141628506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7565038286427947174, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+    type: 3}
+  m_PrefabInstance: {fileID: 1369922087569230408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1251045458
 GameObject:
   m_ObjectHideFlags: 0
@@ -5606,6 +5663,37 @@ MonoBehaviour:
   mouthAnim: {fileID: 1564730740}
   boxDelay: 0
   ghostDelay: 4
+--- !u!114 &1827052636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827052631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2044989642
+      Data2: 1143945528
+      Data3: -375192144
+      Data4: -493290420
+    Path: event:/Gost
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1865079957
 GameObject:
   m_ObjectHideFlags: 0
@@ -5802,6 +5890,8 @@ GameObject:
   - component: {fileID: 2024327270}
   - component: {fileID: 2024327271}
   - component: {fileID: 2024327272}
+  - component: {fileID: 2024327274}
+  - component: {fileID: 2024327273}
   m_Layer: 0
   m_Name: Puzzles
   m_TagString: Untagged
@@ -5859,6 +5949,68 @@ MonoBehaviour:
   - {fileID: 1398719359}
   - {fileID: 282235768}
   isSolved: 0
+--- !u!114 &2024327273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024327269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1312668368
+      Data2: 1282449923
+      Data3: 648791202
+      Data4: -1366177806
+    Path: event:/Puzzle_solved
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2024327274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024327269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1211721208
+      Data2: 1264586607
+      Data3: 1488713915
+      Data4: -748077092
+    Path: event:/Puzzle_box_solved
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2117521341
 GameObject:
   m_ObjectHideFlags: 0
@@ -6174,12 +6326,43 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1369922087569230408}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1141628506}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1119824498078463711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141628506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1369922087569230408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6301,6 +6484,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9002173663926298244}
+    - targetCorrespondingSourceObject: {fileID: 1853987413491355959, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1816669738931821377}
+    - targetCorrespondingSourceObject: {fileID: 7866559403211946058, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9200308342155655614}
+    - targetCorrespondingSourceObject: {fileID: 7565038286427947174, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1119824498078463711}
   m_SourcePrefab: {fileID: 100100000, guid: a7473bfd7cf9e2644b6ba54c0a770367, type: 3}
 --- !u!114 &1816669738931821375 stripped
 MonoBehaviour:
@@ -6308,12 +6503,43 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1369922087569230408}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 415308033}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1816669738931821377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415308033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &8240191643902132009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6487,12 +6713,43 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1369922087569230408}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 919614796}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9200308342155655614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919614796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

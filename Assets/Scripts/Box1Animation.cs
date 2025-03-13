@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Box1Animation : MonoBehaviour
 {
+    private FMOD.Studio.EventInstance animationSound;
     [SerializeField]
     Animator openAnim;
     [SerializeField]
@@ -40,6 +41,13 @@ public class Box1Animation : MonoBehaviour
     {
         ghostAnim.SetTrigger("ghost_animation_start");
         mouthAnim.SetTrigger("ghost_animation_local");
+        if (!animationSound.isValid())
+        {
+            animationSound = FMODUnity.RuntimeManager.CreateInstance("event:/Gost");
+            animationSound.start();
+
+            Debug.Log("play pls");
+        }
     }
 
     void TriggerBox()
