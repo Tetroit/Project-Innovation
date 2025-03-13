@@ -65,6 +65,8 @@ public class RotateAroundObject : MonoBehaviour
                 inertia = Vector2.Lerp(inertia, Vector2.zero, Time.deltaTime * damping);
             }
         }
+
+        PauseGame();
     }
 
     void RotateCamera(Vector2 movement)
@@ -79,5 +81,17 @@ public class RotateAroundObject : MonoBehaviour
 
         Vector3 direction = (transform.position - target.position).normalized;
         transform.position = target.position + direction * defaultCameraDistance;
+    }
+
+    void PauseGame()
+    {
+        if(GameManager.instance.isPaused == true)
+        {
+            rotationSpeed = 0;
+        }
+        else
+        {
+            rotationSpeed = 50;
+        }
     }
 }

@@ -14,6 +14,7 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] private Button resetButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button RecalibrateButton;
+    [SerializeField] private GameObject puzzleManager;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class PauseScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void RecalibratePressed()
@@ -40,13 +41,15 @@ public class PauseScreen : MonoBehaviour
     void PausePressed()
     {
         pauseScreen.SetActive(true);
-        pauseButtonGameObject.SetActive(false);
+        HidePauseButton(true);
+        PauseGame(true);
     }
 
     void ContinuePressed()
     {
         pauseScreen.SetActive(false);
-        pauseButtonGameObject.SetActive(true);
+        HidePauseButton(false);
+        PauseGame(false);
     }
 
     void ResetPuzzlePressed()
@@ -57,5 +60,16 @@ public class PauseScreen : MonoBehaviour
     void QuitPressed()
     {
         SceneManager.LoadScene("MenuScreen");
+    }
+
+    public void HidePauseButton(bool shouldHide)
+    {
+        pauseButtonGameObject.SetActive(!shouldHide);
+    }
+
+    private void PauseGame(bool pause)
+    {
+        GameManager.instance.isPaused = pause;
+        puzzleManager.SetActive(pause);
     }
 }

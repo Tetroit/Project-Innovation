@@ -36,4 +36,16 @@ public class PinchZoom : MonoBehaviour
             previousDistance = 0;
         }
     }
+
+    void PauseGame()
+    {
+        if (GameManager.instance.isPaused == true)
+        {
+            zoomSpeed = 0;
+        }
+        else
+        {
+            zoomSpeed = 0.1f;
+        }
+    }
 }

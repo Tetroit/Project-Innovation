@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
+    public bool isPaused;
     public static GameManager instance;
     public LevelData levelData;
 
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     public Vector2 Resolution => new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
 
     public TextMeshProUGUI infoDisplay => levelData.infoDisplay;
+
     private void Awake()
     {
         //level data must be present!
