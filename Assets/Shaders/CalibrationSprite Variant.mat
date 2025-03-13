@@ -48,7 +48,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fac: 1
+    - _Fac: 0
     - _Use_Alpha: 1
     - _Use_Dark_Texture: 1
     - _Use_Light_Texture: 1

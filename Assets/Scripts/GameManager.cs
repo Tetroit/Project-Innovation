@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -94,9 +95,11 @@ public class GameManager : MonoBehaviour
             onSwitchDark?.Invoke();
 
         timeOut = false;
-        deathEffect.alpha = 0;
+        if (deathEffect != null)
+            deathEffect.alpha = 0;
         if (blinder != null)
             StartCoroutine(FadeInScene());
+        UnityEvent ev;
     }
     private void Update()
     {
@@ -138,6 +141,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("u win");
         onGhostSuccess?.Invoke();
+        levelData.shouldRunGhostTimer = false;
     }
     /// <summary>
     /// generates random values from reasonable range, that is similar to LightSensor behaviour.
@@ -319,11 +323,24 @@ public class GameManager : MonoBehaviour
         }
         yield break;
     }
-    IEnumerator FadeOutScene()
+    IEnumerator FadeOutScene(float time = 1, Action func = null)
     {
+        if (blinder != null)
+        {
+            float t = 0;
+            while (t < time)
+            {
+                t += Time.deltaTime;
+                float fac = t / time;
+                blinder.alpha = fac;
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        if (func != null)
+            func();
         yield break;
     }
-    void Restart()
+    public void Restart()
     {
         ghostTimer = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

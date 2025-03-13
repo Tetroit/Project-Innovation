@@ -1,6 +1,5 @@
 using DG.Tweening;
-using FMOD.Studio;
-using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -27,6 +26,7 @@ public class VisualManager : MonoBehaviour
     public float transitionTime;
     float transitionFac = 0;
     float distortionFac = 0;
+    bool isLevelRunning = true;
     Tween transition;
     bool midTransition => (transition != null && transition.active);
 
@@ -74,13 +74,34 @@ public class VisualManager : MonoBehaviour
         GameManager.instance.onSwitchLight += SwitchToLight;
         GameManager.instance.onSwitchDark += SwitchToDark;
         GameManager.instance.onGhostTimer += OnGhostTimer;
+        GameManager.instance.onGhostSuccess += OnSuccess;
     }
 
+    private void OnSuccess()
+    {
+        isLevelRunning = false;
+        StartCoroutine(WinAnimation());
+    }
+    IEnumerator WinAnimation(float time = 1)
+    {
+        float initDist = distortionFac;
+        float t = 0;
+        while (t < time)
+        {
+            t += Time.deltaTime;
+            float fac = Mathf.InverseLerp(0, time, t);
+            SetPulse(pulseFac * (1 - fac));
+            SetState(distortionFac * (1 - fac));
+            pulseIntensity -= fac;
+            yield return null;
+        }
+    }
     private void OnDisable()
     {
         GameManager.instance.onSwitchLight -= SwitchToLight;
         GameManager.instance.onSwitchDark -= SwitchToDark;
         GameManager.instance.onGhostTimer -= OnGhostTimer;
+        GameManager.instance.onGhostSuccess -= OnSuccess;
     }
     private void Start()
     {
@@ -92,7 +113,8 @@ public class VisualManager : MonoBehaviour
     }
     private void Update()
     {
-        SetState(distortionFac * (1-transitionFac));
+        if (isLevelRunning)
+            SetState(distortionFac * (1-transitionFac));
 
         if (midTransition)
         {

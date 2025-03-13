@@ -37,11 +37,12 @@ public class EndScreen : MonoBehaviour
 
     private void ContinuePressed()
     {
+        Debug.Log("continue");
         SceneManager.LoadScene("MenuScreen");
     }
 
     private void ResetPuzzlePressed()
     {
-        SceneManager.LoadScene(GameManager.instance.selectedLevelName);
+        GameManager.instance.Restart();
     }
 }

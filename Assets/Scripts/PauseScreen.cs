@@ -70,6 +70,6 @@ public class PauseScreen : MonoBehaviour
     private void PauseGame(bool pause)
     {
         GameManager.instance.isPaused = pause;
-        puzzleManager.SetActive(!pause);
+        PuzzleManager.instance.gameObject.SetActive(!pause);
     }
 }

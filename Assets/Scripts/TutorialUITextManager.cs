@@ -55,8 +55,19 @@ public class TutorialUITextManager : MonoBehaviour
         //turn black whenever player switches on the light
         GameManager.instance.onSwitchLight += SetTextToLight;
     }
+    private void OnDisable()
+    {
+        GameManager.instance.onSwitchDark -= SetTextToDark;
+        GameManager.instance.onSwitchLight -= SetTextToLight;
 
- 
+        RotatingElement.onFirstElementClicked -= SetStageClickOnGear;
+        RotatingElement.onFirstElementRotated -= SetStageRotateGear;
+
+        puzzle1.onSolved -= SetStageRotatingPuzzleSolved;
+        puzzle2.onSolved -= SetStageSignPuzzleSolved;
+    }
+
+
     void Update()
     {
       
@@ -93,11 +104,15 @@ public class TutorialUITextManager : MonoBehaviour
  
     void SetTextToDark()
     {
-        GetComponent<TMP_Text>().color = Color.yellow;
+        var txt = GetComponent<TMP_Text>();
+        if (txt != null)
+            txt.color = Color.yellow;
     }
     void SetTextToLight()
     {
-        GetComponent<TMP_Text>().color = Color.black;
+        var txt = GetComponent<TMP_Text>();
+        if (txt != null)
+            txt.color = Color.black;
     }
     void UpdateTutorialText()
     {

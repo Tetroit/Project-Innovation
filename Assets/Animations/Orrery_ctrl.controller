@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Orrery_Open
+    m_ConditionEvent: box_open
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -32619198337363162}
@@ -60,11 +60,11 @@ AnimatorController:
   m_Name: Orrery_ctrl
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Orrery_Open
+  - m_Name: box_open
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
