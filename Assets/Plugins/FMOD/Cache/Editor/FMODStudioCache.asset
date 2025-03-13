@@ -76,6 +76,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-1591243365988725530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Puzzle_solved
+  m_EditorClassIdentifier: 
+  Path: event:/Puzzle_solved
+  Guid:
+    Data1: -1312668368
+    Data2: 1282449923
+    Data3: 648791202
+    Data4: -1366177806
+  Banks:
+  - {fileID: 3268037246453138512}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2932
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,14 +120,45 @@ MonoBehaviour:
   - {fileID: 3268037246453138512}
   EditorEvents:
   - {fileID: -5293714292954444664}
+  - {fileID: -1591243365988725530}
+  - {fileID: 8947873573993832724}
+  - {fileID: 8540930863100721975}
+  - {fileID: 1464204200641286165}
   EditorParameters:
   - {fileID: -6906314665007347467}
   MasterBanks:
   - {fileID: 3268037246453138512}
   StringsBanks:
   - {fileID: 3687603600436763089}
-  cacheTime: 638774668505898235
+  cacheTime: 638774710453572933
   cacheVersion: 131622
+--- !u!114 &1464204200641286165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Puzzle_box_solved
+  m_EditorClassIdentifier: 
+  Path: event:/Puzzle_box_solved
+  Guid:
+    Data1: 1211721208
+    Data2: 1264586607
+    Data3: 1488713915
+    Data4: -748077092
+  Banks:
+  - {fileID: 3268037246453138512}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7000
 --- !u!114 &3268037246453138512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,10 +174,10 @@ MonoBehaviour:
   Path: FMOD/project innovation fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638774668505898235
+  lastModified: 638774710453572933
   FileSizes:
   - Name: Desktop
-    Value: 524704
+    Value: 948448
   Exists: 1
 --- !u!114 &3687603600436763089
 MonoBehaviour:
@@ -136,8 +194,62 @@ MonoBehaviour:
   Path: FMOD/project innovation fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638773765784142208
+  lastModified: 638774710453572933
   FileSizes:
   - Name: Desktop
-    Value: 816
+    Value: 1004
   Exists: 1
+--- !u!114 &8540930863100721975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gost
+  m_EditorClassIdentifier: 
+  Path: event:/Gost
+  Guid:
+    Data1: 2044989642
+    Data2: 1143945528
+    Data3: -375192144
+    Data4: -493290420
+  Banks:
+  - {fileID: 3268037246453138512}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10845
+--- !u!114 &8947873573993832724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wheels_turning
+  m_EditorClassIdentifier: 
+  Path: event:/Wheels_turning
+  Guid:
+    Data1: 1997788347
+    Data2: 1208360308
+    Data3: 1996435104
+    Data4: -1316073083
+  Banks:
+  - {fileID: 3268037246453138512}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10845

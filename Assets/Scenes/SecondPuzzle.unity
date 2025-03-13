@@ -187,7 +187,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 708565569}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
@@ -317,7 +317,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 367463131}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
@@ -463,6 +463,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &367463131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7856881100187980289, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &367463133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367463131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &504143603
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +640,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 940633707}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
@@ -657,6 +694,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &708565569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3407991460417455730, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &708565571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708565569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &742824169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7932480423653986452, guid: 6a41be4a16da0a94a95b10d578c3ca3d,
@@ -843,6 +917,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &843025199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5933581362296274234, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &899136576
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,12 +978,43 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 843025199}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &930107163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843025199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &935994114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,13 +1242,62 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a41be4a16da0a94a95b10d578c3ca3d, type: 3}
+--- !u!1 &940633707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5687657664004298515, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &940633709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940633707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &966628924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3487802783715734563, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &978501763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1099719997845745176, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1068071013 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6488275801442744335, guid: b9b88ff8e388b22409bce71e58573ccb,
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1283421468}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
@@ -1276,6 +1436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101505280}
   - component: {fileID: 1101505279}
+  - component: {fileID: 1101505284}
   m_Layer: 0
   m_Name: SoundContoller
   m_TagString: Untagged
@@ -1329,6 +1490,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1101505284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101505278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2044989642
+      Data2: 1143945528
+      Data3: -375192144
+      Data4: -493290420
+    Path: event:/Gost
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1113861248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,13 +1610,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1188055017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 245096124887601347, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1283421468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8232856485862137892, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1283421473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283421468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &1380443611 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1691331183104618954, guid: b9b88ff8e388b22409bce71e58573ccb,
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1808542105}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
@@ -1570,24 +1805,92 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 978501763}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1450271344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978501763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &1456540098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1154655910931738447, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1463692694 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1217149899414859541, guid: b9b88ff8e388b22409bce71e58573ccb,
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 966628924}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1463692696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966628924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1466908124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,6 +1902,8 @@ GameObject:
   - component: {fileID: 1466908125}
   - component: {fileID: 1466908126}
   - component: {fileID: 1466908127}
+  - component: {fileID: 1466908128}
+  - component: {fileID: 1466908129}
   m_Layer: 0
   m_Name: Puzzles
   m_TagString: Untagged
@@ -1660,6 +1965,68 @@ MonoBehaviour:
   - {fileID: 1783637985}
   - {fileID: 930107161}
   isSolved: 0
+--- !u!114 &1466908128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466908124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1312668368
+      Data2: 1282449923
+      Data3: 648791202
+      Data4: -1366177806
+    Path: event:/Puzzle_solved
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1466908129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466908124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1211721208
+      Data2: 1264586607
+      Data3: 1488713915
+      Data4: -748077092
+    Path: event:/Puzzle_box_solved
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1476365112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,12 +2176,43 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1188055017}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1516980768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188055017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1528189894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2749,51 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8232856485862137892, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1283421473}
+    - targetCorrespondingSourceObject: {fileID: 245096124887601347, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1516980768}
+    - targetCorrespondingSourceObject: {fileID: 3968498642750161558, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1808542107}
+    - targetCorrespondingSourceObject: {fileID: 3487802783715734563, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1463692696}
+    - targetCorrespondingSourceObject: {fileID: 7856881100187980289, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 367463133}
+    - targetCorrespondingSourceObject: {fileID: 3407991460417455730, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 708565571}
+    - targetCorrespondingSourceObject: {fileID: 5572150060240478976, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1954169367}
+    - targetCorrespondingSourceObject: {fileID: 1099719997845745176, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1450271344}
+    - targetCorrespondingSourceObject: {fileID: 5687657664004298515, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 940633709}
+    - targetCorrespondingSourceObject: {fileID: 1154655910931738447, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1783637987}
+    - targetCorrespondingSourceObject: {fileID: 5933581362296274234, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 930107163}
   m_SourcePrefab: {fileID: 100100000, guid: b9b88ff8e388b22409bce71e58573ccb, type: 3}
 --- !u!114 &1665963844 stripped
 MonoBehaviour:
@@ -2359,7 +2801,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1954169365}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
@@ -2371,12 +2813,80 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1627167989}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1456540098}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac14a711bbd9054c840c49c70179903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1783637987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456540098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &1808542105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3968498642750161558, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1808542107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808542105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1816348085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +3188,43 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f970570d1f5726459152e76a1ea4eb5, type: 3}
+--- !u!1 &1954169365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5572150060240478976, guid: b9b88ff8e388b22409bce71e58573ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627167989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1954169367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954169365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1997788347
+      Data2: 1208360308
+      Data3: 1996435104
+      Data4: -1316073083
+    Path: event:/Wheels_turning
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1990314186
 GameObject:
   m_ObjectHideFlags: 0

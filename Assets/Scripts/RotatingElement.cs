@@ -14,6 +14,7 @@ public class RotatingElement : PuzzleElement
     public static Action onFirstElementRotated;
     static bool firstElementClicked = false;
     static bool firstElementRotated = false;
+    private FMOD.Studio.EventInstance turningWheelSound;
     public override void Move()
     {
         float angle = 0;
@@ -23,7 +24,7 @@ public class RotatingElement : PuzzleElement
         }
         else
         {
-            angle += Keyboard.current.dKey.isPressed ? speed/2 : 0;
+            angle += Keyboard.current.dKey.isPressed ? speed / 2 : 0;
             angle -= Keyboard.current.aKey.isPressed ? speed/2 : 0;
         }
         transform.Rotate(axis, angle * Time.deltaTime);
@@ -33,6 +34,13 @@ public class RotatingElement : PuzzleElement
             firstElementRotated = true;
             onFirstElementRotated?.Invoke();
         }
+
+        if (!turningWheelSound.isValid())
+        {
+            turningWheelSound = FMODUnity.RuntimeManager.CreateInstance("event:/Wheels_turning");
+            turningWheelSound.start();
+        }
+
     }
 
     public override void OnSolved()
@@ -56,5 +64,12 @@ public class RotatingElement : PuzzleElement
     {
         var mr = GetComponent<MeshRenderer>();
         mr.material.color = Color.gray;
+
+        if (!turningWheelSound.isValid())
+        {
+            turningWheelSound = FMODUnity.RuntimeManager.CreateInstance("event:/Wheels_turning");
+        }
+        turningWheelSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        turningWheelSound.release();
     }
 }
