@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{33e8767b-12db-489a-b9ec-f5c3c3dcd480}">
+		<property name="assetPath">
+			<value>melancholy-ui-chime-47804.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.992</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{20193125-9630-42ed-8a86-c19e474a3e6b}</destination>
+		</relationship>
+	</object>
+</objects>
