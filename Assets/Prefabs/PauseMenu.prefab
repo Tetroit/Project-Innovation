@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 5810587483716586125}
   pauseButton: {fileID: 384123822274343884}
+  pauseButtonGameObject: {fileID: 6355134506625008238}
   continueButton: {fileID: 7798896179032832306}
   resetButton: {fileID: 5342325174911162562}
   quitButton: {fileID: 7335633452851789910}

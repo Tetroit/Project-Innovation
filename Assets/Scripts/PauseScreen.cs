@@ -9,6 +9,7 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] 
     private GameObject pauseScreen;
     [SerializeField] private Button pauseButton;
+    [SerializeField] private GameObject pauseButtonGameObject;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button resetButton;
     [SerializeField] private Button quitButton;
@@ -39,16 +40,18 @@ public class PauseScreen : MonoBehaviour
     void PausePressed()
     {
         pauseScreen.SetActive(true);
+        pauseButtonGameObject.SetActive(false);
     }
 
     void ContinuePressed()
     {
         pauseScreen.SetActive(false);
+        pauseButtonGameObject.SetActive(true);
     }
 
     void ResetPuzzlePressed()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene(GameManager.instance.selectedLevelName);
     }
 
     void QuitPressed()
