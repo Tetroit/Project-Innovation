@@ -6,6 +6,8 @@ public class OrreryPuzzle1 : Puzzle
 {
     private readonly float[] targetRotations = { -149.074f, -90.358f, -31.545f };
     private const float tolerance = 10f;
+    private FMOD.Studio.EventInstance puzzleSolvedSound;
+
 
     protected override void Setup()
     {
@@ -21,7 +23,13 @@ public class OrreryPuzzle1 : Puzzle
             if (Mathf.Abs(rotY - targetRotations[i]) >= tolerance)
             {
                 return false;
+
             }
+        }
+        if (!puzzleSolvedSound.isValid())
+        {
+            puzzleSolvedSound = FMODUnity.RuntimeManager.CreateInstance("event:/Puzzle_solved");
+            puzzleSolvedSound.start();
         }
         return true;
     }

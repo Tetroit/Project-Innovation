@@ -20,6 +20,8 @@ public class PuzzleManager : MonoBehaviour
     public GameObject functionParticle;
     private float destroyParticleSystemTime = 1f;
 
+    private FMOD.Studio.EventInstance boxSolvedSound;
+
 
     void CheckSelection(Ray ray)
     {
@@ -138,6 +140,12 @@ public class PuzzleManager : MonoBehaviour
         if (completedPuzzles == puzzles.Count)
         {
             GameManager.instance.PuzzlesCompleted();
+            if (!boxSolvedSound.isValid())
+            {
+                boxSolvedSound = FMODUnity.RuntimeManager.CreateInstance("event:/Puzzle_box_solved");
+                boxSolvedSound.start();
+            }
+
         }
     }
 }
