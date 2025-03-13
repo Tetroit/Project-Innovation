@@ -302,6 +302,24 @@ public class GameManager : MonoBehaviour
         Restart();
         yield return null;
     }
+    IEnumerator FadeInScene(float time = 1)
+    {
+        if (blinder != null)
+        {
+            float t = 0;
+            while (t < time)
+            {
+                float fac = t / time;
+                blinder.alpha = fac;
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        yield break;
+    }
+    IEnumerator FadeOutScene()
+    {
+        yield break;
+    }
     void Restart()
     {
         ghostTimer = 0;
