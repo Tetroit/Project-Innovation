@@ -874,7 +874,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You stayed in the dark for too long
 
-    The box consumed you.'
+    The box consumed you'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2150358f9ad58754cab917a8060a01f2, type: 2}
   m_sharedMaterial: {fileID: 6135813398425735029, guid: 2150358f9ad58754cab917a8060a01f2,
