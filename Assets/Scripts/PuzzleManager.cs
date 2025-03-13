@@ -17,7 +17,9 @@ public class PuzzleManager : MonoBehaviour
     public List<Puzzle> puzzles = new();
     public int completedPuzzles = 0;
 
-    public GameObject noFunctionParticle;
+    public GameObject functionParticle;
+    private float destroyParticleSystemTime = 1f;
+
 
     void CheckSelection(Ray ray)
     {
@@ -45,7 +47,8 @@ public class PuzzleManager : MonoBehaviour
             else if(hit.normal != null && hit.collider.CompareTag("star"))
             {
                 Debug.Log("no raycast Hit");
-                Instantiate(noFunctionParticle, hit.point, Quaternion.LookRotation(hit.normal));
+                GameObject instantiatedParticle = Instantiate(functionParticle, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(instantiatedParticle, destroyParticleSystemTime);
             }
         }
 
