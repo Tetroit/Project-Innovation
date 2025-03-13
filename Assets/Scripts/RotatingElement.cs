@@ -15,6 +15,7 @@ public class RotatingElement : PuzzleElement
     static bool firstElementClicked = false;
     static bool firstElementRotated = false;
     private FMOD.Studio.EventInstance turningWheelSound;
+    bool sfxPlaying = false;
     public override void Move()
     {
         float angle = 0;
@@ -29,20 +30,47 @@ public class RotatingElement : PuzzleElement
         }
         transform.Rotate(axis, angle * Time.deltaTime);
 
-        if (!firstElementRotated && angle/speed > 0.3f)
+        if (!firstElementRotated && Mathf.Abs(angle/speed) > 0.3f)
         {
             firstElementRotated = true;
             onFirstElementRotated?.Invoke();
         }
+        if (Mathf.Abs(angle / speed) > 0.3f)
+        {
+            if (!sfxPlaying)
+            {
+                StartSFX();
+                sfxPlaying = true;
+            }
+        }
+        else
+        {
+            if (sfxPlaying)
+            {
+                StopSFX();
+                sfxPlaying = false;
+            }
+        }
+    }
 
+    private void StartSFX()
+    {
         if (!turningWheelSound.isValid())
         {
             turningWheelSound = FMODUnity.RuntimeManager.CreateInstance("event:/Wheels_turning");
             turningWheelSound.start();
         }
-
     }
+    private void StopSFX()
+    {
 
+        if (!turningWheelSound.isValid())
+        {
+            turningWheelSound = FMODUnity.RuntimeManager.CreateInstance("event:/Wheels_turning");
+        }
+        turningWheelSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        turningWheelSound.release();
+    }
     public override void OnSolved()
     {
         var mr = GetComponent<MeshRenderer>();
@@ -64,12 +92,5 @@ public class RotatingElement : PuzzleElement
     {
         var mr = GetComponent<MeshRenderer>();
         mr.material.color = Color.gray;
-
-        if (!turningWheelSound.isValid())
-        {
-            turningWheelSound = FMODUnity.RuntimeManager.CreateInstance("event:/Wheels_turning");
-        }
-        turningWheelSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        turningWheelSound.release();
     }
 }
