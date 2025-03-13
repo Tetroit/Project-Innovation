@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public float lightAverage { get; private set; }
     public bool isLight;
     public bool isDark => !isLight;
+    bool timeOut = false;
 
     public float ghostTimeTotal => levelData.ghostTimer;
     [SerializeField]
@@ -49,6 +50,9 @@ public class GameManager : MonoBehaviour
     public Action<float> onGhostTimer;
     public Action onGhostFail;
     public Action onGhostSuccess;
+
+    CanvasGroup deathEffect => levelData?.deathEffect;
+    CanvasGroup blinder => levelData?.blinder;
     public Vector2 Resolution => new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
 
     public TextMeshProUGUI infoDisplay => levelData.infoDisplay;
@@ -78,10 +82,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SensorInput.OnInitialise += SensorInputInitialised;
-        if (m_lightFac > 0.5f) 
+        SceneManager.sceneLoaded += OnSceneChange;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    private void OnSceneChange(Scene _new, LoadSceneMode mode)
+    {
+        Debug.Log("Scene change");
+        if (m_lightFac > 0.5f)
             onSwitchLight?.Invoke();
         else
             onSwitchDark?.Invoke();
+
+        timeOut = false;
+        deathEffect.alpha = 0;
+        blinder.alpha = 0;
     }
     private void Update()
     {
@@ -91,10 +105,12 @@ public class GameManager : MonoBehaviour
             //decrease timer when it is dark
             if (isDark)
                 onGhostTimer?.Invoke(ghostTimer += Time.deltaTime);
-            if (ghostTimer > ghostTimeTotal)
+            if (ghostTimer > ghostTimeTotal && !timeOut)
             {
                 Debug.Log("u gay");
                 onGhostFail?.Invoke();
+                StartDeathEffect();
+                timeOut = true;
             }
         }
         if (SensorInput.isInitialized)
@@ -255,5 +271,31 @@ public class GameManager : MonoBehaviour
             Debug.Log("light");
             onSwitchLight?.Invoke();
         }
+    }
+
+    void StartDeathEffect()
+    {
+        StartCoroutine(DeathEffect());
+    }
+    IEnumerator DeathEffect()
+    {
+        float t = 0;
+        while (t < 3) {
+            t+= Time.deltaTime;
+            float fac = Mathf.InverseLerp(0f, 1f, t);
+            if (blinder != null)
+                blinder.alpha = fac;
+            fac = Mathf.InverseLerp(1f, 2f, t);
+            if (deathEffect != null)
+                deathEffect.alpha = fac;
+            yield return new WaitForEndOfFrame();
+        }
+        Restart();
+        yield return null;
+    }
+    void Restart()
+    {
+        ghostTimer = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

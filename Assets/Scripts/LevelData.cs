@@ -21,4 +21,7 @@ public class LevelData : MonoBehaviour
     /// attach if you want to display gamemanager debug info. Leave empty if you dont want to output gamemanager info
     /// </summary>
     public TextMeshProUGUI infoDisplay;
+
+    public CanvasGroup deathEffect;
+    public CanvasGroup blinder;
 }

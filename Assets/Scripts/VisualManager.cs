@@ -113,11 +113,16 @@ public class VisualManager : MonoBehaviour
     }
     public void OnGhostTimer(float time)
     {
-        distortionFac = time/GameManager.instance.ghostTimeTotal;
+        distortionFac = Mathf.Clamp01(time/GameManager.instance.ghostTimeTotal);
         PulseTimer(GameManager.instance.ghostTimeTotal - time);
     }
     public void PulseTimer(float timeLeft)
     {
+        if (timeLeft <= 0)
+        {
+            SetPulse(-timeLeft*2,false);
+            return;
+        }
         if (timeLeft > 10)
             return;
         pulseIntensity = 1 - (timeLeft / 10);
@@ -161,9 +166,12 @@ public class VisualManager : MonoBehaviour
         ppMat.SetVector("_Gray_Clamp", Vector2.Lerp(GClampStart, GClampEnd, norm));
     }
 
-    public void SetPulse(float norm)
+    public void SetPulse(float norm, bool useCurve = true)
     {
-        pulseFac = Mathf.Clamp01(pulseCurve.Evaluate(norm));
+        if (useCurve)
+            pulseFac = Mathf.Clamp01(pulseCurve.Evaluate(norm));
+        else
+            pulseFac = Mathf.Clamp01(norm);
         ppMat.SetFloat("_Reflection_Opacity", Mathf.Lerp(HoMOpacity.x, HoMOpacity.y, pulseFac * pulseIntensity));
         ppMat.SetFloat("_Reflection_Scale", Mathf.Lerp(HoMScale.x, HoMScale.y, pulseFac));
     }
