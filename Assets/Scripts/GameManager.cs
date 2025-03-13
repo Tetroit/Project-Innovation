@@ -280,14 +280,23 @@ public class GameManager : MonoBehaviour
     IEnumerator DeathEffect()
     {
         float t = 0;
-        while (t < 3) {
+        while (t < 4) {
             t+= Time.deltaTime;
             float fac = Mathf.InverseLerp(0f, 1f, t);
             if (blinder != null)
                 blinder.alpha = fac;
-            fac = Mathf.InverseLerp(1f, 2f, t);
-            if (deathEffect != null)
-                deathEffect.alpha = fac;
+            if (t >= 1f && t <= 2f)
+            {
+                fac = Mathf.InverseLerp(1f, 2f, t);
+                if (deathEffect != null)
+                    deathEffect.alpha = fac;
+            }
+            if (t >= 3f && t <= 4f)
+            {
+                fac = Mathf.InverseLerp(3f, 4f, t);
+                if (deathEffect != null)
+                    deathEffect.alpha = 1 - fac;
+            }
             yield return new WaitForEndOfFrame();
         }
         Restart();

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3218030516022635637
+--- !u!114 &-5230878729591855380
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,19 +20,23 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PostProcessingMat
-  m_Shader: {fileID: -6465566751694194690, guid: d38822ae0dbf1814dabf165a9ec58cd3,
-    type: 3}
+  m_Name: Touch
+  m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHABLEND_ON
+  - _COLORADDSUBDIFF_ON
+  - _EMISSION
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - GRABPASS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -62,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f6818bd126474db4f95e3dd5314ecb93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -75,10 +79,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_587e6dd0752d4555888086c1ba1c10bc_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -103,59 +103,54 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Blinding_Fac: 0.09348949
-    - _Blinding_Factor: 0
-    - _Blinding_Radius: 0.09348949
+    - _BlendOp: 0
     - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 2
+    - _ColorMode: 1
+    - _Cull: 0
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 0
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0
+    - _DstBlend: 1
     - _DstBlendAlpha: 0
+    - _EmissionEnabled: 1
     - _EnvironmentReflections: 1
-    - _Fac: 1
+    - _FlipbookMode: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Gray_Fac: 0.18697898
-    - _Gray_Factor: 0
-    - _Gray_Radius: 0.18697898
-    - _Intensity: 0
-    - _Mask_Depth: 1
+    - _LightingEnabled: 0
     - _Metallic: 0
-    - _Noise_Intensity: 0
-    - _Noise_Mask_Depth: 0
-    - _Noise_Scale: 10
+    - _Mode: 4
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Reflection_Opacity: 0
-    - _Reflection_Scale: 0.99999964
-    - _Scale: 100
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _White_Noise: 1.42
-    - _White_Noise_Color: 0
-    - _White_Noise_Fac: 0.09348949
-    - _White_Noise_Scale: 986.17
     - _WorkflowMode: 1
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Blinding_Clamp: {r: 0, g: 1, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Gray_Clamp: {r: 0.046744745, g: 1, b: 0, a: 0}
-    - _Noise_Velocity: {r: -0.1, g: 0.1, b: 0, a: 0}
-    - _Reflection_Color: {r: 0.95992386, g: 0.7311321, b: 1, a: 0}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 0.30713224, g: 0, b: 1, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _White_Noise_Color: {r: 0.9022912, g: 0.6462264, b: 1, a: 0}
   m_BuildTextureStacks: []
