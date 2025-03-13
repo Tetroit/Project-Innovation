@@ -95,7 +95,8 @@ public class GameManager : MonoBehaviour
 
         timeOut = false;
         deathEffect.alpha = 0;
-        blinder.alpha = 0;
+        if (blinder != null)
+            StartCoroutine(FadeInScene());
     }
     private void Update()
     {
@@ -270,6 +271,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("light");
             onSwitchLight?.Invoke();
+            ghostTimer = 0;
         }
     }
 
@@ -309,8 +311,9 @@ public class GameManager : MonoBehaviour
             float t = 0;
             while (t < time)
             {
+                t+= Time.deltaTime;
                 float fac = t / time;
-                blinder.alpha = fac;
+                blinder.alpha = 1 - fac;
                 yield return new WaitForEndOfFrame();
             }
         }

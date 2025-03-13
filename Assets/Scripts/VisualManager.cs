@@ -123,12 +123,9 @@ public class VisualManager : MonoBehaviour
             SetPulse(-timeLeft*2,false);
             return;
         }
-        if (timeLeft > 10)
-            return;
-        pulseIntensity = 1 - (timeLeft / 10);
-        if (timeLeft > 4)
+        pulseIntensity = 1 - (timeLeft / 5);
+        if (timeLeft > 3)
         {
-            SetPulse(1- (timeLeft % 2)/2);
             return;
         }
         SetPulse(1 - timeLeft % 1);

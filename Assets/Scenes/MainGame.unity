@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldRunGhostTimer: 1
-  ghostTimer: 60
+  ghostTimer: 18
   puzzleManager: {fileID: 45103753}
   infoDisplay: {fileID: 0}
   deathEffect: {fileID: 1361575088}
