@@ -157,6 +157,8 @@ MonoBehaviour:
   collection: []
   puzzles: []
   completedPuzzles: 0
+  functionParticle: {fileID: 1579825653138102001, guid: b4e433de42670494da3ab5c56fcde184,
+    type: 3}
 --- !u!4 &45490743
 Transform:
   m_ObjectHideFlags: 0
@@ -1845,6 +1847,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 464994425621394968, guid: b9b88ff8e388b22409bce71e58573ccb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1368104023235157115, guid: b9b88ff8e388b22409bce71e58573ccb,
         type: 3}
       propertyPath: m_LocalRotation.w

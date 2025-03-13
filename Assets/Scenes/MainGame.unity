@@ -155,7 +155,7 @@ MonoBehaviour:
   collection: []
   puzzles: []
   completedPuzzles: 0
-  noFunctionParticle: {fileID: 0}
+  functionParticle: {fileID: 851161037}
 --- !u!4 &45103754
 Transform:
   m_ObjectHideFlags: 0
@@ -4397,6 +4397,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1827052634}
   m_SourcePrefab: {fileID: 100100000, guid: e1da55fe245cb174ea9de8e2ea3559c7, type: 3}
+--- !u!1 &851161037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4306763872172380880, guid: e1da55fe245cb174ea9de8e2ea3559c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 851161036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926717450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6050,6 +6056,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319810028769040215, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      propertyPath: m_TagString
+      value: star
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486618570384285544, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      propertyPath: m_TagString
+      value: star
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886233095098856100, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      propertyPath: m_TagString
+      value: star
+      objectReference: {fileID: 0}
     - target: {fileID: 2077143552222876363, guid: a7473bfd7cf9e2644b6ba54c0a770367,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6067,8 +6088,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3348317968560552637, guid: a7473bfd7cf9e2644b6ba54c0a770367,
         type: 3}
+      propertyPath: coll
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348317968560552637, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
       propertyPath: isSolved
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858656297994927355, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922118225545060327, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763173879183908741, guid: a7473bfd7cf9e2644b6ba54c0a770367,
+        type: 3}
+      propertyPath: m_TagString
+      value: star
       objectReference: {fileID: 0}
     - target: {fileID: 7506841482736352009, guid: a7473bfd7cf9e2644b6ba54c0a770367,
         type: 3}
