@@ -18,7 +18,7 @@ public class PuzzleManager : MonoBehaviour
     public int completedPuzzles = 0;
 
     public GameObject functionParticle;
-    private float destroyParticleSystemTime = 1f;
+    private float destroyParticleSystemTime = .4f;
 
     private FMOD.Studio.EventInstance boxSolvedSound;
 

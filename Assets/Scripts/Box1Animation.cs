@@ -17,6 +17,12 @@ public class Box1Animation : MonoBehaviour
     float boxDelay = 0.0f;
     [SerializeField]
     float ghostDelay = 2.0f;
+
+    private void Start()
+    {
+        ghostAnim.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         GameManager.instance.onGhostSuccess += Trigger;
@@ -52,6 +58,7 @@ public class Box1Animation : MonoBehaviour
 
     void TriggerBox()
     {
+        ghostAnim.gameObject.gameObject.SetActive(true);
         openAnim.SetTrigger("box_open");
     }
 }
