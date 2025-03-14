@@ -673,6 +673,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &297552560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4798005952786347154, guid: 881dd7df3eb203d40a4249b5ec6d3e7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 297552558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee91735950699a6498630c7a3423e774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &367463131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7856881100187980289, guid: b9b88ff8e388b22409bce71e58573ccb,
@@ -1373,6 +1385,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e46fbbce68d923488779447e2065216, type: 3}
+--- !u!114 &1078141867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6845789811349652493, guid: 8e46fbbce68d923488779447e2065216,
+    type: 3}
+  m_PrefabInstance: {fileID: 1078141866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ac993b1ed3ed6438d7d9655d626e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1101505278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,11 +2373,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 297552560}
     - target: {fileID: 7894469164554658965, guid: b09d3210d7964dc4da164c284283742f,
         type: 3}
       propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 1078141867}
+    - target: {fileID: 7894469164554658965, guid: b09d3210d7964dc4da164c284283742f,
+        type: 3}
+      propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnimationEnded
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894469164554658965, guid: b09d3210d7964dc4da164c284283742f,
+        type: 3}
+      propertyPath: _unityOnEndReached.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HidePauseButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

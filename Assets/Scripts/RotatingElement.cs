@@ -25,8 +25,8 @@ public class RotatingElement : PuzzleElement
         }
         else
         {
-            angle += Keyboard.current.dKey.isPressed ? speed / 2 : 0;
-            angle -= Keyboard.current.aKey.isPressed ? speed/2 : 0;
+            angle -= Keyboard.current.dKey.isPressed ? speed / 2 : 0;
+            angle += Keyboard.current.aKey.isPressed ? speed/2 : 0;
         }
         transform.Rotate(axis, angle * Time.deltaTime);
 
@@ -92,5 +92,10 @@ public class RotatingElement : PuzzleElement
     {
         var mr = GetComponent<MeshRenderer>();
         mr.material.color = Color.gray;
+        if (sfxPlaying)
+        {
+            StopSFX();
+            sfxPlaying = false;
+        }
     }
 }

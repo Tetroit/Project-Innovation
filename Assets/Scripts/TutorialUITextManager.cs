@@ -106,13 +106,13 @@ public class TutorialUITextManager : MonoBehaviour
     {
         var txt = GetComponent<TMP_Text>();
         if (txt != null)
-            txt.color = Color.yellow;
+            txt.color = Color.white;
     }
     void SetTextToLight()
     {
         var txt = GetComponent<TMP_Text>();
         if (txt != null)
-            txt.color = Color.black;
+            txt.color = Color.white;
     }
     void UpdateTutorialText()
     {
@@ -122,7 +122,7 @@ public class TutorialUITextManager : MonoBehaviour
                 if (hasSeenTT0 == false)
                 { 
                     //GetComponent<TMP_Text>().color = Color.black;
-                    tutorialText.text = "Solve the puzzle on the box to release the Spirit"; //default text (start)
+                    tutorialText.text = "Solve all the puzzles on the box to release the Spirit"; //default text (start)
                     hasSeenTT0 = true;
                 }
                 break;
@@ -130,7 +130,7 @@ public class TutorialUITextManager : MonoBehaviour
                 if (hasSeenTT1 == false)
                 {
                     //GetComponent<TMP_Text>().color = Color.black;
-                    tutorialText.text = "To solve the puzzle you need to first press, align and connect the lines by rotating your phone"; //click on gear
+                    tutorialText.text = "To solve the puzzle you need to align the wheels by rotating your phone, so that the lines connect"; //click on gear
                     hasSeenTT1 = true;
                 }
                 break;
@@ -154,7 +154,7 @@ public class TutorialUITextManager : MonoBehaviour
                 if (hasSeenTT4 == false)
                 {
                     //GetComponent<TMP_Text>().color = Color.yellow;
-                    tutorialText.text = "Now you should be able to input the Constellation Signs in the Stars by pressing on the 4 on the same face"; //complete turning part
+                    tutorialText.text = "Now that the constellation is aligned, you are able to input the Constellation Signs in the Stars by pressing on the symbols in the wheels"; //complete turning part
                     hasSeenTT4 = true;
                 }
                 break;
