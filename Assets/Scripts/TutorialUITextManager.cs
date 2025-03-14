@@ -38,6 +38,22 @@ public class TutorialUITextManager : MonoBehaviour
     private bool hasSeenTT5 = false;
 
 
+    void Disable()
+    {
+        StartCoroutine(DisableAnim(1));
+    }
+    IEnumerator DisableAnim(float time = 1)
+    {
+        float t = 0;
+        while (t < time)
+        {
+            t += Time.deltaTime;
+            float fac = 1 - t / time;
+            tutorialText.alpha = fac;
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
+    }
     void Start()
     {
         UpdateTutorialText();
@@ -54,6 +70,7 @@ public class TutorialUITextManager : MonoBehaviour
         GameManager.instance.onSwitchDark += SetTextToDark;
         //turn black whenever player switches on the light
         GameManager.instance.onSwitchLight += SetTextToLight;
+        GameManager.instance.onGhostFail += Disable;
     }
     private void OnDisable()
     {
@@ -65,6 +82,7 @@ public class TutorialUITextManager : MonoBehaviour
 
         puzzle1.onSolved -= SetStageRotatingPuzzleSolved;
         puzzle2.onSolved -= SetStageSignPuzzleSolved;
+        GameManager.instance.onGhostFail -= Disable;
     }
 
 
