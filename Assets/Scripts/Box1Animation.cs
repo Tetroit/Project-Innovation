@@ -18,10 +18,7 @@ public class Box1Animation : MonoBehaviour
     [SerializeField]
     float ghostDelay = 2.0f;
 
-    private void Start()
-    {
-        ghostAnim.gameObject.SetActive(false);
-    }
+    private Vector3 gScale;
 
     private void OnEnable()
     {
@@ -31,10 +28,19 @@ public class Box1Animation : MonoBehaviour
     {
         GameManager.instance.onGhostSuccess -= Trigger;
     }
+
+    private void Awake()
+    {
+        gScale = ghostAnim.transform.localScale;
+        ghostAnim.transform.localScale = new Vector3(0.002f, 0.002f, 0.002f);
+    }
+
     private void Update()
     {
+        Debug.Log(gScale);
         if (Keyboard.current.fKey.wasPressedThisFrame)
         {
+            ghostAnim.transform.localScale = gScale;
             Trigger();
         }
     }
@@ -58,7 +64,7 @@ public class Box1Animation : MonoBehaviour
 
     void TriggerBox()
     {
-        ghostAnim.gameObject.gameObject.SetActive(true);
+        Debug.Log("triggerbox");
         openAnim.SetTrigger("box_open");
     }
 }
